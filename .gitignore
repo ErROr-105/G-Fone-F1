@@ -1,0 +1,33 @@
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Editors
+.idea/
+.vscode/
+*.sublime-*
+
+# Build / temp
+*.tmp
+*.log
+*.bak
+*~
+
+# Python (if any future scripts)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node (if any)
+node_modules/
+
+# Archives
+*.zip
+*.tar.gz
+
+# Local notes
+TODO.local.md
+notes.private.md
