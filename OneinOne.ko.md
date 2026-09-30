@@ -69,7 +69,7 @@ SEP 5G 소매가의 10–15%; Motorola US 12,308,512 B2 (텔레스코픽 안테�
 
 ## Beta 4 상태
 
-구현 가능: 본체, 분리형 커버, VC, 핀, Type III 아노다이징 + 그래핀, LineageOS, eBPF, UnifiedPush, FDE, SK6812, SMD 버튼.
+구현 가능: 본체, 분리형 커버, VC, 핀, Type III 아노다이징 + 그래핀, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
 
 컨셉: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P 18.5 V, 80 W, 3중 VC, 텔레스코픽 안테나, MEMS 마이크로펌프, 다중 모드 LED.
 

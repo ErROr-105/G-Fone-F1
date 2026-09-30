@@ -69,7 +69,7 @@ SEP 5G 10–15% 零售价；Motorola US 12,308,512 B2（伸缩天线）；US 202
 
 ## Beta 4 状态
 
-可实现：机身、可拆盖、VC、鳍片、阳极氧化 Type III + 石墨烯、LineageOS、eBPF、UnifiedPush、FDE、SK6812、SMD 按钮。
+可实现：机身、可拆盖、VC、鳍片、阳极氧化 Type III + 石墨烯、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
 
 概念：2 nm SoC、LPDDR6、UFS 5.0、5S1P 18.5 V、80 W、三层 VC、伸缩天线、MEMS 微泵、多模式 LED。
 

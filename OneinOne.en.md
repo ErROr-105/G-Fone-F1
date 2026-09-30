@@ -96,7 +96,7 @@ Addressable RGB SMD 4020, IP65. Accent lines: SK6812 IP65, 60 LEDs/m, side-emitt
 - **Russia compatibility:** officially not supplied. RTRCA and SORM requirements do not apply. Technical incompatibility, not a political statement.
 - **E2EE:** X25519, AES-256-GCM / ChaCha20-Poly1305. Keys in TEE.
 - **eBPF filter:** user privacy tool for tracker blocking.
-- **FDE:** full disk encryption.
+- **FBE:** file-based encryption.
 
 ---
 
@@ -118,7 +118,7 @@ Details in LEGAL.md and PATENTS.md.
 
 ## Beta 4 Status
 
-- **Feasible:** chassis, removable cover, VC, fins, Type III anodizing + graphene, LineageOS-based, eBPF filter, UnifiedPush, FDE, SK6812 IP65 (lines), SMD 4020 RGB IP65 (button).
+- **Feasible:** chassis, removable cover, VC, fins, Type III anodizing + graphene, LineageOS-based, eBPF filter, UnifiedPush, FBE, SK6812 IP65 (lines), SMD 4020 RGB IP65 (button).
 - **Concept:** 2 nm SoC, LPDDR6, UFS 5.0, 5S1P 18.5 V, 80 W, triple VC, telescopic antenna, series fins, MEMS micropumps, multi-mode LED button, RGB Thermal Hue lines.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, RTRCA/SORM incompatibility framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).
