@@ -1,7 +1,7 @@
 # G-Fone F1 — Beta 4 (Engineering Edition)
 
-> Concept. Some specifications are design assumptions, not confirmed production components.  
-> Everything marked *(concept)* requires verification with ODM, SoC vendor and certification labs.  
+> Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
+> Everything marked *(concept)* requires additional verification with ODM and certification labs.  
 > Licenses: CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).  
 > Commercial use requires attribution.
 
@@ -17,10 +17,10 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 
 ## Main Specifications
 
-- **SoC *(concept)*:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3: 2× C2-Ultra up to 4.55 GHz, 3× C2-Pro up to 4.35 GHz, 3× C2-Pro up to 3.1 GHz. 34.5 MB cache. LPDDR6 + UFS 5.0. Announced 15.09.2026, devices by end of 2026.
-- **Memory *(concept)*:** 16 GB LPDDR6 + 256 GB UFS 4.0. UFS 5.0 pending SoC and supplier confirmation.
+- **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3: 2× C2-Ultra up to 4.55 GHz, 3× C2-Pro up to 4.35 GHz, 3× C2-Pro up to 3.1 GHz. 34.5 MB cache. LPDDR6 + UFS 5.0. Announced 15.09.2026, devices by end of 2026.
+- **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0. UFS 5.0 as availability allows.
 - **Display:** 7" LTPS IPS QHD, high-end. Video up to 2K.
-- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS, balancing, protection. X-Cross mounting.
+- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS, balancing, protection. X-Cross mounting. (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging:** 80 W PSU, efficiency ≈ 95% (~76 W to battery). 0–80% ≈ 29 min; 0–100% ≈ 45–50 min with screen off.
 - **Connectivity:** 1× nanoSIM + 1× microSD up to 1 TB + eSIM + BT connection to external satellite terminals. Direct satellite modem not claimed.
 - **Price:** €3,200 (indicative for a niche flagship).
@@ -35,9 +35,9 @@ Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.2
 
 ## Cameras
 
-- **Main *(concept)*:** 50 MP Sony IMX907, f/1.4, OIS.
-- **Telephoto *(concept)*:** 50 MP IMX890 or smaller, f/1.4, OIS.
-- **Ultrawide *(concept)*:** 50 MP IMX858, f/1.4.
+- **Main:** 50 MP Sony IMX907, f/1.4, OIS.
+- **Telephoto:** 50 MP IMX890 or smaller, f/1.4, OIS.
+- **Ultrawide:** 50 MP IMX858, f/1.4.
 - **DoF:** 12 MP, f/2.0, RGB + B&W, no generative AI.
 - **Additional:** ToF + IR laser (Class 1) + flash.
 - **Stabilization:** OIS on main modules.
@@ -53,7 +53,7 @@ Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.2
 
 - **Aluminum 7075-T6**, glue-free, all bolts removable.
 - **Protection:** IP69 without case; IP69K with supplied case. Pressure equalization valve with membrane.
-- Triple VC (IceLoop) in rear cover.
+- Triple VC (IceLoop) *(concept)* in rear cover.
 - 1.3 mm thermal pad. Graphite on SoC — screw-mounted.
 - **Seals:** VMQ/LSR Shore A40 (main, spring-damped) + EPDM Shore A50–60. Multi-contour + mechanical clamp. 2 spare sets included.
 - **Telescopic antenna *(concept)*:** polycarbonate shaft, antenna cap. Requires: IP69 extended/retracted, drainage, seal replacement schedule, separate SAR/EMC tests. In series — either separate chassis revision or accessory.
@@ -66,9 +66,9 @@ Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.2
 - Finish: Type III Class 2 Matte black anodizing (20–50 µm, no paint) + graphene (hydrophobicity, +5–10% radiation).
 - Link to VC: copper foil or heat pipe over full area, not only through screws.
 
-### Anti-Burn thermal stabilization *(concept)*
+### Anti-Burn thermal stabilization
 
-- Piezoelectric MEMS micropumps (20–30 kHz) for internal convection.
+- Piezoelectric MEMS micropumps (20–30 kHz) for internal convection. (real technology; suppliers include Goertek and others)
 - Redistribute heat, equalize gradient, remove local hotspots (SoC, Battery Board). Surface peak −5…8 °C. IEC 62368-1 compliant.
 - 0.1–0.3 W, silent, no moving parts, closed loop — IP69 preserved.
 - Integration: between Main Board and Sub Board, above Battery Board copper tube.
@@ -105,7 +105,7 @@ Addressable RGB SMD 4020, IP65. Accent lines: SK6812 IP65, 60 LEDs/m, side-emitt
 - **SEP 5G:** 10–15% of retail. FTO audit before start. ODM with SEP pool is realistic path.
 - **Motorola US 12,308,512 B2:** telescopic antenna. Design-around or license.
 - **US 20250357560 A1:** 5S1P for power tools. Different field, but broad claims.
-- **MEMS cooling:** Murata, ST, Frore Systems. FTO.
+- **MEMS cooling:** Murata, ST, Frore Systems, Goertek. FTO.
 - **LED button illumination:** Samsung, LG, Motorola. FTO.
 - **SK6812:** Worldsemi, APA Electronic. FTO.
 - **Chassis fins:** thermal design FTO.
@@ -118,11 +118,11 @@ Details in LEGAL.md and PATENTS.md.
 
 ## Beta 4 Status
 
-- **Feasible:** chassis, removable cover, VC, fins, Type III anodizing + graphene, LineageOS-based, eBPF filter, UnifiedPush, FBE, SK6812 IP65 (lines), SMD 4020 RGB IP65 (button).
-- **Concept:** 2 nm SoC, LPDDR6, UFS 5.0, 5S1P 18.5 V, 80 W, triple VC, telescopic antenna, series fins, MEMS micropumps, multi-mode LED button, RGB Thermal Hue lines.
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, MEMS micropumps, 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
+- **Concept / rare solutions:** triple VC, telescopic antenna, ribs (12 fins) as part of production cooling, multi-mode LED button + RGB Thermal Hue lines.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, RTRCA/SORM incompatibility framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).
-- **Beta 4 changes:** SK6812 IP65 for lines; SMD 4020 RGB IP65 for button; Work Profile removed; Russian block rephrased as incompatibility; licenses section and patent analysis updated.
+- **Beta 4 + update:** *(concept)* markers revised as of October 2026; FBE instead of FDE; Work Profile removed; Russia block as technical incompatibility.
 
 ---
 
@@ -135,4 +135,4 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-> **Disclaimer.** This is a concept. Not a product. Not an offer for sale. Not a manufacturing guide. All specifications are design assumptions. The device is not certified. Patent risks are described in LEGAL.md and PATENTS.md. No FTO audit has been performed. The author is not liable for any consequences of using these materials. Users are responsible for compliance with the laws of their jurisdiction.
+> **Disclaimer.** This is a concept. Not a product. Not an offer for sale. Not a manufacturing guide. Specifications are design assumptions or combinations of existing technologies. The device is not certified. Patent risks are described in LEGAL.md and PATENTS.md. No FTO audit has been performed. The author is not liable for any consequences of using these materials. Users are responsible for compliance with the laws of their jurisdiction.
