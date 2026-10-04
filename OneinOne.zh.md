@@ -1,7 +1,7 @@
 # G-Fone F1 — Beta 4 (Engineering Edition)
 
-> 概念。部分规格为设计假设，非已确认的量产组件。  
-> 所有标记为 *（概念）* 的内容需与 ODM、SoC 供应商和认证实验室验证。  
+> 概念。部分规格为设计假设或现有技术的非标准组合。  
+> 所有标记为 *（概念）* 的内容需与 ODM 和认证实验室进一步验证。  
 > 许可证：CERN-OHL-P v2（硬件）、GPLv3（软件）、CC BY 4.0（文档）。  
 > 商业使用需署名。
 
@@ -17,10 +17,10 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 
 ## 主要规格
 
-- **SoC *（概念）*：** MediaTek Dimensity 9600 Pro，2 nm，TSMC N2P。2+3+3。LPDDR6 + UFS 5.0。
-- **内存 *（概念）*：** 16 GB LPDDR6 + 256 GB UFS 4.0。
+- **SoC：** MediaTek Dimensity 9600 Pro，2 nm，TSMC N2P。2+3+3。LPDDR6 + UFS 5.0。（2026年9月发布）
+- **内存：** 16 GB LPDDR6 + 256 GB UFS 4.0（UFS 5.0 视供应情况）。
 - **屏幕：** 7 英寸 LTPS IPS QHD。
-- **电池：** 5S1P，5 × 2500 mAh，18.5 V，**46.25 Wh**。棱柱形锂聚合物。
+- **电池：** 5S1P，5 × 2500 mAh，18.5 V，**46.25 Wh**。棱柱形锂聚合物。（5S1P 在无人机/航模中已量产，手机中不常见）
 - **充电：** 80 W，效率 ≈ 95%。0–80% ≈ 29 分钟。
 - **连接：** 1× nanoSIM + 1× microSD 至 1 TB + eSIM + 蓝牙外接卫星终端。不宣称直接卫星调制解调器。
 - **价格：** 3200 欧元（小众旗舰参考价）。
@@ -41,9 +41,9 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 
 - 铝合金 **7075-T6**，无胶水，全可拆螺栓。
 - 防护：无壳 IP69；带壳 IP69K。
-- 三层均热板（IceLoop）。
+- 三层均热板（IceLoop）*（概念）*。
 - 鳍片 *（概念）*：12 片梯形，+30–35% 散热面积。
-- Anti-Burn *（概念）*：压电 MEMS 微泵，均衡温度梯度，表面峰值降低 5–8 °C。
+- Anti-Burn：压电 MEMS 微泵（已有量产，如歌尔等），均衡温度梯度，表面峰值降低 5–8 °C。
 
 ---
 
@@ -55,7 +55,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 
 ## 软件
 
-LineageOS 基础，无 GApps。预装 F-Droid、DuckDuckGo、Proton Mail。Aurora Store 不预装。可选 UnifiedPush 网关。E2EE：X25519 + AES-256-GCM / ChaCha20-Poly1305，密钥在 TEE。eBPF 过滤器作为用户隐私工具。
+LineageOS 基础，无 GApps。预装 F-Droid、DuckDuckGo、Proton Mail。Aurora Store 不预装。可选 UnifiedPush 网关。E2EE：X25519 + AES-256-GCM / ChaCha20-Poly1305，密钥在 TEE。eBPF 过滤器作为用户隐私工具。FBE：file-based encryption。
 
 俄罗斯：官方不供应。RTRCA / SORM 因架构不兼容而不适用。
 
@@ -69,9 +69,9 @@ SEP 5G 10–15% 零售价；Motorola US 12,308,512 B2（伸缩天线）；US 202
 
 ## Beta 4 状态
 
-可实现：机身、可拆盖、VC、鳍片、阳极氧化 Type III + 石墨烯、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
+可实现 / 量产技术：2 nm SoC（Dimensity 9600 Pro）、LPDDR6、UFS 5.0、5S1P（手机中不常见）、80 W、MEMS 微泵、7075-T6 无胶水机身、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
 
-概念：2 nm SoC、LPDDR6、UFS 5.0、5S1P 18.5 V、80 W、三层 VC、伸缩天线、MEMS 微泵、多模式 LED。
+概念 / 少见方案：三层 VC、伸缩天线、散热鳍片（12 片）作为量产散热的一部分、多模式 LED 按钮 + RGB 温度指示线条。
 
 许可证：CERN-OHL-P v2 / GPLv3 / CC BY 4.0。
 
@@ -85,4 +85,4 @@ SEP 5G 10–15% 零售价；Motorola US 12,308,512 B2（伸缩天线）；US 202
 
 ---
 
-> **免责声明。** 这是概念。不是产品。不是销售要约。不是生产说明书。所有规格为设计假设。设备未经认证。专利风险见 LEGAL.md 和 PATENTS.md。未进行 FTO 审计。作者对使用材料的任何后果不承担责任。用户需自行遵守其所在司法管辖区的法律。
+> **免责声明。** 这是概念。不是产品。不是销售要约。不是生产说明书。规格为设计假设或现有技术的组合。设备未经认证。专利风险见 LEGAL.md 和 PATENTS.md。未进行 FTO 审计。作者对使用材料的任何后果不承担责任。用户需自行遵守其所在司法管辖区的法律。

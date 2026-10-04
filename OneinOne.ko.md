@@ -1,7 +1,7 @@
 # G-Fone F1 — Beta 4 (Engineering Edition)
 
-> 컨셉. 일부 사양은 설계 가정이며 확인된 양산 부품이 아닙니다.  
-> *(컨셉)* 표시 항목은 ODM, SoC 벤더 및 인증 연구소 검증이 필요합니다.  
+> 컨셉. 일부 사양은 설계 가정이거나 기존 기술의 비표준 조합입니다.  
+> *(컨셉)* 표시 항목은 ODM 및 인증 연구소의 추가 검증이 필요합니다.  
 > 라이선스: CERN-OHL-P v2 (하드웨어), GPLv3 (소프트웨어), CC BY 4.0 (문서).  
 > 상업적 사용 시 저작자 표시 필수.
 
@@ -17,10 +17,10 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 
 ## 주요 사양
 
-- **SoC *(컨셉)*:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0.
-- **메모리 *(컨셉)*:** 16 GB LPDDR6 + 256 GB UFS 4.0.
+- **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (2026년 9월 발표)
+- **메모리:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0은 공급 상황에 따라).
 - **디스플레이:** 7인치 LTPS IPS QHD.
-- **배터리:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. 각형 리튬 폴리머.
+- **배터리:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. 각형 리튬 폴리머. (5S1P는 드론/RC에서 양산, 스마트폰에서는 이례적)
 - **충전:** 80 W, 효율 ≈ 95%. 0–80% ≈ 29분.
 - **연결:** 1× nanoSIM + 1× microSD 최대 1 TB + eSIM + 외부 위성 터미널 BT 연결. 직접 위성 모뎀 미주장.
 - **가격:** 3,200€ (니치 플래그십 기준).
@@ -41,9 +41,9 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 
 - **7075-T6 알루미늄**, glue-free, 모든 볼트 분리 가능.
 - 방수: 케이스 없이 IP69; 케이스 포함 IP69K.
-- 3중 베이퍼 챔버(IceLoop).
+- 3중 베이퍼 챔버(IceLoop) *(컨셉)*.
 - 핀 *(컨셉)*: 12개 사다리꼴, 방열 면적 +30–35%.
-- Anti-Burn *(컨셉)*: 압전 MEMS 마이크로펌프, 온도 구배 균등화, 표면 피크 −5…8 °C.
+- Anti-Burn: 압전 MEMS 마이크로펌프 (실제 기술, Goertek 등 공급사 존재), 온도 구배 균등화, 표면 피크 −5…8 °C.
 
 ---
 
@@ -55,7 +55,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 
 ## 소프트웨어
 
-LineageOS 기반, GApps 없음. 사전 설치: F-Droid, DuckDuckGo, Proton Mail. Aurora Store 미설치. 선택적 UnifiedPush 게이트웨이. E2EE: X25519 + AES-256-GCM / ChaCha20-Poly1305, 키는 TEE. eBPF 필터는 사용자 프라이버시 도구.
+LineageOS 기반, GApps 없음. 사전 설치: F-Droid, DuckDuckGo, Proton Mail. Aurora Store 미설치. 선택적 UnifiedPush 게이트웨이. E2EE: X25519 + AES-256-GCM / ChaCha20-Poly1305, 키는 TEE. eBPF 필터는 사용자 프라이버시 도구. FBE: file-based encryption.
 
 러시아: 공식 공급 안 함. RTRCA/SORM은 아키텍처 비호환성으로 적용되지 않음.
 
@@ -69,9 +69,9 @@ SEP 5G 소매가의 10–15%; Motorola US 12,308,512 B2 (텔레스코픽 안테�
 
 ## Beta 4 상태
 
-구현 가능: 본체, 분리형 커버, VC, 핀, Type III 아노다이징 + 그래핀, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
+구현 가능 / 양산 기술: 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (스마트폰에서는 이례적), 80 W, MEMS 마이크로펌프, 7075-T6 glue-free 본체, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
 
-컨셉: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P 18.5 V, 80 W, 3중 VC, 텔레스코픽 안테나, MEMS 마이크로펌프, 다중 모드 LED.
+컨셉 / 드문 솔루션: 3중 VC, 텔레스코픽 안테나, 핀(12개)을 양산 냉각의 일부로, 다중 모드 LED 버튼 + RGB Thermal Hue 라인.
 
 라이선스: CERN-OHL-P v2 / GPLv3 / CC BY 4.0.
 
@@ -85,4 +85,4 @@ SEP 5G 소매가의 10–15%; Motorola US 12,308,512 B2 (텔레스코픽 안테�
 
 ---
 
-> **면책 조항.** 이것은 컨셉입니다. 제품이 아닙니다. 판매 제안이 아닙니다. 제조 지침이 아닙니다. 모든 사양은 설계 가정입니다. 장치는 인증되지 않았습니다. 특허 리스크는 LEGAL.md 및 PATENTS.md에 설명되어 있습니다. FTO 감사가 수행되지 않았습니다. 저자는 자료 사용의 결과에 대해 책임지지 않습니다. 사용자는 자신의 관할권 법률을 준수할 책임이 있습니다.
+> **면책 조항.** 이것은 컨셉입니다. 제품이 아닙니다. 판매 제안이 아닙니다. 제조 지침이 아닙니다. 사양은 설계 가정 또는 기존 기술의 조합입니다. 장치는 인증되지 않았습니다. 특허 리스크는 LEGAL.md 및 PATENTS.md에 설명되어 있습니다. FTO 감사가 수행되지 않았습니다. 저자는 자료 사용의 결과에 대해 책임지지 않습니다. 사용자는 자신의 관할권 법률을 준수할 책임이 있습니다.
