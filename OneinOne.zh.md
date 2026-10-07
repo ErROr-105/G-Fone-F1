@@ -43,7 +43,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 - 防护：无壳 IP69；带壳 IP69K。
 - 三层均热板（IceLoop）*（概念）*。
 - 鳍片 *（概念）*：12 片梯形，+30–35% 散热面积。
-- Anti-Burn：压电 MEMS 微泵（已有量产，如歌尔等），均衡温度梯度，表面峰值降低 5–8 °C。
+- Anti-Burn：压电 MEMS 微泵（已有量产，如歌尔等），均衡温度梯度，表面峰值降低 5–8 °C。**驱动功率：0.1–0.3 W**（对能效至关重要；静音、无运动部件，闭环，保持 IP69）。
 
 ---
 
@@ -69,7 +69,7 @@ SEP 5G 10–15% 零售价；Motorola US 12,308,512 B2（伸缩天线）；US 202
 
 ## Beta 4 状态
 
-可实现 / 量产技术：2 nm SoC（Dimensity 9600 Pro）、LPDDR6、UFS 5.0、5S1P（手机中不常见）、80 W、MEMS 微泵、7075-T6 无胶水机身、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
+可实现 / 量产技术：2 nm SoC（Dimensity 9600 Pro）、LPDDR6、UFS 5.0、5S1P（手机中不常见）、80 W、MEMS 微泵（驱动功率 0.1–0.3 W）、7075-T6 无胶水机身、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
 
 概念 / 少见方案：三层 VC、伸缩天线、散热鳍片（12 片）作为量产散热的一部分、多模式 LED 按钮 + RGB 温度指示线条。
 

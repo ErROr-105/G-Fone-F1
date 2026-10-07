@@ -70,7 +70,7 @@ Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.2
 
 - Piezoelectric MEMS micropumps (20–30 kHz) for internal convection. (real technology; suppliers include Goertek and others)
 - Redistribute heat, equalize gradient, remove local hotspots (SoC, Battery Board). Surface peak −5…8 °C. IEC 62368-1 compliant.
-- 0.1–0.3 W, silent, no moving parts, closed loop — IP69 preserved.
+- **Driver power: 0.1–0.3 W** (important for energy efficiency). Silent, no moving parts, closed loop — IP69 preserved.
 - Integration: between Main Board and Sub Board, above Battery Board copper tube.
 
 ---
@@ -118,11 +118,11 @@ Details in LEGAL.md and PATENTS.md.
 
 ## Beta 4 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, MEMS micropumps, 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, MEMS micropumps (driver 0.1–0.3 W), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
 - **Concept / rare solutions:** triple VC, telescopic antenna, ribs (12 fins) as part of production cooling, multi-mode LED button + RGB Thermal Hue lines.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, RTRCA/SORM incompatibility framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).
-- **Beta 4 + update:** *(concept)* markers revised as of October 2026; FBE instead of FDE; Work Profile removed; Russia block as technical incompatibility.
+- **Beta 4 + update:** *(concept)* markers revised as of October 2026; FBE instead of FDE; MEMS driver power stated explicitly; Work Profile removed; Russia block as technical incompatibility.
 
 ---
 

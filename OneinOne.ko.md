@@ -43,7 +43,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 - 방수: 케이스 없이 IP69; 케이스 포함 IP69K.
 - 3중 베이퍼 챔버(IceLoop) *(컨셉)*.
 - 핀 *(컨셉)*: 12개 사다리꼴, 방열 면적 +30–35%.
-- Anti-Burn: 압전 MEMS 마이크로펌프 (실제 기술, Goertek 등 공급사 존재), 온도 구배 균등화, 표면 피크 −5…8 °C.
+- Anti-Burn: 압전 MEMS 마이크로펌프 (실제 기술, Goertek 등 공급사 존재), 온도 구배 균등화, 표면 피크 −5…8 °C. **드라이버 전력: 0.1–0.3 W** (에너지 효율에 중요; 무소음, 가동부 없음, 폐쇄 루프 — IP69 유지).
 
 ---
 
@@ -69,7 +69,7 @@ SEP 5G 소매가의 10–15%; Motorola US 12,308,512 B2 (텔레스코픽 안테�
 
 ## Beta 4 상태
 
-구현 가능 / 양산 기술: 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (스마트폰에서는 이례적), 80 W, MEMS 마이크로펌프, 7075-T6 glue-free 본체, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
+구현 가능 / 양산 기술: 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (스마트폰에서는 이례적), 80 W, MEMS 마이크로펌프 (드라이버 0.1–0.3 W), 7075-T6 glue-free 본체, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
 
 컨셉 / 드문 솔루션: 3중 VC, 텔레스코픽 안테나, 핀(12개)을 양산 냉각의 일부로, 다중 모드 LED 버튼 + RGB Thermal Hue 라인.
 
