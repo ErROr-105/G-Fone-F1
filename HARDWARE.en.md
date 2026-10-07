@@ -22,4 +22,4 @@
 
 ## Cooling
 - Triple vapor chamber *(concept)*, fins (12 ribs) *(concept)*, graphene coating.
-- MEMS micropumps (real technology, suppliers such as Goertek) for gradient equalization.
+- MEMS micropumps (real technology, suppliers such as Goertek) for gradient equalization. **Driver power: 0.1–0.3 W** (critical for energy efficiency; silent, no moving parts).
