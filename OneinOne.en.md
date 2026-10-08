@@ -31,6 +31,16 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 
 Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.25 Wh / 12,500 mAh eq.” is honest and strong. Prismatic cells give simple isolation, flat thermal contact and mature BMS.
 
+### Power / PMIC — partial integration of an advanced controller
+
+A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flagship’s hot rails well. Hence a **hybrid**:
+
+- **HV front-end:** step-down 18.5 V → intermediate bus (~5–9 V); separate path for 80 W charging and BMS.
+- **SoC core rails (CPU / GPU / NPU):** partial integration of an **advanced multiphase digital buck controller** + power stages on Vcore / GPU / NPU; AVS/DVS tied to MediaTek DVFS; fast transient response for 2 nm loads.
+- **Other domains:** companion PMIC / discrete regulators (LPDDR6, RF, ISP/cameras, display, always-on).
+- **Why:** efficiency and thermal headroom on hot rails; simpler sourcing, FTO and repair via companions.
+- **Status:** multiphase and HV bucks are serial tech; **the 18.5 V + Dimensity 9600 Pro system build is an engineering choice** (ODM, layout, thermal, EMC).
+
 ---
 
 ## Cameras
@@ -111,6 +121,7 @@ Addressable RGB SMD 4020, IP65. Accent lines: SK6812 IP65, 60 LEDs/m, side-emitt
 - **Chassis fins:** thermal design FTO.
 - **G-Fone trademark:** check Nice classes 9 and 38 (India, Gee Pee Ess).
 - **Qualcomm risk:** even with MediaTek SoC — address in FTO.
+- **PMIC / multiphase:** FTO on controllers and power stages (TI, Infineon, MPS, Richtek, etc. — ODM choice).
 
 Details in LEGAL.md and PATENTS.md.
 
@@ -118,17 +129,17 @@ Details in LEGAL.md and PATENTS.md.
 
 ## Beta 4 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, MEMS micropumps (driver 0.1–0.3 W), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
-- **Concept / rare solutions:** triple VC, telescopic antenna, ribs (12 fins) as part of production cooling, multi-mode LED button + RGB Thermal Hue lines.
-- **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, RTRCA/SORM incompatibility framing, Zeiss, trademarks, fins.
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), MEMS micropumps (driver 0.1–0.3 W), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
+- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), **partial advanced PMIC integration for 18.5 V + SoC hot rails**, multi-mode LED button + RGB Thermal Hue lines.
+- **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).
-- **Beta 4 + update:** *(concept)* markers revised as of October 2026; FBE instead of FDE; MEMS driver power stated explicitly; Work Profile removed; Russia block as technical incompatibility.
+- **Updates:** *(concept)* markers; FBE; MEMS driver power; **PMIC partial multiphase integration**; Work Profile removed; Russia block as technical incompatibility.
 
 ---
 
 ## How to Contribute
 
-- **Allowed:** CAD, thermal simulations, software, BMS, documentation, tests, translations.
+- **Allowed:** CAD, thermal simulations, software, BMS, **power/PMIC layout**, documentation, tests, translations.
 - **Not allowed:** patent circumvention suggestions, calls to violate laws, specific blacklists, political statements.
 - **Contribution license:** CERN-OHL-P v2 / GPLv3 / CC BY 4.0 depending on type.
 - **Code of conduct:** respect, no politics, no toxicity.

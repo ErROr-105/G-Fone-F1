@@ -29,6 +29,15 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 
 5S1P = 5 节串联 2500 mAh。电压 18.5 V。能量 46.25 Wh。是 Galaxy S24 Ultra 的 **2.4 倍**。3.7 V 等效 **12500 mAh**。棱柱电芯隔离简单、热接触平坦、BMS 成熟。
 
+### 电源 / PMIC — 更先进控制器的部分集成
+
+经典单电芯手机 PMIC 难以同时适配 **18.5 V（5S1P）** 与 2 nm 旗舰热轨。采用**混合方案**：
+
+- **高压前端：** 18.5 V → 中间总线（约 5–9 V）；80 W 充电与 BMS 独立路径。
+- **SoC 核心轨（CPU / GPU / NPU）：** 在 Vcore / GPU / NPU 上**部分集成更先进的多相数字 buck 控制器** + power stage；AVS/DVS 与 MediaTek DVFS 协同。
+- **其余域：** companion PMIC / 分立稳压（LPDDR6、射频、ISP/相机、显示、常开）。
+- **状态：** 多相与高压 buck 为量产技术；**18.5 V + Dimensity 9600 Pro 的系统集成属工程方案**（需 ODM、布局、热与 EMC）。
+
 ---
 
 ## 摄像头
@@ -43,35 +52,33 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 - 防护：无壳 IP69；带壳 IP69K。
 - 三层均热板（IceLoop）*（概念）*。
 - 鳍片 *（概念）*：12 片梯形，+30–35% 散热面积。
-- Anti-Burn：压电 MEMS 微泵（已有量产，如歌尔等），均衡温度梯度，表面峰值降低 5–8 °C。**驱动功率：0.1–0.3 W**（对能效至关重要；静音、无运动部件，闭环，保持 IP69）。
+- Anti-Burn：压电 MEMS 微泵（已有量产，如歌尔等）。**驱动功率：0.1–0.3 W**（对能效至关重要；静音、无运动部件，闭环，保持 IP69）。
 
 ---
 
 ## 独特硬件
 
-**SMD 按钮（Stop Meta Data）**：物理切断摄像头、麦克风、加速度计电源。多模式 RGB 指示（隐私红 / 充电白→黄→绿 / 温度青绿→黄→橙→红）。SK6812 IP65 装饰线条 + SMD 4020 RGB IP65 按钮。
+**SMD 按钮（Stop Meta Data）**：物理切断摄像头、麦克风、加速度计电源。多模式 RGB 指示。SK6812 IP65 + SMD 4020 RGB IP65。
 
 ---
 
 ## 软件
 
-LineageOS 基础，无 GApps。预装 F-Droid、DuckDuckGo、Proton Mail。Aurora Store 不预装。可选 UnifiedPush 网关。E2EE：X25519 + AES-256-GCM / ChaCha20-Poly1305，密钥在 TEE。eBPF 过滤器作为用户隐私工具。FBE：file-based encryption。
-
-俄罗斯：官方不供应。RTRCA / SORM 因架构不兼容而不适用。
+LineageOS 基础，无 GApps。预装 F-Droid、DuckDuckGo、Proton Mail。可选 UnifiedPush。E2EE；eBPF；**FBE**。俄罗斯：官方不供应；RTRCA/SORM 架构不兼容。
 
 ---
 
 ## 专利风险（摘要）
 
-SEP 5G 10–15% 零售价；Motorola US 12,308,512 B2（伸缩天线）；US 20250357560 A1（5S1P）；MEMS 冷却；LED 按钮照明；SK6812；机身鳍片；G-Fone 商标；高通风险（即使使用 MediaTek SoC）。详情见 LEGAL.md 和 PATENTS.md。
+SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；MEMS；LED；SK6812；鳍片；**PMIC/multiphase FTO**；G-Fone 商标；高通风险。详情 LEGAL.md / PATENTS.md。
 
 ---
 
 ## Beta 4 状态
 
-可实现 / 量产技术：2 nm SoC（Dimensity 9600 Pro）、LPDDR6、UFS 5.0、5S1P（手机中不常见）、80 W、MEMS 微泵（驱动功率 0.1–0.3 W）、7075-T6 无胶水机身、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
+可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、MEMS 微泵（0.1–0.3 W）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
 
-概念 / 少见方案：三层 VC、伸缩天线、散热鳍片（12 片）作为量产散热的一部分、多模式 LED 按钮 + RGB 温度指示线条。
+概念 / 系统集成：三层 VC、伸缩天线、鳍片、**面向 18.5 V + SoC 热轨的部分先进 PMIC 集成**、多模式 LED。
 
 许可证：CERN-OHL-P v2 / GPLv3 / CC BY 4.0。
 
@@ -79,10 +86,8 @@ SEP 5G 10–15% 零售价；Motorola US 12,308,512 B2（伸缩天线）；US 202
 
 ## 如何贡献
 
-允许：CAD、热仿真、软件、BMS、文档、测试、翻译。  
-禁止：规避专利建议、违法号召、黑名单、政治声明。  
-贡献许可依类型适用 CERN-OHL-P v2 / GPLv3 / CC BY 4.0。
+允许：CAD、热仿真、软件、BMS、**电源/PMIC 布局**、文档、测试、翻译。禁止规避专利、违法号召、黑名单、政治声明。
 
 ---
 
-> **免责声明。** 这是概念。不是产品。不是销售要约。不是生产说明书。规格为设计假设或现有技术的组合。设备未经认证。专利风险见 LEGAL.md 和 PATENTS.md。未进行 FTO 审计。作者对使用材料的任何后果不承担责任。用户需自行遵守其所在司法管辖区的法律。
+> **免责声明。** 这是概念。不是产品。规格为设计假设或现有技术组合。未认证。专利风险见 LEGAL.md / PATENTS.md。未做 FTO。作者不承担责任。用户须遵守所在司法管辖区法律。
