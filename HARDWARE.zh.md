@@ -12,6 +12,14 @@
 ## 为什么 2500 mAh 不是笔误？
 5S1P 提供 46.25 Wh。这是 Galaxy S24 Ultra 的 2.4 倍，也高于 Galaxy S26。在 3.7 V 下相当于 12500 mAh。棱柱电芯：隔离简单、热接触平坦、BMS 成熟。
 
+## 电源 / PMIC（部分集成）
+- **架构：** 混合方案——不是单一整机 PMIC 包办一切，而是按电源域拆分。
+- **高压前端（5S1P → 总线）：** 从 18.5 V 高效降压到中间总线（约 5–9 V）；80 W 充电与 BMS 均衡走独立路径。
+- **SoC 核心轨（CPU / GPU / NPU）：** 在主轨上**部分集成更先进的多相数字 buck 控制器** + power stage（Vcore / GPU / NPU）。AVS/DVS 与 MediaTek DVFS 协同；适配 2 nm 负载的快速瞬态响应。
+- **其余轨：** companion PMIC / 分立稳压（LPDDR6、射频、ISP/相机、显示、常开域）。
+- **原因：** 5S1P + 旗舰 2 nm SoC 很难套用经典单电芯手机 PMIC；热轨多相提升效率与热裕量；companion 便于供货、FTO 与维修。
+- **状态：** 多相控制器与高压 buck 为量产技术；**面向 18.5 V + Dimensity 9600 Pro 的系统集成属工程方案**（需 ODM 验证、布局、热设计与 EMC）。
+
 ## 摄像头
 - 主摄：50 MP Sony IMX907，f/1.4，OIS。
 - 长焦：50 MP，f/1.4，OIS。
