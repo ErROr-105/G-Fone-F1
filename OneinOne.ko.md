@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 4 (Engineering Edition)
+# G-Fone F1 — Beta 5 (Engineering Edition)
 
 > 컨셉. 일부 사양은 설계 가정이거나 기존 기술의 비표준 조합입니다.  
 > *(컨셉)* 표시 항목은 ODM 및 인증 연구소의 추가 검증이 필요합니다.  
@@ -31,12 +31,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 
 ### 전원 / PMIC — 고도 컨트롤러 부분 통합
 
-고전적 단셀 폰 PMIC는 **18.5 V(5S1P)** 와 2 nm 플래그십 hot rail에 잘 맞지 않음. **하이브리드**:
-
-- **HV 프론트엔드:** 18.5 V → 중간 버스(~5–9 V); 80 W 충전·BMS 별도 경로.
-- **SoC 코어 레일 (CPU / GPU / NPU):** Vcore / GPU / NPU에 **더 진보된 multiphase digital buck 컨트롤러** + power stage 부분 통합; MediaTek DVFS와 AVS/DVS 연동.
-- **기타 도메인:** companion PMIC / 이산 레귤레이터 (LPDDR6, RF, ISP/카메라, 디스플레이, always-on).
-- **상태:** multiphase·HV buck은 양산 기술; **18.5 V + Dimensity 9600 Pro 시스템 통합은 엔지니어링 선택** (ODM, 레이아웃, 열·EMC).
+고전적 단셀 폰 PMIC는 **18.5 V(5S1P)** 와 2 nm hot rail에 잘 맞지 않음. **하이브리드**: HV 프론트엔드; SoC 코어 레일 **multiphase digital buck** 부분 통합; 기타 companion. 시스템 통합은 엔지니어링 선택 (ODM, 레이아웃, 열·EMC).
 
 ---
 
@@ -52,13 +47,15 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 - 방수: IP69 / IP69K(케이스).
 - 3중 베이퍼 챔버 *(컨셉)*.
 - 핀 *(컨셉)*: 12개.
-- Anti-Burn: MEMS 마이크로펌프. **드라이버 전력: 0.1–0.3 W** (에너지 효율 중요; 무소음, 가동부 없음).
+- Anti-Burn: MEMS 마이크로펌프. **드라이버 전력: 0.1–0.3 W**.
 
 ---
 
 ## 독특한 하드웨어
 
 **SMD 버튼(Stop Meta Data)**: 카메라·마이크·가속도계 물리 차단. 다중 모드 RGB. SK6812 IP65 + SMD 4020 RGB IP65.
+
+**이스터 에그: Mindustry 부트 화살표** — **기기 부팅** 중 **Mindustry**를 열면 조명(SMD 4020 + SK6812)이 **Mindustry 로딩 화살표 애니메이션을 재현**합니다(LED 스트립을 따라 셰브론/화살표 체이싱, 게임 로딩 화면과 동기화). 오프라인 로컬 LED 패턴.
 
 ---
 
@@ -70,15 +67,15 @@ LineageOS, GApps 없음. F-Droid, DuckDuckGo, Proton Mail. UnifiedPush 선택. E
 
 ## 특허 리스크 (요약)
 
-SEP 5G; Motorola US 12,308,512 B2; US 20250357560 A1; MEMS; LED; SK6812; 핀; **PMIC/multiphase FTO**; G-Fone 상표; Qualcomm. 상세 LEGAL.md / PATENTS.md.
+SEP 5G; Motorola US 12,308,512 B2; US 20250357560 A1; MEMS; LED; SK6812; 핀; PMIC/multiphase FTO; G-Fone 상표; Qualcomm. 상세 LEGAL.md / PATENTS.md.
 
 ---
 
-## Beta 4 상태
+## Beta 5 상태
 
 구현 가능 / 양산: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P, 80 W, multiphase/HV 부품, MEMS(0.1–0.3 W), 7075-T6, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
 
-컨셉 / 시스템 통합: 3중 VC, 텔레스코픽 안테나, 핀, **18.5 V + SoC hot rail용 부분 고도 PMIC 통합**, 다중 모드 LED.
+컨셉 / 시스템 통합: 3중 VC, 텔레스코픽 안테나, 핀, 부분 고도 PMIC, 다중 모드 LED, **Mindustry 부트 화살표 LED 이스터 에그**.
 
 라이선스: CERN-OHL-P v2 / GPLv3 / CC BY 4.0.
 
@@ -86,7 +83,7 @@ SEP 5G; Motorola US 12,308,512 B2; US 20250357560 A1; MEMS; LED; SK6812; 핀; **
 
 ## 기여 방법
 
-허용: CAD, 열 시뮬레이션, 소프트웨어, BMS, **전원/PMIC 레이아웃**, 문서, 테스트, 번역. 금지: 특허 우회, 위법 조장, 블랙리스트, 정치 발언.
+허용: CAD, 열 시뮬레이션, 소프트웨어, BMS, 전원/PMIC 레이아웃, 문서, 테스트, 번역. 금지: 특허 우회, 위법 조장, 블랙리스트, 정치 발언.
 
 ---
 

@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 4 (Engineering Edition)
+# G-Fone F1 — Beta 5 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -95,6 +95,9 @@ Physical power cut-off for cameras, microphone and accelerometer. Multi-mode RGB
 
 Addressable RGB SMD 4020, IP65. Accent lines: SK6812 IP65, 60 LEDs/m, side-emitting.
 
+### Easter egg: Mindustry boot arrows
+If **Mindustry** is opened during **device boot**, the lighting (SMD 4020 button + SK6812 lines) **replays the Mindustry loading-arrow animation**: chevrons / arrows chase along the LED strip in sync with the game’s load screen. Boot-time software hook + known Mindustry package; offline, local LED pattern only.
+
 ---
 
 ## Software
@@ -127,19 +130,19 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 4 Status
+## Beta 5 Status
 
 - **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), MEMS micropumps (driver 0.1–0.3 W), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
-- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), **partial advanced PMIC integration for 18.5 V + SoC hot rails**, multi-mode LED button + RGB Thermal Hue lines.
+- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry boot-arrows LED easter egg**.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).
-- **Updates:** *(concept)* markers; FBE; MEMS driver power; **PMIC partial multiphase integration**; Work Profile removed; Russia block as technical incompatibility.
+- **Beta 5 changes:** PMIC partial multiphase; MEMS 0.1–0.3 W; FBE; *(concept)* refresh; **Mindustry: LEDs replay loading-arrow animation if opened during boot**.
 
 ---
 
 ## How to Contribute
 
-- **Allowed:** CAD, thermal simulations, software, BMS, **power/PMIC layout**, documentation, tests, translations.
+- **Allowed:** CAD, thermal simulations, software, BMS, power/PMIC layout, documentation, tests, translations.
 - **Not allowed:** patent circumvention suggestions, calls to violate laws, specific blacklists, political statements.
 - **Contribution license:** CERN-OHL-P v2 / GPLv3 / CC BY 4.0 depending on type.
 - **Code of conduct:** respect, no politics, no toxicity.

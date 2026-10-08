@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 4 (Engineering Edition)
+# G-Fone F1 — Beta 5 (Engineering Edition)
 
 > 概念。部分规格为设计假设或现有技术的非标准组合。  
 > 所有标记为 *（概念）* 的内容需与 ODM 和认证实验室进一步验证。  
@@ -31,12 +31,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 
 ### 电源 / PMIC — 更先进控制器的部分集成
 
-经典单电芯手机 PMIC 难以同时适配 **18.5 V（5S1P）** 与 2 nm 旗舰热轨。采用**混合方案**：
-
-- **高压前端：** 18.5 V → 中间总线（约 5–9 V）；80 W 充电与 BMS 独立路径。
-- **SoC 核心轨（CPU / GPU / NPU）：** 在 Vcore / GPU / NPU 上**部分集成更先进的多相数字 buck 控制器** + power stage；AVS/DVS 与 MediaTek DVFS 协同。
-- **其余域：** companion PMIC / 分立稳压（LPDDR6、射频、ISP/相机、显示、常开）。
-- **状态：** 多相与高压 buck 为量产技术；**18.5 V + Dimensity 9600 Pro 的系统集成属工程方案**（需 ODM、布局、热与 EMC）。
+经典单电芯手机 PMIC 难以同时适配 **18.5 V（5S1P）** 与 2 nm 旗舰热轨。采用**混合方案**：高压前端 18.5 V → 中间总线；SoC 核心轨部分集成**多相数字 buck 控制器** + power stage；其余域 companion PMIC。系统集成为工程方案（需 ODM、布局、热与 EMC）。
 
 ---
 
@@ -52,13 +47,15 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 - 防护：无壳 IP69；带壳 IP69K。
 - 三层均热板（IceLoop）*（概念）*。
 - 鳍片 *（概念）*：12 片梯形，+30–35% 散热面积。
-- Anti-Burn：压电 MEMS 微泵（已有量产，如歌尔等）。**驱动功率：0.1–0.3 W**（对能效至关重要；静音、无运动部件，闭环，保持 IP69）。
+- Anti-Burn：压电 MEMS 微泵。**驱动功率：0.1–0.3 W**。
 
 ---
 
 ## 独特硬件
 
-**SMD 按钮（Stop Meta Data）**：物理切断摄像头、麦克风、加速度计电源。多模式 RGB 指示。SK6812 IP65 + SMD 4020 RGB IP65。
+**SMD 按钮（Stop Meta Data）**：物理切断摄像头、麦克风、加速度计电源。多模式 RGB。SK6812 IP65 + SMD 4020 RGB IP65。
+
+**彩蛋：Mindustry 开机箭头** — 若在**设备启动**时打开 **Mindustry**，灯光（SMD 4020 + SK6812）**复现 Mindustry 加载箭头动画**（沿 LED 带的人字/箭头追逐，与游戏加载画面同步）。本地 LED 图案，无需联网。
 
 ---
 
@@ -70,15 +67,15 @@ LineageOS 基础，无 GApps。预装 F-Droid、DuckDuckGo、Proton Mail。可�
 
 ## 专利风险（摘要）
 
-SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；MEMS；LED；SK6812；鳍片；**PMIC/multiphase FTO**；G-Fone 商标；高通风险。详情 LEGAL.md / PATENTS.md。
+SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；MEMS；LED；SK6812；鳍片；PMIC/multiphase FTO；G-Fone 商标；高通风险。详情 LEGAL.md / PATENTS.md。
 
 ---
 
-## Beta 4 状态
+## Beta 5 状态
 
-可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、MEMS 微泵（0.1–0.3 W）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
+可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、MEMS（0.1–0.3 W）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
 
-概念 / 系统集成：三层 VC、伸缩天线、鳍片、**面向 18.5 V + SoC 热轨的部分先进 PMIC 集成**、多模式 LED。
+概念 / 系统集成：三层 VC、伸缩天线、鳍片、部分先进 PMIC 集成、多模式 LED、**Mindustry 开机箭头 LED 彩蛋**。
 
 许可证：CERN-OHL-P v2 / GPLv3 / CC BY 4.0。
 
@@ -86,7 +83,7 @@ SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；MEMS；LED；SK6812；�
 
 ## 如何贡献
 
-允许：CAD、热仿真、软件、BMS、**电源/PMIC 布局**、文档、测试、翻译。禁止规避专利、违法号召、黑名单、政治声明。
+允许：CAD、热仿真、软件、BMS、电源/PMIC 布局、文档、测试、翻译。禁止规避专利、违法号召、黑名单、政治声明。
 
 ---
 
