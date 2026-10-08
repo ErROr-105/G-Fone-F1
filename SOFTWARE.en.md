@@ -13,4 +13,4 @@
   - Thermal Hue: turquoise → yellow → orange → red.
 - **Easter eggs:**
   - Roblox, RTRCA.
-  - **Mindustry boot arrows:** if Mindustry is opened during device boot, the addressable lighting (SMD 4020 button + SK6812 accent lines) replays the Mindustry loading-arrow animation (chevron / arrow chase along the LED strip, synced with the game’s load screen).
+  - **Mindustry load arrows:** when opening Mindustry, during the **game’s own load screen**, the addressable lighting (SMD 4020 button + SK6812 accent lines) replays the Mindustry loading-arrow animation — those arrows from the middle of the horizontal — **in the same light/color** as on the load screen.
