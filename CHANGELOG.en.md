@@ -2,6 +2,15 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 5
+
+- **Easter egg — Mindustry boot arrows:** if Mindustry is opened during device boot, SMD 4020 button + SK6812 accent lines replay the Mindustry loading-arrow (chevron) animation, synced with the game load screen.
+- **Power / PMIC:** documented partial integration of an advanced multiphase digital buck controller for SoC hot rails (CPU/GPU/NPU) plus HV front-end for 5S1P 18.5 V; companions for other domains.
+- **Concept markers:** revised (SoC/LPDDR6/UFS 5.0/MEMS as serial; triple VC, telescopic antenna, fins as concept/system integration).
+- **MEMS:** driver power stated explicitly — 0.1–0.3 W.
+- **Encryption:** FBE (file-based encryption) instead of FDE wording.
+- **Documentation:** Russian OneinOne.md restored; HARDWARE/OneinOne synced across RU/EN/ZH/KO.
+
 ## Beta 4
 
 - **LED lighting:**

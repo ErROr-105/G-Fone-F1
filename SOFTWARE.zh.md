@@ -6,8 +6,11 @@
 - **推送：** 可选网关（UnifiedPush/WebSocket）。合法拦截责任由应用开发者承担。
 - **俄罗斯兼容性：** 官方不供应该市场。RTRCA 和 SORM 要求不适用。这是技术不兼容，而非政治声明。
 - **端到端加密：** X25519、AES-256-GCM / ChaCha20-Poly1305。密钥存储在 TEE。
+- **FBE：** file-based encryption。
 - **SMD 按钮：**
   - 隐私模式：红色。
   - 充电指示：白 → 黄 → 绿。
   - 温度指示：青绿 → 黄 → 橙 → 红。
-- **彩蛋：** Roblox、RTRCA。
+- **彩蛋：**
+  - Roblox、RTRCA。
+  - **Mindustry 开机箭头：** 若在设备启动过程中打开 Mindustry，可寻址灯光（SMD 4020 按钮 + SK6812 装饰线）会复现 Mindustry 加载箭头动画（沿 LED 带的人字/箭头追逐，与游戏加载画面同步）。

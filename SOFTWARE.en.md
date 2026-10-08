@@ -6,8 +6,11 @@
 - **Push:** Optional gateway (UnifiedPush/WebSocket). Lawful intercept responsibility lies with app developers.
 - **Russia compatibility:** Officially not supplied. RTRCA and SORM requirements do not apply. This is technical incompatibility, not a political statement.
 - **E2EE:** X25519, AES-256-GCM / ChaCha20-Poly1305. Keys in TEE.
+- **FBE:** file-based encryption.
 - **SMD Button:**
   - Privacy Mode: red.
   - Charge Y-Fill: white → yellow → green.
   - Thermal Hue: turquoise → yellow → orange → red.
-- **Easter egg:** Roblox, RTRCA.
+- **Easter eggs:**
+  - Roblox, RTRCA.
+  - **Mindustry boot arrows:** if Mindustry is opened during device boot, the addressable lighting (SMD 4020 button + SK6812 accent lines) replays the Mindustry loading-arrow animation (chevron / arrow chase along the LED strip, synced with the game’s load screen).

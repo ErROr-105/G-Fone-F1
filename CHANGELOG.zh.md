@@ -2,6 +2,15 @@
 
 G-Fone F1 概念的变更历史。早期版本（Beta 3 之前）未发布：部分决策已修订，部分因不可行而删除。
 
+## Beta 5
+
+- **彩蛋 — Mindustry 开机箭头：** 若在设备启动时打开 Mindustry，SMD 4020 按钮 + SK6812 装饰线复现 Mindustry 加载箭头（人字）动画，并与游戏加载画面同步。
+- **电源 / PMIC：** 记录面向 SoC 热轨（CPU/GPU/NPU）的更先进多相数字 buck 控制器部分集成，以及 5S1P 18.5 V 高压前端；其余域用 companion。
+- **概念标记：** 修订（SoC/LPDDR6/UFS 5.0/MEMS 为量产；三层 VC、伸缩天线、鳍片为概念/系统集成）。
+- **MEMS：** 明确驱动功率 0.1–0.3 W。
+- **加密：** 表述为 FBE（file-based encryption）。
+- **文档：** 恢复俄文 OneinOne.md；HARDWARE/OneinOne 四语同步。
+
 ## Beta 4
 
 - **LED 灯光：**
