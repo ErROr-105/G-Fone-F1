@@ -2,12 +2,21 @@
 
 G-Fone F1 概念的变更历史。早期版本（Beta 3 之前）未发布：部分决策已修订，部分因不可行而删除。
 
+## Beta 5.1
+
+- **屏幕：** 7 英寸 → **6.77 英寸** LTPS IPS QHD。
+- **主摄：** Sony **IMX903**（原 IMX907）。
+- **MEMS / Anti-Burn：** 具体型号 **xMEMS Lab XMC-2400** — 3 V，30 mW（泵）/ **含驱动 70 mW**；不再使用笼统功率区间。
+- **许可：** Linux 内核改动为 **GPLv2-only**（与 GPLv3 不兼容）；项目 userspace 为 GPLv3；LineageOS/AOSP 基础主要为 **Apache 2.0** — 与 GPLv3 兼容，但混合许可不取消原 Apache 条款。
+- **NOTICE.md：** 完整收录 LineageOS `android_frameworks_base` NOTICE（AOSP 归属 / Apache 2.0 §4(d)）。
+- **文档：** SOFTWARE.md / LICENSE.md / OneinOne.* 许可说明已更新。
+
 ## Beta 5
 
 - **彩蛋 — Mindustry 加载箭头：** 打开 Mindustry 时，在游戏加载画面期间，SMD 4020 按钮 + SK6812 装饰线复现从水平线中部展开的加载箭头，**光色与画面一致**（与设备开机无关）。
 - **电源 / PMIC：** 记录面向 SoC 热轨（CPU/GPU/NPU）的更先进多相数字 buck 控制器部分集成，以及 5S1P 18.5 V 高压前端；其余域用 companion。
 - **概念标记：** 修订（SoC/LPDDR6/UFS 5.0/MEMS 为量产；三层 VC、伸缩天线、鳍片为概念/系统集成）。
-- **MEMS：** 明确驱动功率 0.1–0.3 W。
+- **MEMS：** 驱动功率区间 0.1–0.3 W（在 Beta 5.1 由 XMC-2400 规格取代）。
 - **加密：** 表述为 FBE（file-based encryption）。
 - **文档：** 恢复俄文 OneinOne.md；HARDWARE/OneinOne 四语同步。
 

@@ -3,7 +3,7 @@
 ## Main Specifications
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (announced September 2026)
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0 as availability allows).
-- **Display:** 7" LTPS IPS QHD, high-end.
+- **Display:** 6.77" LTPS IPS QHD, high-end.
 - **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging:** 80 W, efficiency ≈ 95%.
 - **Protection:** IP69 / IP69K (with case).
