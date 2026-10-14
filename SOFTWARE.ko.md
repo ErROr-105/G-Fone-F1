@@ -14,3 +14,9 @@
 - **이스터 에그:**
   - Roblox, RTRCA.
   - **Mindustry 로딩 화살표:** Mindustry를 열 때 **게임 자체의 로딩 화면** 동안 주소 지정 조명(SMD 4020 버튼 + SK6812 악센트 라인)이 Mindustry 로딩 화살표 애니메이션을 재현합니다 — 수평선 중앙에서 펼쳐지는 그 화살표들 — **로딩 화면과 같은 빛/색**으로.
+
+## 라이선스 (소프트웨어)
+
+- **Linux 커널(기기 변경/패치):** **GPLv2-only**. Linux 커널은 GPLv2-only로 배포되며 **GPLv3와 호환되지 않으므로** 모든 커널 수정은 엄격히 GPLv2-only.
+- **프로젝트 userspace 코드(해당 시):** GPLv3 (LICENSE.md 참조).
+- **LineageOS / AOSP 기반:** 주로 **Apache License 2.0**. Apache 2.0은 **GPLv3와 호환**(한 제품에 공존 가능)하지만, **혼합 라이선스가 원본을 취소하지 않음**: Apache 2.0으로 들어온 코드는 Apache 2.0으로 유지되며 GPLv3가 그 라이선스를 덮어쓰지 않음.

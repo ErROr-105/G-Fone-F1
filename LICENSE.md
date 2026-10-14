@@ -7,10 +7,22 @@ This project uses multiple licenses depending on the component:
 
 Full text: https://ohwr.org/cern_ohl_p_v2.txt
 
-## Software (code, firmware, scripts)
+## Software
+
+### Linux kernel (device changes / patches)
+**GPLv2-only**
+
+The upstream Linux kernel is licensed **GPLv2-only**. **GPLv3 is incompatible** with GPLv2-only kernel code. All kernel modifications for this device are therefore **GPLv2-only**.
+
+### Project userspace code (scripts, apps, firmware where project-owned)
 **GNU General Public License v3.0 (GPLv3)**
 
 Full text: https://www.gnu.org/licenses/gpl-3.0.en.html
+
+### LineageOS / AOSP base
+Primarily **Apache License 2.0**.
+
+Apache 2.0 is **compatible with GPLv3** (they may coexist in one product). **Mixed licenses do not cancel the original:** code that arrived under Apache 2.0 remains under Apache 2.0; applying or linking GPLv3 components does not relicense that Apache-licensed code.
 
 ## Documentation (all .md files, texts, guides)
 **Creative Commons Attribution 4.0 International (CC BY 4.0)**
