@@ -21,7 +21,7 @@
 - **상태:** multiphase 컨트롤러와 HV buck은 양산 기술; **18.5 V + Dimensity 9600 Pro용 시스템 통합은 엔지니어링 선택** (ODM 검증, 레이아웃, 열·EMC 필요).
 
 ## 카메라
-- 메인: 50 MP Sony IMX907, f/1.4, OIS.
+- 메인: 50 MP Sony IMX903, f/1.4, OIS.
 - 망원: 50 MP, f/1.4, OIS.
 - 초광각: 50 MP IMX858, f/1.4.
 - 심도: 12 MP.

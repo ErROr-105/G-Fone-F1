@@ -21,7 +21,7 @@
 - **Status:** multiphase controllers and HV bucks are serial technologies; **the system build for 18.5 V + Dimensity 9600 Pro is an engineering choice** (needs ODM validation, layout, thermal and EMC).
 
 ## Cameras
-- Main: 50 MP Sony IMX907, f/1.4, OIS.
+- Main: 50 MP Sony IMX903, f/1.4, OIS.
 - Telephoto: 50 MP, f/1.4, OIS.
 - Ultrawide: 50 MP IMX858, f/1.4.
 - DoF: 12 MP.
