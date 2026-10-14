@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 5 (Engineering Edition)
+# G-Fone F1 — Beta 5.1 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -19,7 +19,7 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3: 2× C2-Ultra up to 4.55 GHz, 3× C2-Pro up to 4.35 GHz, 3× C2-Pro up to 3.1 GHz. 34.5 MB cache. LPDDR6 + UFS 5.0. Announced 15.09.2026, devices by end of 2026.
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0. UFS 5.0 as availability allows.
-- **Display:** 7" LTPS IPS QHD, high-end. Video up to 2K.
+- **Display:** 6.77" LTPS IPS QHD, high-end. Video up to 2K.
 - **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS, balancing, protection. X-Cross mounting. (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging:** 80 W PSU, efficiency ≈ 95% (~76 W to battery). 0–80% ≈ 29 min; 0–100% ≈ 45–50 min with screen off.
 - **Connectivity:** 1× nanoSIM + 1× microSD up to 1 TB + eSIM + BT connection to external satellite terminals. Direct satellite modem not claimed.
@@ -132,13 +132,13 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 5 Status
+## Beta 5.1 Status
 
 - **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, project userspace GPLv3, Lineage/AOSP base Apache 2.0; CC BY 4.0 (documentation).
-- **Beta 5 changes:** PMIC partial multiphase; XMC-2400 30/70 mW; FBE; *(concept)* refresh; **Mindustry: during game load, LEDs replay the horizontal-center arrows in the same light as on screen**.
+- **Beta 5.1 changes:** display 6.77"; IMX903; XMC-2400; GPLv2-only kernel / Apache notes; NOTICE.md; **Mindustry load arrows**.
 
 ---
 
