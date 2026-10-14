@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 5 (Engineering Edition)
+# G-Fone F1 — Beta 5.1 (Engineering Edition)
 
 > 概念。部分规格为设计假设或现有技术的非标准组合。  
 > 所有标记为 *（概念）* 的内容需与 ODM 和认证实验室进一步验证。  
@@ -19,7 +19,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 
 - **SoC：** MediaTek Dimensity 9600 Pro，2 nm，TSMC N2P。2+3+3。LPDDR6 + UFS 5.0。（2026年9月发布）
 - **内存：** 16 GB LPDDR6 + 256 GB UFS 4.0（UFS 5.0 视供应情况）。
-- **屏幕：** 7 英寸 LTPS IPS QHD。
+- **屏幕：** 6.77 英寸 LTPS IPS QHD。
 - **电池：** 5S1P，5 × 2500 mAh，18.5 V，**46.25 Wh**。棱柱形锂聚合物。（5S1P 在无人机/航模中已量产，手机中不常见）
 - **充电：** 80 W，效率 ≈ 95%。0–80% ≈ 29 分钟。
 - **连接：** 1× nanoSIM + 1× microSD 至 1 TB + eSIM + 蓝牙外接卫星终端。不宣称直接卫星调制解调器。
@@ -71,7 +71,7 @@ SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；xMEMS Lab XMC-2400；LE
 
 ---
 
-## Beta 5 状态
+## Beta 5.1 状态
 
 可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、XMC-2400（3 V，30/70 mW）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
 

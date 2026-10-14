@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 5 (Engineering Edition)
+# G-Fone F1 — Beta 5.1 (Engineering Edition)
 
 > 컨셉. 일부 사양은 설계 가정이거나 기존 기술의 비표준 조합입니다.  
 > *(컨셉)* 표시 항목은 ODM 및 인증 연구소의 추가 검증이 필요합니다.  
@@ -19,7 +19,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (2026년 9월 발표)
 - **메모리:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0은 공급 상황에 따라).
-- **디스플레이:** 7인치 LTPS IPS QHD.
+- **디스플레이:** 6.77인치 LTPS IPS QHD.
 - **배터리:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. 각형 리튬 폴리머. (드론/RC 양산, 스마트폰에서는 이례적)
 - **충전:** 80 W, 효율 ≈ 95%. 0–80% ≈ 29분.
 - **연결:** nanoSIM + microSD + eSIM + 외부 위성 터미널 BT. 직접 위성 모뎀 미주장.
@@ -71,7 +71,7 @@ SEP 5G; Motorola US 12,308,512 B2; US 20250357560 A1; xMEMS Lab XMC-2400; LED; S
 
 ---
 
-## Beta 5 상태
+## Beta 5.1 상태
 
 구현 가능 / 양산: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P, 80 W, multiphase/HV 부품, XMC-2400(3 V, 30/70 mW), 7075-T6, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
 
