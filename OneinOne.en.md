@@ -2,7 +2,7 @@
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
-> Licenses: CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).  
+> Licenses: CERN-OHL-P v2 (hardware); kernel GPLv2-only / userspace GPLv3 / Lineage·AOSP Apache 2.0; CC BY 4.0 (documentation).  
 > Commercial use requires attribution.
 
 ---
@@ -111,6 +111,7 @@ When opening **Mindustry**, during the **game’s own load screen**, the lightin
 - **E2EE:** X25519, AES-256-GCM / ChaCha20-Poly1305. Keys in TEE.
 - **eBPF filter:** user privacy tool for tracker blocking.
 - **FBE:** file-based encryption.
+- **Licensing (software):** Linux kernel changes — **GPLv2-only** (GPLv3 is incompatible with the kernel). Project userspace — GPLv3. LineageOS/AOSP base — primarily **Apache 2.0**: compatible with GPLv3, but **mixed licenses do not cancel the original** (Apache code stays Apache 2.0). Details: SOFTWARE.md / LICENSE.md.
 
 ---
 
@@ -136,7 +137,7 @@ Details in LEGAL.md and PATENTS.md.
 - **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
-- **Licenses:** CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).
+- **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, project userspace GPLv3, Lineage/AOSP base Apache 2.0; CC BY 4.0 (documentation).
 - **Beta 5 changes:** PMIC partial multiphase; XMC-2400 30/70 mW; FBE; *(concept)* refresh; **Mindustry: during game load, LEDs replay the horizontal-center arrows in the same light as on screen**.
 
 ---
