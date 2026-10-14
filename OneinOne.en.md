@@ -27,7 +27,7 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 
 ### Why 2500 mAh is not a typo
 
-5S1P means 5 series cells of 2500 mAh each. Pack voltage 18.5 V. Energy 46.25 Wh. This is **2.4× more** than Galaxy S24 Ultra (19.25 Wh) or Xiaomi 14 Pro (18.8 Wh). Equivalent at 3.7 V is **12,500 mAh**.
+5S1P means 5 series cells of 2500 mAh each. Pack voltage 18.5 V. Energy 46.25 Wh. This is **about 3× more** than Galaxy S24 (typical capacity **4000 mAh**, official **15.52 Wh**). Equivalent at 3.7 V is **12,500 mAh**.
 
 Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.25 Wh / 12,500 mAh eq.” is honest and strong. Prismatic cells give simple isolation, flat thermal contact and mature BMS.
 
