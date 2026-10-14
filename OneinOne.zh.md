@@ -37,7 +37,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 
 ## 摄像头
 
-主摄 50 MP Sony IMX907 f/1.4 OIS；长焦 50 MP；超广角 50 MP IMX858；景深 12 MP；自拍 50 MP。无生成式 AI。Zeiss 仅在许可下。相机周围保留 ≥ 7 mm 净空。
+主摄 50 MP Sony IMX903 f/1.4 OIS；长焦 50 MP；超广角 50 MP IMX858；景深 12 MP；自拍 50 MP。无生成式 AI。Zeiss 仅在许可下。相机周围保留 ≥ 7 mm 净空。
 
 ---
 

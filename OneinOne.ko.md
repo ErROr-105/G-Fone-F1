@@ -37,7 +37,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 
 ## 카메라
 
-메인 50 MP Sony IMX907 f/1.4 OIS; 망원 50 MP; 초광각 50 MP IMX858; 심도 12 MP; 셀피 50 MP. 생성형 AI 없음. Zeiss는 라이선스 시. 카메라 주변 ≥ 7 mm.
+메인 50 MP Sony IMX903 f/1.4 OIS; 망원 50 MP; 초광각 50 MP IMX858; 심도 12 MP; 셀피 50 MP. 생성형 AI 없음. Zeiss는 라이선스 시. 카메라 주변 ≥ 7 mm.
 
 ---
 
