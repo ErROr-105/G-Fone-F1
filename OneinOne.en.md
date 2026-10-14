@@ -45,7 +45,7 @@ A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flag
 
 ## Cameras
 
-- **Main:** 50 MP Sony IMX907, f/1.4, OIS.
+- **Main:** 50 MP Sony IMX903, f/1.4, OIS.
 - **Telephoto:** 50 MP IMX890 or smaller, f/1.4, OIS.
 - **Ultrawide:** 50 MP IMX858, f/1.4.
 - **DoF:** 12 MP, f/2.0, RGB + B&W, no generative AI.
