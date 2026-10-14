@@ -10,7 +10,7 @@
 - **Chassis:** 7075-T6 aluminum, glue-free.
 
 ## Why 2500 mAh is not a typo?
-5S1P delivers 46.25 Wh. This is 2.4× more than Galaxy S24 Ultra and more than Galaxy S26. Equivalent at 3.7 V is 12,500 mAh. Prismatic cells: simple isolation, flat thermal contact, mature BMS.
+5S1P delivers 46.25 Wh. This is about 3× more than Galaxy S24 (typical capacity 4000 mAh, official 15.52 Wh). Equivalent at 3.7 V is 12,500 mAh. Prismatic cells: simple isolation, flat thermal contact, mature BMS.
 
 ## Power / PMIC (partial integration)
 - **Architecture:** hybrid — not one monolithic PMIC for everything; domain split.
