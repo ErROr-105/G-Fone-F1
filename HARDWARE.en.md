@@ -30,4 +30,4 @@
 
 ## Cooling
 - Triple vapor chamber *(concept)*, fins (12 ribs) *(concept)*, graphene coating.
-- MEMS micropumps (real technology, suppliers such as Goertek) for gradient equalization. **Driver power: 0.1–0.3 W** (critical for energy efficiency; silent, no moving parts).
+- **xMEMS Lab XMC-2400** — piezo MEMS micropump: **3 V**, **30 mW** (pump); with driver — **70 mW**. Serial component (not a concept). Thermal gradient equalization; silent, no moving parts.
