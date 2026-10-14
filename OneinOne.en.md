@@ -78,10 +78,11 @@ A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flag
 
 ### Anti-Burn thermal stabilization
 
-- Piezoelectric MEMS micropumps (20–30 kHz) for internal convection. (real technology; suppliers include Goertek and others)
-- Redistribute heat, equalize gradient, remove local hotspots (SoC, Battery Board). Surface peak −5…8 °C. IEC 62368-1 compliant.
-- **Driver power: 0.1–0.3 W** (important for energy efficiency). Silent, no moving parts, closed loop — IP69 preserved.
-- Integration: between Main Board and Sub Board, above Battery Board copper tube.
+- **xMEMS Lab XMC-2400** — piezo MEMS micropump (**not a concept**, serial component) for internal convection.
+- **3 V**; **30 mW** (pump); **with driver — 70 mW**.
+- Redistributes heat, equalizes gradient, removes local hotspots (SoC, Battery Board). Surface peak −5…8 °C. IEC 62368-1 compliant.
+- Silent, no moving parts, closed loop — IP69 preserved.
+- Integration: between Main Board and Sub Board, above Battery Board copper tube; xMEMS Lab driver supplied with the pump.
 
 ---
 
@@ -118,7 +119,7 @@ When opening **Mindustry**, during the **game’s own load screen**, the lightin
 - **SEP 5G:** 10–15% of retail. FTO audit before start. ODM with SEP pool is realistic path.
 - **Motorola US 12,308,512 B2:** telescopic antenna. Design-around or license.
 - **US 20250357560 A1:** 5S1P for power tools. Different field, but broad claims.
-- **MEMS cooling:** Murata, ST, Frore Systems, Goertek. FTO.
+- **MEMS cooling:** xMEMS Lab (XMC-2400), Murata, ST, Frore Systems. FTO.
 - **LED button illumination:** Samsung, LG, Motorola. FTO.
 - **SK6812:** Worldsemi, APA Electronic. FTO.
 - **Chassis fins:** thermal design FTO.
@@ -132,11 +133,11 @@ Details in LEGAL.md and PATENTS.md.
 
 ## Beta 5 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), MEMS micropumps (driver 0.1–0.3 W), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware), GPLv3 (software), CC BY 4.0 (documentation).
-- **Beta 5 changes:** PMIC partial multiphase; MEMS 0.1–0.3 W; FBE; *(concept)* refresh; **Mindustry: during game load, LEDs replay the horizontal-center arrows in the same light as on screen**.
+- **Beta 5 changes:** PMIC partial multiphase; XMC-2400 30/70 mW; FBE; *(concept)* refresh; **Mindustry: during game load, LEDs replay the horizontal-center arrows in the same light as on screen**.
 
 ---
 
