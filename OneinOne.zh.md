@@ -47,7 +47,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 - 防护：无壳 IP69；带壳 IP69K。
 - 三层均热板（IceLoop）*（概念）*。
 - 鳍片 *（概念）*：12 片梯形，+30–35% 散热面积。
-- Anti-Burn：压电 MEMS 微泵。**驱动功率：0.1–0.3 W**。
+- Anti-Burn：**xMEMS Lab XMC-2400** 压电 MEMS 微泵（非概念，量产）。**3 V**；**30 mW**（泵）；含驱动 **70 mW**。
 
 ---
 
@@ -67,13 +67,13 @@ LineageOS 基础，无 GApps。预装 F-Droid、DuckDuckGo、Proton Mail。可�
 
 ## 专利风险（摘要）
 
-SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；MEMS；LED；SK6812；鳍片；PMIC/multiphase FTO；G-Fone 商标；高通风险。详情 LEGAL.md / PATENTS.md。
+SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；xMEMS Lab XMC-2400；LED；SK6812；鳍片；PMIC/multiphase FTO；G-Fone 商标；高通风险。详情 LEGAL.md / PATENTS.md。
 
 ---
 
 ## Beta 5 状态
 
-可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、MEMS（0.1–0.3 W）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
+可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、XMC-2400（3 V，30/70 mW）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
 
 概念 / 系统集成：三层 VC、伸缩天线、鳍片、部分先进 PMIC 集成、多模式 LED、**Mindustry 加载箭头 LED 彩蛋**。
 

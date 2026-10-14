@@ -47,7 +47,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 - 방수: IP69 / IP69K(케이스).
 - 3중 베이퍼 챔버 *(컨셉)*.
 - 핀 *(컨셉)*: 12개.
-- Anti-Burn: MEMS 마이크로펌프. **드라이버 전력: 0.1–0.3 W**.
+- Anti-Burn: **xMEMS Lab XMC-2400** 압전 MEMS 마이크로펌프(컨셉 아님, 양산). **3 V**; **30 mW**(펌프); 드라이버 포함 **70 mW**.
 
 ---
 
@@ -67,13 +67,13 @@ LineageOS, GApps 없음. F-Droid, DuckDuckGo, Proton Mail. UnifiedPush 선택. E
 
 ## 특허 리스크 (요약)
 
-SEP 5G; Motorola US 12,308,512 B2; US 20250357560 A1; MEMS; LED; SK6812; 핀; PMIC/multiphase FTO; G-Fone 상표; Qualcomm. 상세 LEGAL.md / PATENTS.md.
+SEP 5G; Motorola US 12,308,512 B2; US 20250357560 A1; xMEMS Lab XMC-2400; LED; SK6812; 핀; PMIC/multiphase FTO; G-Fone 상표; Qualcomm. 상세 LEGAL.md / PATENTS.md.
 
 ---
 
 ## Beta 5 상태
 
-구현 가능 / 양산: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P, 80 W, multiphase/HV 부품, MEMS(0.1–0.3 W), 7075-T6, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
+구현 가능 / 양산: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P, 80 W, multiphase/HV 부품, XMC-2400(3 V, 30/70 mW), 7075-T6, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
 
 컨셉 / 시스템 통합: 3중 VC, 텔레스코픽 안테나, 핀, 부분 고도 PMIC, 다중 모드 LED, **Mindustry 로딩 화살표 LED 이스터 에그**.
 
