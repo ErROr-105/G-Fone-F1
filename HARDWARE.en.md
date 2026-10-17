@@ -4,13 +4,20 @@
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (announced September 2026)
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0 as availability allows).
 - **Display:** 6.77" LTPS IPS QHD, high-end.
-- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. (5S1P is serial in drones/RC; unusual for smartphones)
+- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging:** 80 W, efficiency ≈ 95%.
 - **Protection:** IP69 / IP69K (with case).
 - **Chassis:** 7075-T6 aluminum, glue-free.
 
 ## Why 2500 mAh is not a typo?
 5S1P delivers 46.25 Wh. This is ≈3× more (exact 2.9800257731958×) than Galaxy S24 (typical capacity 4000 mAh, official 15.52 Wh). Equivalent at 3.7 V is 12,500 mAh. Prismatic cells: simple isolation, flat thermal contact, mature BMS.
+
+## X-Cross
+**X-Cross** is an internal metal cross-shaped part that retains and clamps the prismatic cells of the 5S1P pack on the Battery Board: pack stiffness, even pressure, less play under impact/flex. Not decoration — a structural battery hold-down.
+
+## Pack-level PTC
+- **PTC film at pack level** (cold protection / current limiting for low temperature and pack-path over-temp).
+- **Why not cell-level for 5S1P:** five series cells are one electrical and thermal pack. Per-cell PTC duplicates function, adds volume and contacts, complicates balancing and service, and barely improves safety vs **one** PTC/thermal path for the whole pack. Cell-level PTC fits parallel / single-cell phone packs; for 5S1P, **pack-level** is the rational choice.
 
 ## Power / PMIC (partial integration)
 - **Architecture:** hybrid — not one monolithic PMIC for everything; domain split.
@@ -31,3 +38,7 @@
 ## Cooling
 - Triple vapor chamber *(concept)*, fins (12 ribs) *(concept)*, graphene coating.
 - **xMEMS Lab XMC-2400** — piezo MEMS micropump: **3 V**, **30 mW** (pump); with driver — **70 mW**. Serial component (not a concept). Thermal gradient equalization; silent, no moving parts.
+
+## Kit and case
+- **Plain-fabric finger cots** in the box. 7075-T6 aluminum is extreme at heat transfer — the chassis can feel ice-cold or burning hot. Finger cots are **safety** for bare-metal handling, not a fashion accessory.
+- **Case** is a **frame with grip** (not a full soft sleeve). The case kit includes **mid-price silicone camera caps** — scratch protection for the lens modules.
