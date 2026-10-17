@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 5.1 (Engineering Edition)
+# G-Fone F1 — Beta 6 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -20,7 +20,7 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3: 2× C2-Ultra up to 4.55 GHz, 3× C2-Pro up to 4.35 GHz, 3× C2-Pro up to 3.1 GHz. 34.5 MB cache. LPDDR6 + UFS 5.0. Announced 15.09.2026, devices by end of 2026.
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0. UFS 5.0 as availability allows.
 - **Display:** 6.77" LTPS IPS QHD, high-end. Video up to 2K.
-- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS, balancing, protection. X-Cross mounting. (5S1P is serial in drones/RC; unusual for smartphones)
+- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS, balancing, protection. **X-Cross** mounting (metal cross retaining prismatic cells). **Pack-level PTC** film (not cell-level). (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging:** 80 W PSU, efficiency ≈ 95% (~76 W to battery). 0–80% ≈ 29 min; 0–100% ≈ 45–50 min with screen off.
 - **Connectivity:** 1× nanoSIM + 1× microSD up to 1 TB + eSIM + BT connection to external satellite terminals. Direct satellite modem not claimed.
 - **Price:** €3,200 (indicative for a niche flagship).
@@ -30,6 +30,16 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 5S1P means 5 series cells of 2500 mAh each. Pack voltage 18.5 V. Energy 46.25 Wh. This is **≈3× more** (exact **2.9800257731958×**) than Galaxy S24 (typical capacity **4000 mAh**, official **15.52 Wh**). Equivalent at 3.7 V is **12,500 mAh**.
 
 Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.25 Wh / 12,500 mAh eq.” is honest and strong. Prismatic cells give simple isolation, flat thermal contact and mature BMS.
+
+### X-Cross
+Internal **metal cross-shaped part** that retains and clamps the prismatic 5S1P cells on the Battery Board. Pack stiffness, even pressure, less play under impact. Structural hold-down, not decoration.
+
+### Pack-level PTC
+**PTC film at pack level** — cold protection and current limiting on the pack path. **Cell-level is pointless for 5S1P:** five series cells are one electrical and thermal unit; per-cell PTC duplicates function, adds volume and contacts, and barely improves safety vs one path for the whole pack.
+
+### Kit: finger cots and case
+- **Plain-fabric finger cots** in the box. 7075-T6 aluminum is extreme at heat transfer — bare chassis can feel ice-cold or burning hot. Finger cots are **safety**, not fashion.
+- **Case** is a **frame with grip** (not a full soft sleeve). Includes **mid-price silicone camera caps** — scratch protection for the lenses.
 
 ### Power / PMIC — partial integration of an advanced controller
 
@@ -62,7 +72,7 @@ A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flag
 ## Chassis and Cooling
 
 - **Aluminum 7075-T6**, glue-free, all bolts removable.
-- **Protection:** IP69 without case; IP69K with supplied case. Pressure equalization valve with membrane.
+- **Protection:** IP69 without case; IP69K with supplied case (**frame with grip** + silicone camera caps). Pressure equalization valve with membrane.
 - Triple VC (IceLoop) *(concept)* in rear cover.
 - 1.3 mm thermal pad. Graphite on SoC — screw-mounted.
 - **Seals:** VMQ/LSR Shore A40 (main, spring-damped) + EPDM Shore A50–60. Multi-contour + mechanical clamp. 2 spare sets included.
@@ -132,13 +142,13 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 5.1 Status
+## Beta 6 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65.
-- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**.
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**.
+- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, project userspace GPLv3, Lineage/AOSP base Apache 2.0; CC BY 4.0 (documentation).
-- **Beta 5.1 changes:** display 6.77"; IMX903; XMC-2400; GPLv2-only kernel / Apache notes; NOTICE.md; **Mindustry load arrows**.
+- **Beta 6 changes:** X-Cross; pack-level PTC; fabric finger cots; frame case + silicone camera caps; (from 5.1: 6.77"; IMX903; XMC-2400; licenses; Mindustry).
 
 ---
 
