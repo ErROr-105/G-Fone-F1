@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 5.1 (Engineering Edition)
+# G-Fone F1 — Beta 6 (Engineering Edition)
 
 > 概念。部分规格为设计假设或现有技术的非标准组合。  
 > 所有标记为 *（概念）* 的内容需与 ODM 和认证实验室进一步验证。  
@@ -20,7 +20,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 - **SoC：** MediaTek Dimensity 9600 Pro，2 nm，TSMC N2P。2+3+3。LPDDR6 + UFS 5.0。（2026年9月发布）
 - **内存：** 16 GB LPDDR6 + 256 GB UFS 4.0（UFS 5.0 视供应情况）。
 - **屏幕：** 6.77 英寸 LTPS IPS QHD。
-- **电池：** 5S1P，5 × 2500 mAh，18.5 V，**46.25 Wh**。棱柱形锂聚合物。（5S1P 在无人机/航模中已量产，手机中不常见）
+- **电池：** 5S1P，5 × 2500 mAh，18.5 V，**46.25 Wh**。棱柱形锂聚合物。**X-Cross** 固定；**pack-level PTC**。（5S1P 在无人机/航模中已量产，手机中不常见）
 - **充电：** 80 W，效率 ≈ 95%。0–80% ≈ 29 分钟。
 - **连接：** 1× nanoSIM + 1× microSD 至 1 TB + eSIM + 蓝牙外接卫星终端。不宣称直接卫星调制解调器。
 - **价格：** 3200 欧元（小众旗舰参考价）。
@@ -28,6 +28,16 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 ### 为什么 2500 mAh 不是笔误
 
 5S1P = 5 节串联 2500 mAh。电压 18.5 V。能量 46.25 Wh。约为 Galaxy S24（典型容量 **4000 mAh**，官方 **15.52 Wh**）的 **≈3 倍**（精确 **2.9800257731958×**）。3.7 V 等效 **12500 mAh**。棱柱电芯隔离简单、热接触平坦、BMS 成熟。
+
+### X-Cross
+内部**金属十字形零件**，在 Battery Board 上固定 5S1P 棱柱电芯。提高包体刚度与压紧，非装饰件。
+
+### 包级 PTC
+**Pack 级 PTC 膜**（低温保护）。5S1P **不宜 cell-level**：五节串联是一个电热包；每节 PTC 重复且几乎无额外安全收益。
+
+### 附件
+- **普通织物指套**：7075 铝导热极强，裸机可极冷/极热——**安全**用。
+- **保护壳**：带握持的**边框**；含中等价位**硅胶镜头盖**（防刮）。
 
 ### 电源 / PMIC — 更先进控制器的部分集成
 
@@ -44,7 +54,7 @@ G-Fone F1 是面向厌倦数据被随意读取之人的隐私智能手机概念�
 ## 机身与散热
 
 - 铝合金 **7075-T6**，无胶水，全可拆螺栓。
-- 防护：无壳 IP69；带壳 IP69K。
+- 防护：无壳 IP69；带壳 IP69K（边框壳 + 镜头盖）。
 - 三层均热板（IceLoop）*（概念）*。
 - 鳍片 *（概念）*：12 片梯形，+30–35% 散热面积。
 - Anti-Burn：**xMEMS Lab XMC-2400** 压电 MEMS 微泵（非概念，量产）。**3 V**；**30 mW**（泵）；含驱动 **70 mW**。
@@ -71,11 +81,11 @@ SEP 5G；Motorola US 12,308,512 B2；US 20250357560 A1；xMEMS Lab XMC-2400；LE
 
 ---
 
-## Beta 5.1 状态
+## Beta 6 状态
 
-可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、XMC-2400（3 V，30/70 mW）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮。
+可实现 / 量产：2 nm SoC、LPDDR6、UFS 5.0、5S1P、80 W、multiphase/HV 组件、XMC-2400（3 V，30/70 mW）、7075-T6、LineageOS、eBPF、UnifiedPush、FBE、SK6812、SMD 按钮、X-Cross、pack-level PTC。
 
-概念 / 系统集成：三层 VC、伸缩天线、鳍片、部分先进 PMIC 集成、多模式 LED、**Mindustry 加载箭头 LED 彩蛋**。
+概念 / 系统集成：三层 VC、伸缩天线、鳍片、部分先进 PMIC 集成、多模式 LED、**Mindustry 加载箭头 LED 彩蛋**、边框壳与镜头盖。
 
 许可证：CERN-OHL-P v2 / GPLv3 / CC BY 4.0。
 

@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 5.1 (Engineering Edition)
+# G-Fone F1 — Beta 6 (Engineering Edition)
 
 > 컨셉. 일부 사양은 설계 가정이거나 기존 기술의 비표준 조합입니다.  
 > *(컨셉)* 표시 항목은 ODM 및 인증 연구소의 추가 검증이 필요합니다.  
@@ -20,7 +20,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (2026년 9월 발표)
 - **메모리:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0은 공급 상황에 따라).
 - **디스플레이:** 6.77인치 LTPS IPS QHD.
-- **배터리:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. 각형 리튬 폴리머. (드론/RC 양산, 스마트폰에서는 이례적)
+- **배터리:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. 각형 리튬 폴리머. **X-Cross** 고정; **pack-level PTC**. (드론/RC 양산, 스마트폰에서는 이례적)
 - **충전:** 80 W, 효율 ≈ 95%. 0–80% ≈ 29분.
 - **연결:** nanoSIM + microSD + eSIM + 외부 위성 터미널 BT. 직접 위성 모뎀 미주장.
 - **가격:** 3,200€.
@@ -28,6 +28,16 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 ### 왜 2500 mAh가 오타가 아닌가
 
 5S1P = 2500 mAh 셀 5개 직렬. 18.5 V, 46.25 Wh. Galaxy S24(전형 용량 **4000 mAh**, 공식 **15.52 Wh**) 대비 **≈3배**(정확 **2.9800257731958×**). 3.7 V 기준 **12,500 mAh** 상당.
+
+### X-Cross
+내부 **금속 십자형 부품**: Battery Board 위 5S1P 각형 셀 고정. 팩 강성·압착. 장식 아님.
+
+### 팩 레벨 PTC
+**Pack-level PTC 필름**(저온 보호). 5S1P에서 **cell-level은 무의미**: 5직렬=단일 전기·열 팩.
+
+### 구성품
+- **일반 직물 손가락 커버**: 7075 알루미늄 열전달 극단 — **안전**용.
+- **케이스**: 그립 **프레임**; 중가 **실리콘 카메라 캡**(스크래치 방지).
 
 ### 전원 / PMIC — 고도 컨트롤러 부분 통합
 
@@ -44,7 +54,7 @@ G-Fone F1은 데이터가 아무에게나 읽히는 데 지친 사람들을 위�
 ## 본체 및 냉각
 
 - **7075-T6 알루미늄**, glue-free.
-- 방수: IP69 / IP69K(케이스).
+- 방수: IP69 / IP69K(프레임 케이스 + 카메라 캡).
 - 3중 베이퍼 챔버 *(컨셉)*.
 - 핀 *(컨셉)*: 12개.
 - Anti-Burn: **xMEMS Lab XMC-2400** 압전 MEMS 마이크로펌프(컨셉 아님, 양산). **3 V**; **30 mW**(펌프); 드라이버 포함 **70 mW**.
@@ -71,11 +81,11 @@ SEP 5G; Motorola US 12,308,512 B2; US 20250357560 A1; xMEMS Lab XMC-2400; LED; S
 
 ---
 
-## Beta 5.1 상태
+## Beta 6 상태
 
-구현 가능 / 양산: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P, 80 W, multiphase/HV 부품, XMC-2400(3 V, 30/70 mW), 7075-T6, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼.
+구현 가능 / 양산: 2 nm SoC, LPDDR6, UFS 5.0, 5S1P, 80 W, multiphase/HV 부품, XMC-2400(3 V, 30/70 mW), 7075-T6, LineageOS, eBPF, UnifiedPush, FBE, SK6812, SMD 버튼, X-Cross, pack-level PTC.
 
-컨셉 / 시스템 통합: 3중 VC, 텔레스코픽 안테나, 핀, 부분 고도 PMIC, 다중 모드 LED, **Mindustry 로딩 화살표 LED 이스터 에그**.
+컨셉 / 시스템 통합: 3중 VC, 텔레스코픽 안테나, 핀, 부분 고도 PMIC, 다중 모드 LED, **Mindustry 로딩 화살표 LED 이스터 에그**, 프레임 케이스·카메라 캡.
 
 라이선스: CERN-OHL-P v2 / GPLv3 / CC BY 4.0.
 
