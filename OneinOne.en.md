@@ -2,7 +2,7 @@
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
-> Licenses: CERN-OHL-P v2 (hardware); kernel GPLv2-only / userspace GPLv3 / Lineage·AOSP Apache 2.0; CC BY 4.0 (documentation).  
+> Licenses: CERN-OHL-P v2 (hardware); kernel GPLv2-only / G-Fone F1 userspace mods GPLv3 / Lineage·AOSP Apache 2.0 (compatible, not relicenseable); CC BY 4.0 (documentation).  
 > Commercial use requires attribution.
 
 ---
@@ -121,7 +121,7 @@ When opening **Mindustry**, during the **game’s own load screen**, the lightin
 - **E2EE:** X25519, AES-256-GCM / ChaCha20-Poly1305. Keys in TEE.
 - **eBPF filter:** user privacy tool for tracker blocking.
 - **FBE:** file-based encryption.
-- **Licensing (software):** Linux kernel changes — **GPLv2-only** (GPLv3 is incompatible with the kernel). Project userspace — GPLv3. LineageOS/AOSP base — primarily **Apache 2.0**: compatible with GPLv3, but **mixed licenses do not cancel the original** (Apache code stays Apache 2.0). Details: SOFTWARE.md / LICENSE.md.
+- **Licensing (software):** **Linux kernel** changes — **GPLv2-only** (GPLv3 incompatible with the kernel). **G-Fone F1 code modifications (userspace)** — **GPLv3**. LineageOS/AOSP base — primarily **Apache 2.0**: **GPLv3 and Apache 2.0 are compatible but not relicenseable**; **Apache 2.0 requirements must be fulfilled** (NOTICE, attribution). Mixing does not cancel the original. Details: SOFTWARE.md / LICENSE.md / NOTICE.md.
 
 ---
 
@@ -147,7 +147,7 @@ Details in LEGAL.md and PATENTS.md.
 - **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**.
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
-- **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, project userspace GPLv3, Lineage/AOSP base Apache 2.0; CC BY 4.0 (documentation).
+- **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, G-Fone F1 userspace modifications **GPLv3**, Lineage/AOSP base Apache 2.0 (compatible with GPLv3, **not relicenseable**, Apache 2.0 requirements mandatory); CC BY 4.0 (documentation).
 - **Beta 6 changes:** X-Cross; pack-level PTC; fabric finger cots; frame case + silicone camera caps; (from 5.1: 6.77"; IMX903; XMC-2400; licenses; Mindustry).
 
 ---
