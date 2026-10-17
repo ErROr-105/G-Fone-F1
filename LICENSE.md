@@ -12,17 +12,19 @@ Full text: https://ohwr.org/cern_ohl_p_v2.txt
 ### Linux kernel (device changes / patches)
 **GPLv2-only**
 
-The upstream Linux kernel is licensed **GPLv2-only**. **GPLv3 is incompatible** with GPLv2-only kernel code. All kernel modifications for this device are therefore **GPLv2-only**.
+The upstream Linux kernel is licensed **GPLv2-only**. **GPLv3 is incompatible** with GPLv2-only kernel code. All kernel modifications for G-Fone F1 are therefore **strictly GPLv2-only**.
 
-### Project userspace code (scripts, apps, firmware where project-owned)
+### G-Fone F1 project modifications and own code (userspace)
 **GNU General Public License v3.0 (GPLv3)**
+
+Device/stack code and project-owned userspace modifications for G-Fone F1 are under **GPLv3** (not the kernel).
 
 Full text: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 ### LineageOS / AOSP base
 Primarily **Apache License 2.0**.
 
-Apache 2.0 is **compatible with GPLv3** (they may coexist in one product). **Mixed licenses do not cancel the original:** code that arrived under Apache 2.0 remains under Apache 2.0; applying or linking GPLv3 components does not relicense that Apache-licensed code.
+**GPLv3 and Apache 2.0 are compatible** (they may coexist in one product) but **not relicenseable**: Apache-licensed code **cannot** be converted to GPLv3. **Mixed licenses do not cancel the original.** When distributing or modifying Apache 2.0 code you **must fulfill Apache 2.0 requirements** (NOTICE, attribution, preserve license and change notices). See NOTICE.md.
 
 ## Documentation (all .md files, texts, guides)
 **Creative Commons Attribution 4.0 International (CC BY 4.0)**

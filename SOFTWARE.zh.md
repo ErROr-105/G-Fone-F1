@@ -2,21 +2,16 @@
 
 - **系统：** 基于 LineageOS，无 GApps。
 - **预装：** F-Droid、DuckDuckGo、Proton Mail。
-- **Aurora Store：** 不预装。用户自行安装。责任由用户承担。
-- **推送：** 可选网关（UnifiedPush/WebSocket）。合法拦截责任由应用开发者承担。
-- **俄罗斯兼容性：** 官方不供应该市场。RTRCA 和 SORM 要求不适用。这是技术不兼容，而非政治声明。
-- **端到端加密：** X25519、AES-256-GCM / ChaCha20-Poly1305。密钥存储在 TEE。
-- **FBE：** file-based encryption。
-- **SMD 按钮：**
-  - 隐私模式：红色。
-  - 充电指示：白 → 黄 → 绿。
-  - 温度指示：青绿 → 黄 → 橙 → 红。
-- **彩蛋：**
-  - Roblox、RTRCA。
-  - **Mindustry 加载箭头：** 打开 Mindustry 时，在**游戏自身加载画面**期间，可寻址灯光（SMD 4020 按钮 + SK6812 装饰线）复现 Mindustry 加载箭头动画——即从水平线中部展开的那些箭头——**使用与加载画面相同的光色**。
+- **Aurora Store：** 不预装，用户自行安装，责任自负。
+- **推送：** 可选网关（UnifiedPush/WebSocket）。合法拦截责任在应用开发者。
+- **俄罗斯兼容性：** 官方不供应。不适用 RTRCA 与 SORM。技术不兼容，非政治声明。
+- **E2EE：** X25519，AES-256-GCM / ChaCha20-Poly1305。密钥在 TEE。
+- **FBE：** 基于文件的加密。
+- **SMD 按钮：** Privacy 红；Charge Y-Fill 白→黄→绿；Thermal Hue 青→黄→橙→红。
+- **彩蛋：** Roblox、RTRCA；**Mindustry 加载箭头** — 打开 Mindustry 时在游戏加载画面期间灯光复现水平中部箭头动画，光色与画面一致。
 
 ## 许可（软件）
 
-- **Linux 内核（设备修改/补丁）：** **GPLv2-only**。Linux 内核以 GPLv2-only 分发；**GPLv3 与之不可兼容**，因此所有内核改动严格采用 GPLv2-only。
-- **本项目 userspace 代码（适用处）：** GPLv3（见 LICENSE.md）。
-- **LineageOS / AOSP 基础：** 主要为 **Apache License 2.0**。Apache 2.0 **与 GPLv3 兼容**（可同产品并存），但**混合许可并不取消原许可**：以 Apache 2.0 引入的代码仍保持 Apache 2.0；GPLv3 不会改写其原许可证。
+- **Linux 内核（设备修改/补丁）：** **GPLv2-only**。上游 Linux 为 **GPLv2-only**；**GPLv3 与之不可兼容**，因此 G-Fone F1 的所有内核改动 **严格 GPLv2-only**。
+- **G-Fone F1 项目修改与自有代码（userspace，适用处）：** **GPLv3**。设备/栈项目代码，非内核。
+- **LineageOS / AOSP 基础：** 主要为 **Apache License 2.0**。**GPLv3 与 Apache 2.0 兼容**（可同产品并存），但**不可再许可（not relicenseable）**：Apache 代码**不能**改为 GPLv3。混合**不取消原许可**。使用 Apache 2.0 代码时**必须履行 Apache 2.0 要求**（含 NOTICE、署名、保留许可与变更声明）。见 NOTICE.md / LICENSE.md。
