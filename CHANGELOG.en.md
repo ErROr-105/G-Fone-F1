@@ -2,6 +2,13 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6
+
+- **X-Cross:** described — internal metal cross-shaped part retaining prismatic 5S1P cells.
+- **Pack-level PTC film** for cold protection; cell-level PTC is pointless for 5S1P (series string = one electro-thermal pack).
+- **Plain-fabric finger cots** in the kit: 7075 aluminum is extreme at heat transfer; safety when handling bare metal.
+- **Case:** frame with grip; mid-price silicone camera caps included (scratch protection).
+
 ## Beta 5.1
 
 - **Display:** 7" → **6.77"** LTPS IPS QHD.
