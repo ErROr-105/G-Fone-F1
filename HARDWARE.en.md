@@ -4,7 +4,7 @@
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (announced September 2026)
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0 as availability allows).
 - **Display:** 6.77" LTPS IPS QHD, high-end.
-- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. (5S1P is serial in drones/RC; unusual for smartphones)
+- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. Battery Board: BMS + **passive balancing** (active optional). (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging:** 80 W, efficiency ≈ 95%.
 - **Protection:** IP69 / IP69K (with case).
 - **Chassis:** 7075-T6 aluminum, glue-free.
@@ -18,6 +18,17 @@
 ## Pack-level PTC
 - **PTC film at pack level** (cold protection / current limiting for low temperature and pack-path over-temp).
 - **Why not cell-level for 5S1P:** five series cells are one electrical and thermal pack. Per-cell PTC duplicates function, adds volume and contacts, complicates balancing and service, and barely improves safety vs **one** PTC/thermal path for the whole pack. Cell-level PTC fits parallel / single-cell phone packs; for 5S1P, **pack-level** is the rational choice.
+
+## BMS and cell balancing (5S1P)
+In a series string, pack capacity is limited by the **weakest cell**. Without balancing, SOC/voltage spread grows and one cell hits limits first.
+
+- **Monitoring:** voltage and temperature of **each** of the 5 cells; pack current.
+- **Balancing (baseline):** **passive** (bleed resistors during charge) — required for 5S; simpler, cheaper, easier FTO/sourcing/repair.
+- **Optional / high-end revision:** **active** balancing (charge transfer between cells) — better efficiency with large mismatch and long life; not a concept minimum.
+- **Protection:** per-cell OV/UV, OT, OC, short.
+- **Pack-level PTC ≠ balancing:** PTC handles cold and pack-path current limiting; balancing equalizes **cells**. Both are needed; neither replaces the other.
+
+Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end are separate.
 
 ## Power / PMIC (partial integration)
 - **Architecture:** hybrid — not one monolithic PMIC for everything; domain split.

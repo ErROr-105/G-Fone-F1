@@ -2,6 +2,12 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3
+
+- **BMS / 5S1P balancing:** passive balancing (bleed) as required baseline; active balancing as optional high-end revision.
+- **Clarification:** pack-level PTC ≠ cell balancing; per-cell V/T monitoring; OV/UV/OT/OC/short.
+- Docs: HARDWARE / OneinOne.
+
 ## Beta 6
 
 - **X-Cross:** described — internal metal cross-shaped part retaining prismatic 5S1P cells.
