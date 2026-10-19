@@ -7,7 +7,7 @@
 - **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. Battery Board: BMS + **passive balancing** (active optional). (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging:** 80 W, efficiency ≈ 95%.
 - **Protection:** IP69 / IP69K (with case).
-- **Chassis:** 7075-T6 aluminum, glue-free.
+- **Chassis:** 7075-T6 aluminum, glue-free. Small **steel ring** in the chassis — seat for **magnetic active cooling** (detachable cooler).
 
 ## Why 2500 mAh is not a typo?
 5S1P delivers 46.25 Wh. This is ≈3× more (exact 2.9800257731958×) than Galaxy S24 (typical capacity 4000 mAh, official 15.52 Wh). Equivalent at 3.7 V is 12,500 mAh. Prismatic cells: simple isolation, flat thermal contact, mature BMS.
@@ -47,6 +47,7 @@ Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end a
 - No generative AI.
 
 ## Cooling
+- **Magnetic active cooling:** small **steel ring** in the chassis (ferromagnetic seat). Detachable active cooler attaches **via magnets**, no glue or screws at the ring.
 - Triple vapor chamber *(concept)*, fins (12 ribs) *(concept)*, graphene coating.
 - **xMEMS Lab XMC-2400** — piezo MEMS micropump: **3 V**, **30 mW** (pump); with driver — **70 mW**. Serial component (not a concept). Thermal gradient equalization; silent, no moving parts.
 

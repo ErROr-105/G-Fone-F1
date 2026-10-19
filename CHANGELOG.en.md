@@ -2,6 +2,10 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3.1
+
+- **Steel ring in chassis** — seat for **magnetic active cooling** (detachable cooler).
+
 ## Beta 6.3
 
 - **BMS / 5S1P balancing:** passive balancing (bleed) as required baseline; active balancing as optional high-end revision.
