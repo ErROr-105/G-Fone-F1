@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.1 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -74,7 +74,7 @@ A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flag
 
 ## Chassis and Cooling
 
-- **Aluminum 7075-T6**, glue-free, all bolts removable.
+- **Aluminum 7075-T6**, glue-free, all bolts removable. Small **steel ring** in the chassis — seat for **magnetic active cooling** (detachable cooler).
 - **Protection:** IP69 without case; IP69K with supplied case (**frame with grip** + silicone camera caps). Pressure equalization valve with membrane.
 - Triple VC (IceLoop) *(concept)* in rear cover.
 - 1.3 mm thermal pad. Graphite on SoC — screw-mounted.
@@ -88,6 +88,9 @@ A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flag
 - Effect: +30–35% dissipation area; forced convection when air moves; bending stiffness; tactile grip.
 - Finish: Type III Class 2 Matte black anodizing (20–50 µm, no paint) + graphene (hydrophobicity, +5–10% radiation).
 - Link to VC: copper foil or heat pipe over full area, not only through screws.
+
+### Magnetic active cooling
+Small **steel ring** in the chassis (ferromagnetic seat). Detachable active cooler attaches **via magnets**, no glue or screws at the ring.
 
 ### Anti-Burn thermal stabilization
 
@@ -145,13 +148,13 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 6.3 Status
+## Beta 6.3.1 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**, **BMS with passive 5S balancing**.
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**, **BMS with passive 5S balancing**.
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps; active balancing as optional high-end revision.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, G-Fone F1 userspace modifications **GPLv3**, Lineage/AOSP base Apache 2.0 (compatible with GPLv3, **not relicenseable**, Apache 2.0 requirements mandatory); CC BY 4.0 (documentation).
-- **Beta 6.3 changes:** BMS — passive 5S balancing (required), active optional; PTC ≠ balancing; (from 6: X-Cross, PTC, finger cots, frame case).
+- **Beta 6.3.1 changes:** steel ring in chassis for magnetic active cooling; (from 6.3: BMS passive 5S balancing).
 
 ---
 
