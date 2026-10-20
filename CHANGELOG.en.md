@@ -2,6 +2,11 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3.1.1
+
+- **Filter choke** — inside the phone (not in the external PSU).
+- **PSU / charge path** — for **18.5 V (5S1P) pack**, not classic **3.7 V** single-cell.
+
 ## Beta 6.3.1
 
 - **Steel ring in chassis** — seat for **magnetic active cooling** (detachable cooler).
