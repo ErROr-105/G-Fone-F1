@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.1 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.1.1 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -21,7 +21,7 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0. UFS 5.0 as availability allows.
 - **Display:** 6.77" LTPS IPS QHD, high-end. Video up to 2K.
 - **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS (**passive** 5S balancing; active optional), protection. **X-Cross** mounting (metal cross retaining prismatic cells). **Pack-level PTC** film (not cell-level). (5S1P is serial in drones/RC; unusual for smartphones)
-- **Charging:** 80 W PSU, efficiency ≈ 95% (~76 W to battery). 0–80% ≈ 29 min; 0–100% ≈ 45–50 min with screen off.
+- **Charging / PSU path:** 80 W, efficiency ≈ 95% (~76 W to battery). 0–80% ≈ 29 min; 0–100% ≈ 45–50 min with screen off. Charge path designed for **18.5 V (5S1P)**, **not** classic **3.7 V** single-cell.
 - **Connectivity:** 1× nanoSIM + 1× microSD up to 1 TB + eSIM + BT connection to external satellite terminals. Direct satellite modem not claimed.
 - **Price:** €3,200 (indicative for a niche flagship).
 
@@ -49,6 +49,7 @@ Pack capacity in 5S is limited by the **weakest cell**. **Passive balancing** (b
 A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flagship’s hot rails well. Hence a **hybrid**:
 
 - **HV front-end:** step-down 18.5 V → intermediate bus (~5–9 V); separate path for 80 W charging and BMS.
+- **Filter choke — in the phone** (not in the external PSU): LC/filter on charge-path input and/or after HV step-down; adapter is the 80 W source; filter inductance on device boards.
 - **SoC core rails (CPU / GPU / NPU):** partial integration of an **advanced multiphase digital buck controller** + power stages on Vcore / GPU / NPU; AVS/DVS tied to MediaTek DVFS; fast transient response for 2 nm loads.
 - **Other domains:** companion PMIC / discrete regulators (LPDDR6, RF, ISP/cameras, display, always-on).
 - **Why:** efficiency and thermal headroom on hot rails; simpler sourcing, FTO and repair via companions.
@@ -148,13 +149,13 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 6.3.1 Status
+## Beta 6.3.1.1 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**, **BMS with passive 5S balancing**.
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**, **BMS with passive 5S balancing**, **filter choke in the phone**, charge path **18.5 V** (not 3.7 V).
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps; active balancing as optional high-end revision.
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
 - **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, G-Fone F1 userspace modifications **GPLv3**, Lineage/AOSP base Apache 2.0 (compatible with GPLv3, **not relicenseable**, Apache 2.0 requirements mandatory); CC BY 4.0 (documentation).
-- **Beta 6.3.1 changes:** steel ring in chassis for magnetic active cooling; (from 6.3: BMS passive 5S balancing).
+- **Beta 6.3.1.1 changes:** filter choke in the phone; PSU/charge path for 18.5 V (not 3.7 V); (from 6.3.1: steel ring for magnetic cooler).
 
 ---
 
