@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.1.1 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.1.2 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -69,7 +69,7 @@ A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flag
 - **Glass:** Zeiss — only with a license.
 - **AI:** no generative fill. Only HDR, noise reduction, stabilization.
 - **Layout:** top-left main; top-right IR laser; mid-right telephoto; bottom-left flash; bottom-center DoF; bottom-right ultrawide.
-- **Keep-out zone:** ≥ 7 mm around camera block. Fins outside lens area — otherwise glare, flare, thermal load on OIS and adhesive.
+- **Keep-out zone:** ≥ 7 mm around camera block. Bridges outside lens area — otherwise glare, flare, thermal load on OIS and adhesive.
 
 ---
 
@@ -82,13 +82,13 @@ A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flag
 - **Seals:** VMQ/LSR Shore A40 (main, spring-damped) + EPDM Shore A50–60. Multi-contour + mechanical clamp. 2 spare sets included.
 - **Telescopic antenna *(concept)*:** polycarbonate shaft, antenna cap. Requires: IP69 extended/retracted, drainage, seal replacement schedule, separate SAR/EMC tests. In series — either separate chassis revision or accessory.
 
-### Fins *(concept)*
+### Bridges (перемычки) *(concept)*
 
-- 12 trapezoidal fins. Height 2 mm, gap 2 mm, base thickness 1.2 mm, tip 0.6 mm, radius 0.2–0.3 mm.
-- Location: lower 2/3 + side zones. Camera zone and engraving strip remain smooth.
-- Effect: +30–35% dissipation area; forced convection when air moves; bending stiffness; tactile grip.
-- Finish: Type III Class 2 Matte black anodizing (20–50 µm, no paint) + graphene (hydrophobicity, +5–10% radiation).
-- Link to VC: copper foil or heat pipe over full area, not only through screws.
+- Short **metal bridges** on the rear panel — same look as the **one just below SMD** (short raised segment; not a continuous mesh, not X marks).
+- Pattern: diamond lattice **without crossings** (short `|` / `—` segments with gaps). **No fixed bridge count**.
+- Camera zone and logo strip stay clear of bridges over text.
+- **Air-contact area:** on the rear panel roughly **~+25–35%** vs a flat surface (estimate; depends on pattern density).
+- Finish: Type III Class 2 Matte black anodizing + graphene. Link to VC across the panel area.
 
 ### Magnetic active cooling
 Small **steel ring** in the chassis (ferromagnetic seat). Detachable active cooler attaches **via magnets**, no glue or screws at the ring.
@@ -140,7 +140,7 @@ When opening **Mindustry**, during the **game’s own load screen**, the lightin
 - **MEMS cooling:** xMEMS Lab (XMC-2400), Murata, ST, Frore Systems. FTO.
 - **LED button illumination:** Samsung, LG, Motorola. FTO.
 - **SK6812:** Worldsemi, APA Electronic. FTO.
-- **Chassis fins:** thermal design FTO.
+- **Chassis bridges:** thermal design FTO.
 - **G-Fone trademark:** check Nice classes 9 and 38 (India, Gee Pee Ess).
 - **Qualcomm risk:** even with MediaTek SoC — address in FTO.
 - **PMIC / multiphase:** FTO on controllers and power stages (TI, Infineon, MPS, Richtek, etc. — ODM choice).
@@ -149,13 +149,13 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 6.3.1.1 Status
+## Beta 6.3.1.2 Status
 
 - **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**, **BMS with passive 5S balancing**, **filter choke in the phone**, charge path **18.5 V** (not 3.7 V).
-- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, ribs (12 fins), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps; active balancing as optional high-end revision.
-- **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, fins.
+- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, **bridges** (no fixed count; same look as under SMD; ~+25–35% air-contact area), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps; active balancing as optional high-end revision.
+- **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, bridges/thermal design.
 - **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, G-Fone F1 userspace modifications **GPLv3**, Lineage/AOSP base Apache 2.0 (compatible with GPLv3, **not relicenseable**, Apache 2.0 requirements mandatory); CC BY 4.0 (documentation).
-- **Beta 6.3.1.1 changes:** filter choke in the phone; PSU/charge path for 18.5 V (not 3.7 V); (from 6.3.1: steel ring for magnetic cooler).
+- **Beta 6.3.1.2 changes:** bridges (no count; look as under SMD; ~+25–35% air contact) instead of “12 fins”; (from 6.3.1.1: choke in phone, 18.5 V charge path).
 
 ---
 
