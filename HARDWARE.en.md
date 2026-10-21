@@ -49,7 +49,7 @@ Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end a
 
 ## Cooling
 - **Magnetic active cooling:** small **steel ring** in the chassis (ferromagnetic seat). Detachable active cooler attaches **via magnets**, no glue or screws at the ring.
-- Triple vapor chamber *(concept)*, fins (12 ribs) *(concept)*, graphene coating.
+- Triple vapor chamber *(concept)*, **bridges (перемычки)** on the rear panel *(concept)* — short metal segments (same look as the one just below SMD), diamond lattice without crossings; roughly **~+25–35%** more air-contact area on the panel vs a flat surface (estimate), graphene coating.
 - **xMEMS Lab XMC-2400** — piezo MEMS micropump: **3 V**, **30 mW** (pump); with driver — **70 mW**. Serial component (not a concept). Thermal gradient equalization; silent, no moving parts.
 
 ## Kit and case

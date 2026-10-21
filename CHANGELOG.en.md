@@ -2,6 +2,10 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3.1.2
+
+- **Bridges** instead of “12 fins”: no fixed count; same look as the one just below SMD; diamond lattice without crossings; air-contact area on the panel **~+25–35%** (estimate).
+
 ## Beta 6.3.1.1
 
 - **Filter choke** — inside the phone (not in the external PSU).
