@@ -4,7 +4,7 @@
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (announced September 2026)
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0 as availability allows).
 - **Display:** 6.77" LTPS IPS QHD, high-end.
-- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. Battery Board: BMS + **passive balancing** (active optional). (5S1P is serial in drones/RC; unusual for smartphones)
+- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. Battery Board: BMS + **active balancing** (charge transfer between cells). (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging / PSU path:** 80 W, efficiency ≈ 95%. Charge path and power path are designed for the **18.5 V (5S1P) pack**, not classic **3.7 V** single-cell.
 - **Protection:** IP69 / IP69K (with case).
 - **Chassis:** 7075-T6 aluminum, glue-free. Small **steel ring** in the chassis — seat for **magnetic active cooling** (detachable cooler).
@@ -23,8 +23,8 @@
 In a series string, pack capacity is limited by the **weakest cell**. Without balancing, SOC/voltage spread grows and one cell hits limits first.
 
 - **Monitoring:** voltage and temperature of **each** of the 5 cells; pack current.
-- **Balancing (baseline):** **passive** (bleed resistors during charge) — required for 5S; simpler, cheaper, easier FTO/sourcing/repair.
-- **Optional / high-end revision:** **active** balancing (charge transfer between cells) — better efficiency with large mismatch and long life; not a concept minimum.
+- **Balancing (baseline):** **active** (charge transfer between cells) — required for 5S in this concept; better efficiency under mismatch, fuller pack capacity use, longer life.
+- **Passive** (bleed resistors) — not the concept baseline; simpler/cheaper but dissipates excess energy and is weaker with large mismatch.
 - **Protection:** per-cell OV/UV, OT, OC, short.
 - **Pack-level PTC ≠ balancing:** PTC handles cold and pack-path current limiting; balancing equalizes **cells**. Both are needed; neither replaces the other.
 

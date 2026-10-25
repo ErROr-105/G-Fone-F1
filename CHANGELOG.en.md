@@ -2,6 +2,10 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3.2
+
+- **BMS / 5S1P balancing:** **active** balancing (charge transfer) as required baseline; passive (bleed) is not baseline.
+
 ## Beta 6.3.1.2
 
 - **Bridges** instead of “12 fins”: no fixed count; same look as the one just below SMD; diamond lattice without crossings; air-contact area on the panel **~+25–35%** (estimate).
