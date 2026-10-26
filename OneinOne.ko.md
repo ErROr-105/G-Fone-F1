@@ -1,18 +1,22 @@
-# G-Fone F1 — Beta 6.3.1.1 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.3 (Engineering Edition)
 
-> 컨셉. 제품 아님. 라이선스: CERN-OHL-P v2 / GPLv3 / CC BY 4.0.
+> 컨셉. 제품 아님. 라이선스: CERN-OHL-P v2 / 커널 GPLv2-only / userspace GPLv3 / Lineage Apache 2.0 / CC BY 4.0.
 
 ## 주요 사양
 
 - **SoC:** Dimensity 9600 Pro, 2 nm. LPDDR6 + UFS 5.0.
 - **디스플레이:** 6.77인치 LTPS IPS QHD.
-- **배터리:** 5S1P, 46.25 Wh. **X-Cross**; pack-level PTC; BMS **수동 밸런싱**.
+- **배터리:** 5S1P, 46.25 Wh. **X-Cross**; BMS **능동 밸런싱**(셀 간 전하 이동).
 - **충전 / PSU 경로:** 80 W. **18.5 V(5S1P)**, 고전 **3.7 V** 단셀 아님.
 - **필터 초크:** **폰 내부**(외부 PSU 아님).
 - **본체:** 7075-T6; **스틸 링** 자석 능동 냉각.
 
-## Beta 6.3.1.1 상태
+## BMS
 
-필터 초크 폰 내부; 충전 경로 18.5 V(3.7 V 아님). (상속 6.3.1: 스틸 링 자석 냉각)
+**능동 밸런싱**이 컨셉 베이스라인. **수동(bleed)을 쓰지 않는 이유:** 잉여 에너지가 저항에서 소모 → **셀 국소 과열**, **효율 저하**; 능동 이동은 팩에 열을 버리지 않고 hotspot을 줄이며 **효율이 더 높음**.
+
+## Beta 6.3.3 상태
+
+**PTC 필름 제거**; 능동 BMS 근거는 **셀 국소 과열 감소**와 **더 높은 효율**(bleed 대비). (상속 6.3.2: 능동이 베이스라인)
 
 > **면책.** 컨셉이지 제품이 아닙니다.

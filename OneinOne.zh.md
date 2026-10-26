@@ -1,18 +1,22 @@
-# G-Fone F1 — Beta 6.3.1.1 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.3 (Engineering Edition)
 
-> 概念。非产品。许可证：CERN-OHL-P v2 / GPLv3 / CC BY 4.0。
+> 概念。非产品。许可证：CERN-OHL-P v2 / 内核 GPLv2-only / userspace GPLv3 / Lineage Apache 2.0 / CC BY 4.0。
 
 ## 主要规格
 
 - **SoC：** Dimensity 9600 Pro，2 nm。LPDDR6 + UFS 5.0。
 - **屏幕：** 6.77 英寸 LTPS IPS QHD。
-- **电池：** 5S1P，46.25 Wh。**X-Cross**；pack-level PTC；BMS **被动均衡**。
+- **电池：** 5S1P，46.25 Wh。**X-Cross**；BMS **主动均衡**（电芯间电荷转移）。
 - **充电 / 电源路径：** 80 W。按 **18.5 V（5S1P）**，非 **3.7 V** 单电芯。
 - **滤波电感：** 在**手机内**（不在外部电源）。
 - **机身：** 7075-T6；**钢环**磁吸主动散热。
 
-## Beta 6.3.1.1 状态
+## BMS
 
-滤波电感在手机内；充电路径 18.5 V（非 3.7 V）。（继承 6.3.1：钢环磁吸散热）
+**主动均衡**为概念基线。**不用被动（bleed）的原因：** 多余能量在电阻上耗散 → **电芯局部过热**、**效率更低**；主动转移不向 pack 散热，减少 hotspot，**效率更高**。
+
+## Beta 6.3.3 状态
+
+已移除 **PTC 膜**；主动 BMS 论证为 **降低电芯局部过热** 与 **更高效率**（相对 bleed）。（继承 6.3.2：主动为基线）
 
 > **免责声明。** 这是概念。不是产品。
