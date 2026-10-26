@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.2 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.3 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -20,7 +20,7 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3: 2× C2-Ultra up to 4.55 GHz, 3× C2-Pro up to 4.35 GHz, 3× C2-Pro up to 3.1 GHz. 34.5 MB cache. LPDDR6 + UFS 5.0. Announced 15.09.2026, devices by end of 2026.
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0. UFS 5.0 as availability allows.
 - **Display:** 6.77" LTPS IPS QHD, high-end. Video up to 2K.
-- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS (**active** 5S balancing), protection. **X-Cross** mounting (metal cross retaining prismatic cells). **Pack-level PTC** film (not cell-level). (5S1P is serial in drones/RC; unusual for smartphones)
+- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS (**active** 5S balancing), protection. **X-Cross** mounting (metal cross retaining prismatic cells). (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging / PSU path:** 80 W, efficiency ≈ 95% (~76 W to battery). 0–80% ≈ 29 min; 0–100% ≈ 45–50 min with screen off. Charge path designed for **18.5 V (5S1P)**, **not** classic **3.7 V** single-cell.
 - **Connectivity:** 1× nanoSIM + 1× microSD up to 1 TB + eSIM + BT connection to external satellite terminals. Direct satellite modem not claimed.
 - **Price:** €3,200 (indicative for a niche flagship).
@@ -35,10 +35,7 @@ Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.2
 Internal **metal cross-shaped part** that retains and clamps the prismatic 5S1P cells on the Battery Board. Pack stiffness, even pressure, less play under impact. Structural hold-down, not decoration.
 
 ### BMS and cell balancing (5S1P)
-Pack capacity in 5S is limited by the **weakest cell**. **Active balancing** (charge transfer between cells) is the **required baseline** of this concept. Passive (bleed) is not the baseline. Per-cell V/T monitoring; OV/UV/OT/OC/short protection. **Pack-level PTC** is cold/pack current limiting — **not** a substitute for balancing.
-
-### Pack-level PTC
-**PTC film at pack level** — cold protection and current limiting on the pack path. **Cell-level is pointless for 5S1P:** five series cells are one electrical and thermal unit; per-cell PTC duplicates function, adds volume and contacts, and barely improves safety vs one path for the whole pack.
+Pack capacity in 5S is limited by the **weakest cell**. **Active balancing** (charge transfer between cells) is the **required baseline** of this concept. **Why not passive (bleed):** excess energy is burned in resistors → **local cell/Battery Board overheating** and **lower efficiency**. Active transfer equalizes SOC without dissipating heat into the pack, cuts hotspots, and yields **higher efficiency**. Per-cell V/T monitoring; OV/UV/OT/OC/short protection.
 
 ### Kit: finger cots and case
 - **Plain-fabric finger cots** in the box. 7075-T6 aluminum is extreme at heat transfer — bare chassis can feel ice-cold or burning hot. Finger cots are **safety**, not fashion.
@@ -149,13 +146,13 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 6.3.2 Status
+## Beta 6.3.3 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **pack-level PTC**, **BMS with active 5S balancing**, **filter choke in the phone**, charge path **18.5 V** (not 3.7 V).
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **BMS with active 5S balancing**, **filter choke in the phone**, charge path **18.5 V** (not 3.7 V).
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, **bridges** (no fixed count; same look as under SMD; ~+25–35% air-contact area), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps; passive balancing is not baseline (active is baseline).
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, bridges/thermal design.
 - **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, G-Fone F1 userspace modifications **GPLv3**, Lineage/AOSP base Apache 2.0 (compatible with GPLv3, **not relicenseable**, Apache 2.0 requirements mandatory); CC BY 4.0 (documentation).
-- **Beta 6.3.2 changes:** BMS — **active** balancing as baseline (was passive); (from 6.3.1.2: bridges, no fixed count).
+- **Beta 6.3.3 changes:** **PTC film removed**; active BMS justified by **lower local cell overheating** and **higher efficiency** (vs bleed); (from 6.3.2: active baseline).
 
 ---
 
