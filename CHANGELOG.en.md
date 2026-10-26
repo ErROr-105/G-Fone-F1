@@ -2,6 +2,11 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3.3
+
+- **PTC film removed** (pack-level / cell-level no longer in the spec).
+- **Active BMS** rationale: **lower local cell overheating** (bleed heats the pack) and **higher balancing/charge efficiency** vs passive.
+
 ## Beta 6.3.2
 
 - **BMS / 5S1P balancing:** **active** balancing (charge transfer) as required baseline; passive (bleed) is not baseline.

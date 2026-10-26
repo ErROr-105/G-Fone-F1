@@ -15,18 +15,14 @@
 ## X-Cross
 **X-Cross** is an internal metal cross-shaped part that retains and clamps the prismatic cells of the 5S1P pack on the Battery Board: pack stiffness, even pressure, less play under impact/flex. Not decoration — a structural battery hold-down.
 
-## Pack-level PTC
-- **PTC film at pack level** (cold protection / current limiting for low temperature and pack-path over-temp).
-- **Why not cell-level for 5S1P:** five series cells are one electrical and thermal pack. Per-cell PTC duplicates function, adds volume and contacts, complicates balancing and service, and barely improves safety vs **one** PTC/thermal path for the whole pack. Cell-level PTC fits parallel / single-cell phone packs; for 5S1P, **pack-level** is the rational choice.
-
 ## BMS and cell balancing (5S1P)
 In a series string, pack capacity is limited by the **weakest cell**. Without balancing, SOC/voltage spread grows and one cell hits limits first.
 
 - **Monitoring:** voltage and temperature of **each** of the 5 cells; pack current.
-- **Balancing (baseline):** **active** (charge transfer between cells) — required for 5S in this concept; better efficiency under mismatch, fuller pack capacity use, longer life.
-- **Passive** (bleed resistors) — not the concept baseline; simpler/cheaper but dissipates excess energy and is weaker with large mismatch.
+- **Balancing (baseline):** **active** (charge transfer between cells) — required for 5S in this concept.
+- **Why not passive:** bleed burns excess energy in resistors → **local cell/board overheating** and **lower efficiency**. Active charge transfer equalizes SOC **without** dissipating heat into the pack, cuts local hotspots, and yields **higher balancing and pack-charge efficiency**.
+- **Passive** (bleed) — not the concept baseline.
 - **Protection:** per-cell OV/UV, OT, OC, short.
-- **Pack-level PTC ≠ balancing:** PTC handles cold and pack-path current limiting; balancing equalizes **cells**. Both are needed; neither replaces the other.
 
 Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end are separate.
 
