@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.3 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.4 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -35,7 +35,7 @@ Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.2
 Internal **metal cross-shaped part** that retains and clamps the prismatic 5S1P cells on the Battery Board. Pack stiffness, even pressure, less play under impact. Structural hold-down, not decoration.
 
 ### BMS and cell balancing (5S1P)
-Pack capacity in 5S is limited by the **weakest cell**. **Active balancing** (charge transfer between cells) is the **required baseline** of this concept. **Why not passive (bleed):** excess energy is burned in resistors → **local cell/Battery Board overheating** and **lower efficiency**. Active transfer equalizes SOC without dissipating heat into the pack, cuts hotspots, and yields **higher efficiency**. Per-cell V/T monitoring; OV/UV/OT/OC/short protection.
+Pack capacity in 5S is limited by the **weakest cell**. **Active balancing** (charge transfer between cells) is the **required baseline** of this concept. **Why not passive (bleed):** excess energy is burned in resistors → **local cell/Battery Board overheating** and **lower efficiency**. Active transfer equalizes SOC without dissipating heat into the pack, cuts hotspots, and yields **higher efficiency**. Monitoring: V of **each** cell; **battery temperature sensors** (NTC) on **each** of the 5 cells; **shunt** for pack current (charge/discharge, coulomb counting, OC/SC, SOC). OV/UV/OT/OC/short protection.
 
 ### Kit: finger cots and case
 - **Plain-fabric finger cots** in the box. 7075-T6 aluminum is extreme at heat transfer — bare chassis can feel ice-cold or burning hot. Finger cots are **safety**, not fashion.
@@ -146,13 +146,13 @@ Details in LEGAL.md and PATENTS.md.
 
 ---
 
-## Beta 6.3.3 Status
+## Beta 6.3.4 Status
 
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **BMS with active 5S balancing**, **filter choke in the phone**, charge path **18.5 V** (not 3.7 V).
+- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **BMS with active 5S balancing** (shunt + battery T sensors), **filter choke in the phone**, charge path **18.5 V** (not 3.7 V).
 - **Concept / rare solutions / system integration:** triple VC, telescopic antenna, **bridges** (no fixed count; same look as under SMD; ~+25–35% air-contact area), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps; passive balancing is not baseline (active is baseline).
 - **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, bridges/thermal design.
 - **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, G-Fone F1 userspace modifications **GPLv3**, Lineage/AOSP base Apache 2.0 (compatible with GPLv3, **not relicenseable**, Apache 2.0 requirements mandatory); CC BY 4.0 (documentation).
-- **Beta 6.3.3 changes:** **PTC film removed**; active BMS justified by **lower local cell overheating** and **higher efficiency** (vs bleed); (from 6.3.2: active baseline).
+- **Beta 6.3.4 changes:** pack-current **shunt** + **battery temperature sensors** (NTC on each of 5 cells); (from 6.3.3: no PTC, active BMS).
 
 ---
 
