@@ -2,6 +2,11 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3.4
+
+- Pack-current **shunt** (precision) — coulomb counting, OC/SC, SOC.
+- **Battery temperature sensors** — NTC (or equivalent) on **each** of the 5 cells (+ optional Battery Board).
+
 ## Beta 6.3.3
 
 - **PTC film removed** (pack-level / cell-level no longer in the spec).

@@ -2,6 +2,11 @@
 
 G-Fone F1 컨셉 변경 이력. 초기 버전(Beta 3 이전) 미게시.
 
+## Beta 6.3.4
+
+- **션트** 팩 전류 — 쿨롱 카운팅, 과전류, SOC.
+- **배터리 온도 센서** — 셀당 NTC(+ 선택 Battery Board).
+
 ## Beta 6.3.3
 
 - **PTC 필름 제거**(pack-level / cell-level 스펙에서 삭제).

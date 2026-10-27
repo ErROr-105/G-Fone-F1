@@ -18,7 +18,10 @@
 ## BMS and cell balancing (5S1P)
 In a series string, pack capacity is limited by the **weakest cell**. Without balancing, SOC/voltage spread grows and one cell hits limits first.
 
-- **Monitoring:** voltage and temperature of **each** of the 5 cells; pack current.
+- **Monitoring:**
+  - voltage of **each** of the 5 cells;
+  - **battery temperature sensors** — NTC (or equivalent) on **each** of the 5 cells + optional on Battery Board / bus;
+  - **shunt** (precision shunt resistor) for **pack** current (charge / discharge) — coulomb counting, OC/SC and SOC.
 - **Balancing (baseline):** **active** (charge transfer between cells) — required for 5S in this concept.
 - **Why not passive:** bleed burns excess energy in resistors → **local cell/board overheating** and **lower efficiency**. Active charge transfer equalizes SOC **without** dissipating heat into the pack, cuts local hotspots, and yields **higher balancing and pack-charge efficiency**.
 - **Passive** (bleed) — not the concept baseline.

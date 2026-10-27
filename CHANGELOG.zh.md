@@ -2,6 +2,11 @@
 
 G-Fone F1 概念的变更历史。早期版本（Beta 3 之前）未发布。
 
+## Beta 6.3.4
+
+- **分流器（shunt）**测包电流 — 库仑计、过流、SOC。
+- **电芯温度传感器** — 每节 NTC（可选 Battery Board）。
+
 ## Beta 6.3.3
 
 - **PTC 膜已移除**（pack-level / cell-level 不再写入规格）。
