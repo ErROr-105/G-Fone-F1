@@ -2,6 +2,12 @@
 
 History of changes to the G-Fone F1 concept. Early versions (before Beta 3) are not published: some decisions were revised, some removed as unfeasible.
 
+## Beta 6.3.5
+
+- **No mechanical SIM or microSD slots** — **eSIM only**.
+- **External drives of any size** via USB host (USB-C).
+- **In the box:** **USB → SATA adapter with power** (2.5″/3.5″ SATA).
+
 ## Beta 6.3.4
 
 - Pack-current **shunt** (precision) — coulomb counting, OC/SC, SOC.

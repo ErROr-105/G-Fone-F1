@@ -38,6 +38,11 @@ Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end a
 - **Rationale:** 5S1P plus a flagship 2 nm SoC do not fit a classic single-cell phone PMIC well; multiphase on hot rails improves efficiency and thermal headroom; companions simplify sourcing, FTO and repair.
 - **Status:** multiphase controllers and HV bucks are serial technologies; **the system build for 18.5 V + Dimensity 9600 Pro is an engineering choice** (needs ODM validation, layout, thermal and EMC).
 
+## Connectivity and storage
+- **SIM / SD:** **no mechanical slots** (neither nanoSIM nor microSD). Cellular — **eSIM only** (up to 2 profiles — per ODM).
+- **External drives:** full compatibility with external storage of **any size** via USB host (USB-C): HDD/SSD, flash drives; no “microSD up to 1 TB” cap.
+- **In the box:** **USB → SATA** adapter with **external power** — for 2.5″/3.5″ SATA drives without relying only on phone port current.
+
 ## Cameras
 - Main: 50 MP Sony IMX903, f/1.4, OIS.
 - Telephoto: 50 MP, f/1.4, OIS.
@@ -48,9 +53,10 @@ Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end a
 
 ## Cooling
 - **Magnetic active cooling:** small **steel ring** in the chassis (ferromagnetic seat). Detachable active cooler attaches **via magnets**, no glue or screws at the ring.
-- Triple vapor chamber *(concept)*, **bridges (перемычки)** on the rear panel *(concept)* — short metal segments (same look as the one just below SMD), diamond lattice without crossings; roughly **~+25–35%** more air-contact area on the panel vs a flat surface (estimate), graphene coating.
+- Triple vapor chamber *(concept)*, **ventilation texture** on the rear panel *(concept)* — directional micro-channels to boost natural convection (not hole perforation); graphene coating.
 - **xMEMS Lab XMC-2400** — piezo MEMS micropump: **3 V**, **30 mW** (pump); with driver — **70 mW**. Serial component (not a concept). Thermal gradient equalization; silent, no moving parts.
 
 ## Kit and case
 - **Plain-fabric finger cots** in the box. 7075-T6 aluminum is extreme at heat transfer — the chassis can feel ice-cold or burning hot. Finger cots are **safety** for bare-metal handling, not a fashion accessory.
 - **Case** is a **frame with grip** (not a full soft sleeve). The case kit includes **mid-price silicone camera caps** — scratch protection for the lens modules.
+- **USB → SATA adapter with power** — in the box.
