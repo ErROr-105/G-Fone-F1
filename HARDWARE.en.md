@@ -2,7 +2,7 @@
 
 ## Main Specifications
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (announced September 2026)
-- **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0 as availability allows).
+- **Memory (internal only):** 16 GB LPDDR6 + **256 GB UFS 4.0** (no microSD slot; UFS 5.0 as availability allows).
 - **Display:** 6.77" LTPS IPS QHD, high-end.
 - **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. Battery Board: BMS + **active balancing** (charge transfer between cells). (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging / PSU path:** 80 W **wired**, efficiency ≈ 95%. **No wireless charging** (see below). Charge path and power path are designed for the **18.5 V (5S1P) pack**, not classic **3.7 V** single-cell.
@@ -45,9 +45,12 @@ Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end a
 - **Strong local heating** is unsafe for a 5S1P pack and BMS: heat under the coil hits cells and balancing. Half-joke, half-physics: *if you accidentally put the phone under a gas burner, nothing living remains either* — wireless charging does a milder version of the same stunt, just slower and marketed as “convenient.”
 
 ## Connectivity and storage
-- **SIM / SD:** **no mechanical slots** (neither nanoSIM nor microSD). Cellular — **eSIM only** (up to 2 profiles — per ODM). **eSIM is fully independent of ecosystems** (Apple/Google/OEM): carrier profiles only, no lock-in to a vendor store or cloud.
-- **External drives:** full compatibility with external storage of **any size** via USB host (USB-C): HDD/SSD, flash drives; no “microSD up to 1 TB” cap.
-- **In the box:** **USB → SATA** adapter with **external power** — for 2.5″/3.5″ SATA drives without relying only on phone port current.
+- **SIM / SD:** **no mechanical slots**. Cellular — **eSIM only** (up to 2 profiles — per ODM).
+- **eSIM: Privacy-First Control** — activate/deactivate profiles only; delete/modify/telemetry blocked without explicit consent; local immutable log; no hidden operator actions; **ecosystem-independent** (Apple/Google/OEM).
+- **Internal storage:** **256 GB UFS 4.0 only** (no microSD).
+- **USB Host Storage: User-Chosen Flexibility** — any USB SSD/HDD; user picks capacity (e.g. Kingston 2 TB); USB 3.2 / open standards; data independent of internal UFS — **a tool, not a consumer appliance**.
+- **In the box:** **USB → SATA with power** (2.5″/3.5″).
+- **Why No microSD?** flexibility via USB standards, repairability, cost efficiency without losing capability.
 
 ## Cameras
 - Main: 50 MP Sony IMX903, f/1.4, OIS.
