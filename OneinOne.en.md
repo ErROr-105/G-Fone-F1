@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.4 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.5 (Engineering Edition)
 
 > Concept. Some specifications are design assumptions or non-standard combinations of existing technologies.  
 > Everything marked *(concept)* requires additional verification with ODM and certification labs.  
@@ -22,147 +22,55 @@ Target audience — privacy, repairability and “no-compromise hardware” enth
 - **Display:** 6.77" LTPS IPS QHD, high-end. Video up to 2K.
 - **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, **46.25 Wh**. Prismatic Li-polymer. Battery Board with BMS (**active** 5S balancing), protection. **X-Cross** mounting (metal cross retaining prismatic cells). (5S1P is serial in drones/RC; unusual for smartphones)
 - **Charging / PSU path:** 80 W, efficiency ≈ 95% (~76 W to battery). 0–80% ≈ 29 min; 0–100% ≈ 45–50 min with screen off. Charge path designed for **18.5 V (5S1P)**, **not** classic **3.7 V** single-cell.
-- **Connectivity:** 1× nanoSIM + 1× microSD up to 1 TB + eSIM + BT connection to external satellite terminals. Direct satellite modem not claimed.
+- **Connectivity / slots:** **no mechanical SIM or microSD slots**. Cellular — **eSIM only** (up to 2 profiles — per ODM). BT to external satellite terminals. Direct satellite modem not claimed.
+- **External storage:** full compatibility with external drives of **any size** (HDD/SSD/flash) via USB host (USB-C).
+- **In the box:** **USB → SATA** adapter with **power** — 2.5″/3.5″ SATA without relying only on phone port current.
 - **Price:** €3,200 (indicative for a niche flagship).
 
 ### Why 2500 mAh is not a typo
 
 5S1P means 5 series cells of 2500 mAh each. Pack voltage 18.5 V. Energy 46.25 Wh. This is **≈3× more** (exact **2.9800257731958×**) than Galaxy S24 (typical capacity **4000 mAh**, official **15.52 Wh**). Equivalent at 3.7 V is **12,500 mAh**.
 
-Marketing trap: writing “2500 mAh” in large font is suicide. Writing “46.25 Wh / 12,500 mAh eq.” is honest and strong. Prismatic cells give simple isolation, flat thermal contact and mature BMS.
-
 ### X-Cross
-Internal **metal cross-shaped part** that retains and clamps the prismatic 5S1P cells on the Battery Board. Pack stiffness, even pressure, less play under impact. Structural hold-down, not decoration.
+Internal **metal cross-shaped part** that retains and clamps the prismatic 5S1P cells on the Battery Board.
 
 ### BMS and cell balancing (5S1P)
-Pack capacity in 5S is limited by the **weakest cell**. **Active balancing** (charge transfer between cells) is the **required baseline** of this concept. **Why not passive (bleed):** excess energy is burned in resistors → **local cell/Battery Board overheating** and **lower efficiency**. Active transfer equalizes SOC without dissipating heat into the pack, cuts hotspots, and yields **higher efficiency**. Monitoring: V of **each** cell; **battery temperature sensors** (NTC) on **each** of the 5 cells; **shunt** for pack current (charge/discharge, coulomb counting, OC/SC, SOC). OV/UV/OT/OC/short protection.
+**Active balancing** is the required baseline. **Why not passive (bleed):** local overheating and lower efficiency. Monitoring: per-cell V; **battery temperature sensors** (NTC) on each of 5 cells; **shunt** for pack current (coulomb counting, OC/SC, SOC). OV/UV/OT/OC/short.
 
-### Kit: finger cots and case
-- **Plain-fabric finger cots** in the box. 7075-T6 aluminum is extreme at heat transfer — bare chassis can feel ice-cold or burning hot. Finger cots are **safety**, not fashion.
-- **Case** is a **frame with grip** (not a full soft sleeve). Includes **mid-price silicone camera caps** — scratch protection for the lenses.
+### Kit
+- Plain-fabric finger cots (safety on 7075-T6).
+- **USB → SATA adapter with power** in the box.
+- Frame case with grip + silicone camera caps.
 
-### Power / PMIC — partial integration of an advanced controller
-
-A classic single-cell phone PMIC does not fit **18.5 V (5S1P)** plus a 2 nm flagship’s hot rails well. Hence a **hybrid**:
-
-- **HV front-end:** step-down 18.5 V → intermediate bus (~5–9 V); separate path for 80 W charging and BMS.
-- **Filter choke — in the phone** (not in the external PSU): LC/filter on charge-path input and/or after HV step-down; adapter is the 80 W source; filter inductance on device boards.
-- **SoC core rails (CPU / GPU / NPU):** partial integration of an **advanced multiphase digital buck controller** + power stages on Vcore / GPU / NPU; AVS/DVS tied to MediaTek DVFS; fast transient response for 2 nm loads.
-- **Other domains:** companion PMIC / discrete regulators (LPDDR6, RF, ISP/cameras, display, always-on).
-- **Why:** efficiency and thermal headroom on hot rails; simpler sourcing, FTO and repair via companions.
-- **Status:** multiphase and HV bucks are serial tech; **the 18.5 V + Dimensity 9600 Pro system build is an engineering choice** (ODM, layout, thermal, EMC).
+### Power / PMIC
+Hybrid: HV front-end 18.5 V → intermediate bus; **filter choke in the phone**; multiphase digital buck on SoC hot rails; companion PMICs for other domains.
 
 ---
 
 ## Cameras
-
-- **Main:** 50 MP Sony IMX903, f/1.4, OIS.
-- **Telephoto:** 50 MP IMX890 or smaller, f/1.4, OIS.
-- **Ultrawide:** 50 MP IMX858, f/1.4.
-- **DoF:** 12 MP, f/2.0, RGB + B&W, no generative AI.
-- **Additional:** ToF + IR laser (Class 1) + flash.
-- **Stabilization:** OIS on main modules.
-- **Selfie:** 50 MP.
-- **Glass:** Zeiss — only with a license.
-- **AI:** no generative fill. Only HDR, noise reduction, stabilization.
-- **Layout:** top-left main; top-right IR laser; mid-right telephoto; bottom-left flash; bottom-center DoF; bottom-right ultrawide.
-- **Keep-out zone:** ≥ 7 mm around camera block. Bridges outside lens area — otherwise glare, flare, thermal load on OIS and adhesive.
+Main 50 MP Sony IMX903; tele 50 MP; ultrawide 50 MP IMX858; DoF 12 MP; selfie 50 MP. No generative AI. Keep-out ≥ 7 mm; ventilation texture outside lens area.
 
 ---
 
 ## Chassis and Cooling
-
-- **Aluminum 7075-T6**, glue-free, all bolts removable. Small **steel ring** in the chassis — seat for **magnetic active cooling** (detachable cooler).
-- **Protection:** IP69 without case; IP69K with supplied case (**frame with grip** + silicone camera caps). Pressure equalization valve with membrane.
-- Triple VC (IceLoop) *(concept)* in rear cover.
-- 1.3 mm thermal pad. Graphite on SoC — screw-mounted.
-- **Seals:** VMQ/LSR Shore A40 (main, spring-damped) + EPDM Shore A50–60. Multi-contour + mechanical clamp. 2 spare sets included.
-- **Telescopic antenna *(concept)*:** polycarbonate shaft, antenna cap. Requires: IP69 extended/retracted, drainage, seal replacement schedule, separate SAR/EMC tests. In series — either separate chassis revision or accessory.
-
-### Bridges (перемычки) *(concept)*
-
-- Short **metal bridges** on the rear panel — same look as the **one just below SMD** (short raised segment; not a continuous mesh, not X marks).
-- Pattern: diamond lattice **without crossings** (short `|` / `—` segments with gaps). **No fixed bridge count**.
-- Camera zone and logo strip stay clear of bridges over text.
-- **Air-contact area:** on the rear panel roughly **~+25–35%** vs a flat surface (estimate; depends on pattern density).
-- Finish: Type III Class 2 Matte black anodizing + graphene. Link to VC across the panel area.
-
-### Magnetic active cooling
-Small **steel ring** in the chassis (ferromagnetic seat). Detachable active cooler attaches **via magnets**, no glue or screws at the ring.
-
-### Anti-Burn thermal stabilization
-
-- **xMEMS Lab XMC-2400** — piezo MEMS micropump (**not a concept**, serial component) for internal convection.
-- **3 V**; **30 mW** (pump); **with driver — 70 mW**.
-- Redistributes heat, equalizes gradient, removes local hotspots (SoC, Battery Board). Surface peak −5…8 °C. IEC 62368-1 compliant.
-- Silent, no moving parts, closed loop — IP69 preserved.
-- Integration: between Main Board and Sub Board, above Battery Board copper tube; xMEMS Lab driver supplied with the pump.
+7075-T6 glue-free; steel ring for magnetic active cooler; IP69 / IP69K with case. Triple VC *(concept)*. **Ventilation texture** *(concept)*: directional micro-channels for natural convection (not Junon-style through-holes). xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver).
 
 ---
 
-## Unique Hardware Solutions
-
-### SMD Button (Stop Meta Data)
-Physical power cut-off for cameras, microphone and accelerometer. Multi-mode RGB indication:
-- Privacy Mode: red.
-- Charge Y-Fill: white → yellow → green.
-- Thermal Hue: turquoise → yellow → orange → red (also routed to rear accent lines).
-
-Addressable RGB SMD 4020, IP65. Accent lines: SK6812 IP65, 60 LEDs/m, side-emitting.
-
-### Easter egg: Mindustry load arrows
-When opening **Mindustry**, during the **game’s own load screen**, the lighting (SMD 4020 button + SK6812 lines) **replays the loading-arrow animation** — those arrows from the middle of the horizontal — **in the same light/color** as on the load screen. Not tied to device boot; package + load-screen hook; local LED pattern only.
+## Unique hardware
+SMD (Stop Meta Data) physical cut-off for cameras/mic/accelerometer. Multi-mode RGB. Mindustry load-arrows LED easter egg.
 
 ---
 
 ## Software
-
-- **OS:** LineageOS-based, no GApps.
-- **Pre-installed:** F-Droid, DuckDuckGo, Proton Mail.
-- **Aurora Store:** not pre-installed. User installs. Responsibility on user.
-- **Push:** optional gateway (UnifiedPush/WebSocket). Lawful intercept responsibility on app developers.
-- **Russia compatibility:** officially not supplied. RTRCA and SORM requirements do not apply. Technical incompatibility, not a political statement.
-- **E2EE:** X25519, AES-256-GCM / ChaCha20-Poly1305. Keys in TEE.
-- **eBPF filter:** user privacy tool for tracker blocking.
-- **FBE:** file-based encryption.
-- **Licensing (software):** **Linux kernel** changes — **GPLv2-only** (GPLv3 incompatible with the kernel). **G-Fone F1 code modifications (userspace)** — **GPLv3**. LineageOS/AOSP base — primarily **Apache 2.0**: **GPLv3 and Apache 2.0 are compatible but not relicenseable**; **Apache 2.0 requirements must be fulfilled** (NOTICE, attribution). Mixing does not cancel the original. Details: SOFTWARE.md / LICENSE.md / NOTICE.md.
+LineageOS-based, no GApps. F-Droid, DuckDuckGo, Proton Mail. FBE. Kernel **GPLv2-only**; G-Fone userspace **GPLv3**; Lineage/AOSP Apache 2.0 (compatible, not relicenseable).
 
 ---
 
-## Patent Risks (summary)
+## Beta 6.3.5 Status
 
-- **SEP 5G:** 10–15% of retail. FTO audit before start. ODM with SEP pool is realistic path.
-- **Motorola US 12,308,512 B2:** telescopic antenna. Design-around or license.
-- **US 20250357560 A1:** 5S1P for power tools. Different field, but broad claims.
-- **MEMS cooling:** xMEMS Lab (XMC-2400), Murata, ST, Frore Systems. FTO.
-- **LED button illumination:** Samsung, LG, Motorola. FTO.
-- **SK6812:** Worldsemi, APA Electronic. FTO.
-- **Chassis bridges:** thermal design FTO.
-- **G-Fone trademark:** check Nice classes 9 and 38 (India, Gee Pee Ess).
-- **Qualcomm risk:** even with MediaTek SoC — address in FTO.
-- **PMIC / multiphase:** FTO on controllers and power stages (TI, Infineon, MPS, Richtek, etc. — ODM choice).
+- **Feasible:** Dimensity 9600 Pro, LPDDR6, UFS 5.0, 5S1P, 80 W, XMC-2400, 7075-T6, steel ring cooler, active BMS (shunt + NTC), choke in phone, 18.5 V charge path, **eSIM only**, USB host + boxed USB→SATA with power.
+- **Concept:** triple VC, telescopic antenna, **ventilation texture**, partial advanced PMIC, LED modes, Mindustry easter egg.
+- **Beta 6.3.5 changes:** no mechanical SIM/SD; eSIM only; external drives any size; USB→SATA+power in box; (from 6.3.4: shunt + NTC).
 
-Details in LEGAL.md and PATENTS.md.
-
----
-
-## Beta 6.3.4 Status
-
-- **Feasible / serial technologies:** 2 nm SoC (Dimensity 9600 Pro), LPDDR6, UFS 5.0, 5S1P (unusual for phones), 80 W, multiphase buck + HV step-down (as components), xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver), 7075-T6 glue-free chassis, **steel ring for magnetic active cooler**, LineageOS-based, eBPF, UnifiedPush, FBE, SK6812 IP65, SMD 4020 RGB IP65, **X-Cross**, **BMS with active 5S balancing** (shunt + battery T sensors), **filter choke in the phone**, charge path **18.5 V** (not 3.7 V).
-- **Concept / rare solutions / system integration:** triple VC, telescopic antenna, **bridges** (no fixed count; same look as under SMD; ~+25–35% air-contact area), partial advanced PMIC integration for 18.5 V + SoC hot rails, multi-mode LED button + RGB Thermal Hue lines, **Mindustry load-arrows LED easter egg**, frame case + silicone camera caps; passive balancing is not baseline (active is baseline).
-- **Legal risk:** SEP 5G, US 12,308,512 B2, US 20250357560 A1, MEMS cooling, LED illumination, SK6812, PMIC/multiphase FTO, RTRCA/SORM framing, Zeiss, trademarks, bridges/thermal design.
-- **Licenses:** CERN-OHL-P v2 (hardware); software: kernel **GPLv2-only**, G-Fone F1 userspace modifications **GPLv3**, Lineage/AOSP base Apache 2.0 (compatible with GPLv3, **not relicenseable**, Apache 2.0 requirements mandatory); CC BY 4.0 (documentation).
-- **Beta 6.3.4 changes:** pack-current **shunt** + **battery temperature sensors** (NTC on each of 5 cells); (from 6.3.3: no PTC, active BMS).
-
----
-
-## How to Contribute
-
-- **Allowed:** CAD, thermal simulations, software, BMS, power/PMIC layout, documentation, tests, translations.
-- **Not allowed:** patent circumvention suggestions, calls to violate laws, specific blacklists, political statements.
-- **Contribution license:** CERN-OHL-P v2 / GPLv3 / CC BY 4.0 depending on type.
-- **Code of conduct:** respect, no politics, no toxicity.
-
----
-
-> **Disclaimer.** This is a concept. Not a product. Not an offer for sale. Not a manufacturing guide. Specifications are design assumptions or combinations of existing technologies. The device is not certified. Patent risks are described in LEGAL.md and PATENTS.md. No FTO audit has been performed. The author is not liable for any consequences of using these materials. Users are responsible for compliance with the laws of their jurisdiction.
+> **Disclaimer.** Concept only. Not a product. Not certified. See LEGAL.md / PATENTS.md.
