@@ -5,7 +5,7 @@
 - **Memory:** 16 GB LPDDR6 + 256 GB UFS 4.0 (UFS 5.0 as availability allows).
 - **Display:** 6.77" LTPS IPS QHD, high-end.
 - **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. Battery Board: BMS + **active balancing** (charge transfer between cells). (5S1P is serial in drones/RC; unusual for smartphones)
-- **Charging / PSU path:** 80 W, efficiency ≈ 95%. Charge path and power path are designed for the **18.5 V (5S1P) pack**, not classic **3.7 V** single-cell.
+- **Charging / PSU path:** 80 W **wired**, efficiency ≈ 95%. **No wireless charging** (see below). Charge path and power path are designed for the **18.5 V (5S1P) pack**, not classic **3.7 V** single-cell.
 - **Protection:** IP69 / IP69K (with case).
 - **Chassis:** 7075-T6 aluminum, glue-free. Small **steel ring** in the chassis — seat for **magnetic active cooling** (detachable cooler).
 
@@ -38,8 +38,14 @@ Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end a
 - **Rationale:** 5S1P plus a flagship 2 nm SoC do not fit a classic single-cell phone PMIC well; multiphase on hot rails improves efficiency and thermal headroom; companions simplify sourcing, FTO and repair.
 - **Status:** multiphase controllers and HV bucks are serial technologies; **the system build for 18.5 V + Dimensity 9600 Pro is an engineering choice** (needs ODM validation, layout, thermal and EMC).
 
+## Why there is no wireless charging
+**Wireless charging is deliberate nonsense in this concept** and is not supported:
+- **Efficiency is many times worse** than a wired path (typically ~60–75% wall-to-battery vs ~90–95% for a solid 80 W wired path) — watts become heat, not charge.
+- The coil’s **EM field reliably ruins the compass** / magnetometer (persistent calibration drift, a “jumping” navigation needle).
+- **Strong local heating** is unsafe for a 5S1P pack and BMS: heat under the coil hits cells and balancing. Half-joke, half-physics: *if you accidentally put the phone under a gas burner, nothing living remains either* — wireless charging does a milder version of the same stunt, just slower and marketed as “convenient.”
+
 ## Connectivity and storage
-- **SIM / SD:** **no mechanical slots** (neither nanoSIM nor microSD). Cellular — **eSIM only** (up to 2 profiles — per ODM).
+- **SIM / SD:** **no mechanical slots** (neither nanoSIM nor microSD). Cellular — **eSIM only** (up to 2 profiles — per ODM). **eSIM is fully independent of ecosystems** (Apple/Google/OEM): carrier profiles only, no lock-in to a vendor store or cloud.
 - **External drives:** full compatibility with external storage of **any size** via USB host (USB-C): HDD/SSD, flash drives; no “microSD up to 1 TB” cap.
 - **In the box:** **USB → SATA** adapter with **external power** — for 2.5″/3.5″ SATA drives without relying only on phone port current.
 
