@@ -1,71 +1,45 @@
 # HARDWARE
 
 ## Main Specifications
-- **SoC:** MediaTek Dimensity 9600 Pro, 2 nm, TSMC N2P. 2+3+3. LPDDR6 + UFS 5.0. (announced September 2026)
-- **Memory (internal only):** 16 GB LPDDR6 + **256 GB UFS 4.0** (no microSD slot; UFS 5.0 as availability allows).
-- **Display:** 6.77" LTPS IPS QHD, high-end.
-- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. Prismatic Li-polymer. **X-Cross** mounting. Battery Board: BMS + **active balancing** (charge transfer between cells). (5S1P is serial in drones/RC; unusual for smartphones)
-- **Charging / PSU path:** 80 W **wired**, efficiency ≈ 95%. **No wireless charging** (see below). Charge path and power path are designed for the **18.5 V (5S1P) pack**, not classic **3.7 V** single-cell.
+- **SoC:** MediaTek Dimensity 9600 Pro, 2 nm. LPDDR6 + UFS 5.0.
+- **Memory (internal only):** 16 GB LPDDR6 + **256 GB UFS 4.0** (no microSD).
+- **Display:** 6.77" LTPS IPS QHD (conscious IPS choice).
+- **Battery:** 5S1P, 5 × 2500 mAh, 18.5 V, 46.25 Wh. **X-Cross**. BMS + **active balancing**. Battery cert = **ODM gate**.
+- **Charging:** 80 W **wired**, ≈95% efficiency. **No wireless charging**. Path for **18.5 V (5S1P)**. Charge times are **calculated / estimates** (CV).
 - **Protection:** IP69 / IP69K (with case).
-- **Chassis:** 7075-T6 aluminum, glue-free. Small **steel ring** in the chassis — seat for **magnetic active cooling** (detachable cooler).
+- **Chassis:** 7075-T6, glue-free. Steel ring — magnetic cooler.
 
-## Why 2500 mAh is not a typo?
-5S1P delivers 46.25 Wh. This is ≈3× more (exact 2.9800257731958×) than Galaxy S24 (typical capacity 4000 mAh, official 15.52 Wh). Equivalent at 3.7 V is 12,500 mAh. Prismatic cells: simple isolation, flat thermal contact, mature BMS.
+## BMS and balancing (5S1P)
+- Monitoring: per-cell V; **NTC on each** of 5 cells; pack **shunt**.
+- **Active** balancing baseline. Passive bleed is not baseline.
+- Protection OV/UV/OT/OC/short.
 
-## X-Cross
-**X-Cross** is an internal metal cross-shaped part that retains and clamps the prismatic cells of the 5S1P pack on the Battery Board: pack stiffness, even pressure, less play under impact/flex. Not decoration — a structural battery hold-down.
+## Power / PMIC
+HV front-end 18.5 V → intermediate bus; **filter choke in the phone**; multiphase on SoC hot rails; companions for other domains.
 
-## BMS and cell balancing (5S1P)
-In a series string, pack capacity is limited by the **weakest cell**. Without balancing, SOC/voltage spread grows and one cell hits limits first.
-
-- **Monitoring:**
-  - voltage of **each** of the 5 cells;
-  - **battery temperature sensors** — NTC (or equivalent) on **each** of the 5 cells + optional on Battery Board / bus;
-  - **shunt** (precision shunt resistor) for **pack** current (charge / discharge) — coulomb counting, OC/SC and SOC.
-- **Balancing (baseline):** **active** (charge transfer between cells) — required for 5S in this concept.
-- **Why not passive:** bleed burns excess energy in resistors → **local cell/board overheating** and **lower efficiency**. Active charge transfer equalizes SOC **without** dissipating heat into the pack, cuts local hotspots, and yields **higher balancing and pack-charge efficiency**.
-- **Passive** (bleed) — not the concept baseline.
-- **Protection:** per-cell OV/UV, OT, OC, short.
-
-Battery Board: BMS + balancing + protection; 80 W charge path and HV front-end are separate.
-
-## Power / PMIC (partial integration)
-- **Architecture:** hybrid — not one monolithic PMIC for everything; domain split.
-- **High-voltage front end (5S1P → bus):** step-down from 18.5 V to an intermediate bus (~5–9 V) at high efficiency; separate path for 80 W charging and BMS balancing.
-- **Filter choke:** located **in the phone** (not in the external PSU) — LC/filter on the charge-path input and/or after the HV step-down; the wall adapter is the 80 W source; filtering inductance sits on the device boards.
-- **SoC core rails (CPU / GPU / NPU):** partial integration of an **advanced multiphase digital buck controller** + power stages on the main rails (Vcore / GPU / NPU). AVS/DVS coordinated with MediaTek DVFS; fast transient response for 2 nm loads.
-- **Other rails:** companion PMIC / discrete regulators (LPDDR6, RF, ISP/cameras, display, always-on domains).
-- **Rationale:** 5S1P plus a flagship 2 nm SoC do not fit a classic single-cell phone PMIC well; multiphase on hot rails improves efficiency and thermal headroom; companions simplify sourcing, FTO and repair.
-- **Status:** multiphase controllers and HV bucks are serial technologies; **the system build for 18.5 V + Dimensity 9600 Pro is an engineering choice** (needs ODM validation, layout, thermal and EMC).
-
-## Why there is no wireless charging
-**Wireless charging is deliberate nonsense in this concept** and is not supported:
-- **Efficiency is many times worse** than a wired path (typically ~60–75% wall-to-battery vs ~90–95% for a solid 80 W wired path) — watts become heat, not charge.
-- The coil’s **EM field reliably ruins the compass** / magnetometer (persistent calibration drift, a “jumping” navigation needle).
-- **Strong local heating** is unsafe for a 5S1P pack and BMS: heat under the coil hits cells and balancing. Half-joke, half-physics: *if you accidentally put the phone under a gas burner, nothing living remains either* — wireless charging does a milder version of the same stunt, just slower and marketed as “convenient.”
+## Why no wireless charging
+Lower efficiency; local heat undesirable for 5S1P; coil EMF hurts magnetometer.
 
 ## Connectivity and storage
-- **SIM / SD:** **no mechanical slots**. Cellular — **eSIM only** (up to 2 profiles — per ODM).
-- **eSIM: Privacy-First Control** — activate/deactivate profiles only; delete/modify/telemetry blocked without explicit consent; local immutable log; no hidden operator actions; **ecosystem-independent** (Apple/Google/OEM).
-- **Internal storage:** **256 GB UFS 4.0 only** (no microSD).
-- **USB Host Storage: User-Chosen Flexibility** — any USB SSD/HDD; user picks capacity (e.g. Kingston 2 TB); USB 3.2 / open standards; data independent of internal UFS — **a tool, not a consumer appliance**.
-- **In the box:** **USB → SATA with power** (2.5″/3.5″).
-- **Why No microSD?** flexibility via USB standards, repairability, cost efficiency without losing capability.
+- **SIM / SD:** no mechanical slots. **eSIM only**.
+- **eSIM: Privacy-First** (userspace): activate/deactivate; no delete/modify/telemetry without explicit consent; local log. Does **not** prove absence of baseband-side behavior in the SoC.
+- **Internal:** **256 GB UFS 4.0 only**.
+- **USB Host:** any USB SSD/HDD. **USB → SATA with power:** 2.5″ from adapter/USB; **3.5″ needs separate 12 V** from the adapter (not the phone, not the 80 W charge path).
+- **Why No microSD?** fewer failure points → **reliability/IP**; not “easier mainboard repair.”
+
+## SMD (Stop Meta Data) — split button
+- **Left half:** hardware power cut to cameras, microphones, accelerometer.
+- **Right half:** hardware **RF path kill** (antenna path break). Not “modem removed from the SoC” — modem is integrated; kill limits transmit/receive.
+
+## Threat model (short)
+**In scope:** FBE, userspace, left SMD, right RF kill, eSIM UX.  
+**Not promised:** SoC/baseband audit, modem DMA while RF is killed, auto-boot from SATA if UFS dies, battery cert as already done.
 
 ## Cameras
-- Main: 50 MP Sony IMX903, f/1.4, OIS.
-- Telephoto: 50 MP, f/1.4, OIS.
-- Ultrawide: 50 MP IMX858, f/1.4.
-- DoF: 12 MP.
-- Selfie: 50 MP.
-- No generative AI.
+IMX903 50 MP; tele 50 MP; ultrawide IMX858; DoF 12 MP; selfie 50 MP. No generative AI.
 
 ## Cooling
-- **Magnetic active cooling:** small **steel ring** in the chassis (ferromagnetic seat). Detachable active cooler attaches **via magnets**, no glue or screws at the ring.
-- Triple vapor chamber *(concept)*, **ventilation texture** on the rear panel *(concept)* — directional micro-channels to boost natural convection (not hole perforation); graphene coating.
-- **xMEMS Lab XMC-2400** — piezo MEMS micropump: **3 V**, **30 mW** (pump); with driver — **70 mW**. Serial component (not a concept). Thermal gradient equalization; silent, no moving parts.
+Magnetic cooler; triple VC *(concept)*; ventilation texture *(concept)*; xMEMS Lab XMC-2400 (3 V, 30 mW / 70 mW with driver).
 
-## Kit and case
-- **Plain-fabric finger cots** in the box. 7075-T6 aluminum is extreme at heat transfer — the chassis can feel ice-cold or burning hot. Finger cots are **safety** for bare-metal handling, not a fashion accessory.
-- **Case** is a **frame with grip** (not a full soft sleeve). The case kit includes **mid-price silicone camera caps** — scratch protection for the lens modules.
-- **USB → SATA adapter with power** — in the box.
+## Kit
+Finger cots; **USB → SATA with power**; frame case + silicone camera caps.
