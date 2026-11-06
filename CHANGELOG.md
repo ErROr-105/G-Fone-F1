@@ -2,27 +2,19 @@
 
 История изменений концепта G-Fone F1. Ранние версии (до Beta 3) не публикуются.
 
+## Beta 6.3.9
+
+- Внутренняя память: **UFS 5.0 256 ГБ** (UFS 4.0 убран).
+- **DualBIOS:** запасной boot-чип (своя прошивка + Boot ROM в SoC); при отказе UFS — уведомление и предложение запустить Android с внешнего диска, если образ записан.
+
 ## Beta 6.3.8
 
-- **Threat model** — честные границы (SoC/baseband, RF kill ≠ извлечение модема).
-- **SMD сдвоенный:** лево — питание камер/мик/акселерометр; право — **аппаратный RF path kill** (антенный тракт).
-- USB→SATA: **2.5″** vs **3.5″ + 12 В** отдельно.
-- Время зарядки — **расчёт / оценка** (CV).
-- microSD: **надёжность/IP**, не «ремонт mainboard».
-- Support intent TBD; banking / Play Integrity caveat; vs GrapheneOS позиционирование.
+- Threat model; SMD сдвоенный (сенсоры + RF path kill); USB→SATA 2.5″/3.5″; charge times = расчёт; microSD = надёжность/IP.
 
 ## Beta 6.3.7
 
-- **USB Host Storage**; **eSIM: Privacy-First Control**; **Why No microSD?**
+- USB Host Storage; eSIM Privacy-First; Why No microSD?
 
-## Beta 6.3.6
+## Beta 6.3.6 — 6.3.5
 
-- Без беспроводной зарядки (КПД, нагрев); eSIM вне экосистем.
-
-## Beta 6.3.5
-
-- Нет слотов SIM/microSD; USB→SATA с питанием.
-
-## Ранее
-
-Полная история — в репозитории. Beta 1–2 не публикуются.
+См. репозиторий. Beta 1–2 не публикуются.
