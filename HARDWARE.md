@@ -4,30 +4,31 @@
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 нм. LPDDR6 + UFS 5.0.
 - **Память:** 16 ГБ LPDDR6 + **256 ГБ UFS 5.0** (без microSD).
 - **Экран:** 6.77" LTPS IPS QHD.
-- **АКБ:** 5S1P, 46.25 Вт·ч. Номинал **~18.5 В**, full **~21 В**. Active BMS. Cert — **ODM gate**.
+- **АКБ:** 5S1P, 46.25 Вт·ч. Номинал **~18.5 В**, full **~21 В**. **X-Cross** = механика. **BMS** = active + шунт + NTC на **документируемом IC** (TI BQ-класс / аналог, ODM). Cert — **ODM gate**.
 - **Зарядка:** до 80 Вт, **USB PD PPS** (~21 В). ~80 Вт ≈ **1.6C** → **щадящий default 40–50 Вт**. Без wireless.
 - **Защита / корпус:** IP69 / IP69K; 7075-T6 glue-free; стальное кольцо cooler.
 
 ## BMS / PMIC
-Per-cell V; NTC; шунт; active balancing. HV ~21 В full; дроссель фильтра в телефоне; multiphase.
+Per-cell V; NTC; шунт; active balancing на **проверяемом** контроллере. HV ~21 В full; дроссель фильтра в телефоне; multiphase. **X-Cross ≠ BMS.**
 
 ## Связь и накопители
 - **eSIM only** (userspace Privacy-First; **eUICC/модем закрыты**).
-- **USB Host** + USB→SATA (2.5″; 3.5″ — **12 В** отдельно).
+- **USB Host** + USB→SATA: **2.5″** предпочтительно с **USB-C/PD**; **3.5″** — **12 В** отдельно. Optional signed-storage policy.
 - microSD нет = надёжность/IP.
 
-## DualBIOS (запасной boot-чип) *(инженерный узел)*
-- Boot ROM SoC **обычно не** грузит USB сам → DualBIOS = **SPI NOR (типично) + secondary loader**, не «диск вместо UFS».
-- При отказе UFS: notify (**LED / USB status**, не только экран) → optional Android с USB **только** если образ **подписан user key (AVB)** или AVB **явно** отключён с предупреждением.
-- Иначе DualBIOS не privacy-safe recovery. ODM: boot policy MediaTek, fuses, UX.
+## DualBIOS *(инженерный узел)*
+SPI NOR + secondary loader; LED/USB notify; external Android only with AVB user-keys or explicit disable+warning.
 
 ## SMD = Stop Meta Data (не surface-mount) — сдвоенная кнопка
 - **Левый:** питание камер/мик/акселерометра.
-- **Правый:** **RF path kill** (антенный тракт). Модем в SoC остаётся; при kill возможны питание домена и **DMA к RAM**.
+- **Правый:**
+  - **L1 (обязательно):** RF **path** kill (антенны) — нет TX/RX; DMA модема **возможен**.
+  - **L2 (ODM, если есть отдельный rail baseband/eUICC):** **rail** kill.
+  - Нет отдельного rail → только L1 в продукте.
 
 ## Threat model (кратко)
-**Защищаем:** FBE, SMD, RF kill (эфир), DualBIOS с AVB-политикой.  
-**Не обещаем:** нет DMA модема при RF kill; external boot без подписи/warning; аудит eUICC/SoC.
+**Защищаем:** FBE, SMD, RF L1 (+ L2 if rail), DualBIOS+AVB, optional signed storage.  
+**Не обещаем:** нет DMA на path-only; L2 без real rail; external boot без подписи/warning.
 
 ## Камеры / охлаждение / комплект
 50 МП с **binning 50→~12.5**. Cooler; VC *(концепт)*; XMC-2400. Напальчники = тепло 7075.

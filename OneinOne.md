@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.11 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.12 (Engineering Edition)
 
 > Концепт. Часть спецификаций — проектные допущения, а не подтверждённые серийные компоненты.  
 > Всё, что помечено *(концепт)*, требует дополнительной проверки с ODM и сертификационными лабораториями.  
@@ -18,58 +18,44 @@ G-Fone F1 — концепт защищённого смартфона для **
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 нм, TSMC N2P. LPDDR6 + UFS 5.0. (*projected / assumption.*)
 - **Память (только внутренняя):** 16 ГБ LPDDR6 + **256 ГБ UFS 5.0** (слота microSD нет).
 - **Экран:** 6.77" LTPS IPS QHD (осознанный IPS).
-- **АКБ:** 5S1P, 5 × 2500 мА·ч, **номинал пакета ~18.5 В** (5×3.7), **полный заряд до ~21 В** (5×4.2). Энергия **46.25 Вт·ч**. **X-Cross**. Active BMS; шунт + NTC. Сертификация — **ODM gate**.
+- **АКБ:** 5S1P, 5 × 2500 мА·ч, **номинал пакета ~18.5 В** (5×3.7), **полный заряд до ~21 В** (5×4.2). Энергия **46.25 Вт·ч**. Крепление **X-Cross** (механика). **BMS:** active balancing + шунт + NTC — предпочтительно **документируемый контроллер** (напр. семейства TI BQ / аналог с открытым datasheet и драйверами, выбор ODM); X-Cross ≠ чип BMS. Сертификация пакета — **ODM gate**.
 - **Зарядка / БП:** до 80 Вт **проводная**. Тракт до **~21 В** → **USB PD PPS**. ~80 Вт ≈ **1.6C** — **щадящий режим 40–50 Вт по умолчанию**; ресурс циклов TBD. 0–80% / 0–100% — **расчётный target**. **Беспроводной зарядки нет.**
 - **Связь / слоты:** нет SIM/microSD. **eSIM only**. BT к внешним спутниковым терминалам.
-- **Хранилище:** **256 ГБ UFS 5.0**; **USB Host**; **USB → SATA с питанием** (2.5″; 3.5″ — отдельные 12 В).
+- **Хранилище:** **256 ГБ UFS 5.0**; **USB Host**; **USB → SATA** в комплекте (см. USB Host).
 - **Цена:** €3200.
 
 ### Почему нет microSD?
 Меньше точек отказа → надёжность/IP. При отказе UFS — **DualBIOS** (см. ниже).
 
 ### USB Host Storage
-Любой USB SSD/HDD. Инструмент, не appliance. 2.5″ мобильно; 3.5″ — стол + 12 В.
+Любой USB SSD/HDD. Инструмент, не appliance.
+
+- **2.5″ SSD:** по возможности питание от **USB-C / PD порта телефона или комплектного адаптера без отдельной «стены 12 В»**; если мосту не хватает тока — внешнее 5 В от адаптера в комплекте.
+- **3.5″ HDD:** по-прежнему **отдельные 12 В** от адаптера (не мобильный сценарий).
+- **Signed / authenticated storage *(политика, concept)*:** для чувствительных томов — опциональная проверка подписи/политик доступа к внешнему носителю (согласовано с AVB external-boot: не «любой диск = доверенный»). Не обязательный маркетинг USB-IF; design intent для технарей.
+- В комплекте: **USB → SATA с питанием** под эти правила.
 
 ### DualBIOS *(инженерный узел)*
-
-**Проблема:** производственный **Boot ROM в SoC** обычно **не** умеет сам грузиться с USB-накопителя. Отдельный «запасной носитель» сам по себе не передаёт управление CPU — нужен **вторичный loader**, который SoC **принимает** по известной цепочке.
-
-**Модель (design intent):**
-1. **Boot ROM в SoC** (неизменяемый, в процессоре) — всегда первый этап.
-2. Нормальный путь: primary boot media = **UFS 5.0** (loader + AVB + ОС).
-3. **DualBIOS-чип** — отдельный чип со **своей** boot-прошивкой (типично SPI NOR / аналог), видимый SoC как **fallback boot source** после провала UFS (конкретный mux/strap/порядок опроса — **ODM + SoC boot policy**).
-4. DualBIOS **не** «магически грузит USB»: он поднимает **минимальный secondary loader**, который:
-   - **уведомляет** об отказе UFS;
-   - при наличии совместимого образа на USB Host — предлагает / продолжает загрузку Android **только** в рамках политики ниже.
-
-**Verified Boot / AVB (обязательно для threat model):**
-- Загрузка с внешнего диска **не** «любой диск = root».
-- Допустимые режимы *(выбор ODM, описать в UX)*:
-  - **A:** внешний образ **подписан ключом пользователя** (user-owned keys) и проверяется AVB/аналогом; или
-  - **B:** проверка **отключаема**, но только с **явным предупреждением** (и по возможности физическим подтверждением) — иначе подменённый диск = точка атаки.
-- Без одной из этих политик DualBIOS **не** позиционируется как privacy-safe recovery.
-
-**UX уведомления при мёртвом экране:**
-- Если панель/UFS-зависимый bring-up не поднимается: индикация через **RGB SMD / SK6812** и/или **USB device-side status** (не полагаться только на дисплей).
-
-**Статус:** инженерный узел; требует валидации boot ROM / fuse policy MediaTek, secure boot и UX. Не unbrick «из воздуха».
+Boot ROM SoC **обычно не** грузит USB сам → **SPI NOR + secondary loader**. При отказе UFS: notify (**LED/USB**). External Android **только** с **AVB user-keys** или explicit disable+warning. Иначе не privacy-safe recovery.
 
 ### eSIM: Privacy-First Control
-Userspace: activate/deactivate only; явный consent на delete/modify/telemetry. **eUICC/модем закрыты** — OS-политика ≠ гарантия на стороне модема. Log без TEE/SE — не crypto-immutable.
+Userspace policy. **eUICC/модем закрыты**. Log без TEE/SE — не crypto-immutable.
 
 ### Почему 2500 мА·ч — не опечатка
-46.25 Вт·ч ≈ **3×** S24 (15,52 Вт·ч). **12 500 мА·ч @ 3.7 В** — **эквивалентный расчёт**.
+46.25 Вт·ч ≈ **3×** S24. **12 500 мА·ч @ 3.7 В** — **эквивалентный расчёт**.
 
 ### X-Cross / BMS / PMIC
-X-Cross; active BMS; шунт; NTC. HV ~21 В full; дроссель фильтра в телефоне; multiphase.
+- **X-Cross** — только **механика** удержания призматических ячеек (не BMS IC).
+- **BMS** — active balancing, шунт, per-cell NTC; **предпочтительно известный/документируемый** контроллер (TI BQ-класс или аналог) с проверяемыми защитами OV/UV/OT/OC — не «чёрный модуль без datasheet».
+- PMIC: HV ~21 В full; дроссель фильтра в телефоне; multiphase на hot rails.
 
 ### Комплект
-**Напальчники** = тепло 7075 (не порезы). USB→SATA; чехол-рамка + колпаки камер.
+**Напальчники** = тепло 7075. USB→SATA; чехол-рамка + колпаки камер.
 
 ---
 
 ## Камеры
-IMX903 50 МП; теле; IMX858; DoF 12 МП; селфи 50 МП. Без generative AI. Сенсор 50 МП; в обычном режиме **quad-Bayer binning 50→~12.5 МП** (лучше шум/DR); full 50 МП — отдельный режим.
+IMX903 и др. **quad-Bayer binning 50→~12.5 МП**; full 50 МП — отдельный режим. Без generative AI.
 
 ---
 
@@ -84,9 +70,14 @@ IMX903 50 МП; теле; IMX858; DoF 12 МП; селфи 50 МП. Без genera
 | Сегмент | Функция |
 |--------|----------|
 | **Левый** | Обрыв питания камер / мик / акселерометра |
-| **Правый** | **RF path kill** (обрыв антенного тракта: нет TX/RX). Модем **остаётся в SoC** и при kill **может** сохранять питание домена и **DMA к RAM** — kill ≠ изоляция модема от памяти; см. Threat model |
+| **Правый** | **RF kill, два уровня** (см. ниже) |
 
-Физическое «лево/право» — относительно нормальной ориентации корпуса (экран к пользователю, антенна сверху); финальная раскладка — CAD.
+**Правый сегмент — уровни RF kill:**
+1. **Baseline (сейчас / обязательно):** hardware **RF path kill** — обрыв антенных трактов → нет TX/RX в эфир. Модем **остаётся в SoC**; домен может оставаться под питанием; **DMA к RAM возможен**. Это **не** полная изоляция baseband.
+2. **ODM-цель (если SoC/PMIC даёт отдельный power rail baseband/eUICC):** hardware **rail kill** — снятие питания с того домена, который реально выведен отдельно. Всё ещё **не** доказательство «idle внутри каждого транзистора», но сильнее path-only.
+3. Если отдельного rail **нет** (типично для интегрированного модема) — в спецификации честно остаётся только уровень 1; уровень 2 не обещается маркетингом.
+
+Физическое «лево/право» — относительно нормальной ориентации (экран к пользователю, антенна сверху); финальная раскладка — CAD.
 
 ### Easter egg: Mindustry load arrows
 Подсветка повторяет load-стрелки Mindustry.
@@ -94,25 +85,25 @@ IMX903 50 МП; теле; IMX858; DoF 12 МП; селфи 50 МП. Без genera
 ---
 
 ## Софт
-LineageOS-based, без GApps. FBE. Ядро **GPLv2-only**; userspace G-Fone **GPLv3**; Lineage/AOSP **Apache 2.0** — **раздельные** компоненты (Apache 2.0 ↛ слияние с GPLv2-ядром; с GPLv3 совместимы).
+LineageOS-based, без GApps. FBE. Ядро **GPLv2-only**; userspace G-Fone **GPLv3**; Lineage/AOSP **Apache 2.0** — **раздельные** компоненты.
 
 ---
 
 ## Threat model (честные границы)
 
-**Защищаем:** FBE; левый SMD; правый RF path kill (эфир, не DMA); eSIM UX (userspace); USB Host; DualBIOS fallback **только** с AVB user-keys или явным disable+warning.
+**Защищаем:** FBE; левый SMD; правый RF kill **уровень 1 (path)** всегда, **уровень 2 (rail)** только если ODM подтвердил отдельный rail; eSIM UX; USB Host + optional signed-storage policy; DualBIOS **только** с AVB user-keys или explicit disable+warning.
 
-**Не гарантируем:** аудит SoC/baseband/eUICC; **отсутствие DMA/работы модема** при RF path kill; external boot без подписанного образа / без явного disable AVB; «АКБ уже сертифицирована»; crypto-immutable log без TEE/SE.
+**Не гарантируем:** аудит SoC/baseband/eUICC; **нет DMA** при path-only kill; rail kill без отдельного rail в SoC; external boot без подписи/warning; «АКБ уже сертифицирована»; crypto-immutable log без TEE/SE.
 
 ## Поддержка и оговорки
-Патчи: community + ODM SLA (**TBD**). Банки / Play Integrity могут не работать без GApps. vs GrapheneOS+Pixel: открытое железо, 5S1P, split SMD, DualBIOS, USB Host.
+Патчи: community + ODM SLA (**TBD**). Банки / Play Integrity могут не работать без GApps. microG и т.п. — **опционально пользователем**, не preinstall. vs GrapheneOS+Pixel: открытое железо, 5S1P, split SMD, DualBIOS, USB Host.
 
 ---
 
-## Статус Beta 6.3.11
+## Статус Beta 6.3.12
 
-- **Реализуемо:** Dimensity 9600 Pro, **256 ГБ UFS 5.0**, 5S1P, PPS ~21 В, active BMS, eSIM Privacy-First (оговорки eUICC), USB Host + USB→SATA, **сдвоенный SMD**, **DualBIOS** (secondary loader + AVB policy).
-- **Изменения Beta 6.3.11:** DualBIOS — secondary loader, **AVB/user keys или explicit warning**, notify LED/USB; RF kill + **DMA caveat** у кнопки; binning 50→12.5; «не РФ рынок» убрано из «Что это»; (наследие 6.3.10).
+- **Реализуемо:** Dimensity 9600 Pro, UFS 5.0, 5S1P, PPS ~21 В, documented-class BMS + X-Cross, eSIM Privacy-First, USB Host, split SMD (**RF L1**), DualBIOS+AVB.
+- **Изменения Beta 6.3.12:** RF kill **L1 path / L2 rail-if-available**; USB 2.5″ **PD/порт** vs 3.5″ 12 В; optional **signed storage** policy; **BMS = документируемый IC**, X-Cross = механика; (наследие 6.3.11).
 
 ---
 
