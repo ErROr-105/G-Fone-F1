@@ -1,48 +1,59 @@
-# G-Fone F1 — Beta 6.3.10 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.11 (Engineering Edition)
 
 > Concept. Not a product. Licenses: CERN-OHL-P v2 / kernel **GPLv2-only** / userspace **GPLv3** / Lineage·AOSP **Apache 2.0** (distributed **separately** — Apache 2.0 is **not** combinable with GPLv2 into one program; OK with GPLv3) / CC BY 4.0.
+
+## What is this
+
+G-Fone F1 is a privacy / repairability / no-compromise hardware concept for **tech users**. Not a product, not an offer, not a manufacturing guide. Not mass-market. Not enterprise.
 
 ## Main Specifications
 
 - **SoC:** Dimensity 9600 Pro, 2 nm. LPDDR6 + UFS 5.0. (*projected.*)
 - **Memory (internal only):** 16 GB LPDDR6 + **256 GB UFS 5.0** (no microSD).
-- **Display:** 6.77" LTPS IPS QHD (conscious IPS choice).
-- **Battery:** 5S1P, 46.25 Wh. Pack **nominal ~18.5 V** (5×3.7), **full charge ~21 V** (5×4.2). **X-Cross**; active BMS; shunt + per-cell NTC. Cert = **ODM gate**. **12,500 mAh @ 3.7 V** is an **equivalent calculation**, not a cell rating.
-- **Charging:** up to 80 W **wired**. Path must support **~21 V** at end of charge → **USB PD PPS** (or equivalent); fixed 20 V PD is not enough for full CV. 0–80% ≈ 29 min / 0–100% ≈ 45–50 min = **calculated targets** at ~80 W (~**1.6C** into 46.25 Wh) — **aggressive** for phone-class prismatic cells: **gentle charge default** (e.g. 40–50 W) and cycle-life target (e.g. 80% capacity after N cycles) = **TBD with ODM**. **No wireless charging**.
-- **Connectivity:** no mechanical SIM/microSD; **eSIM only**.
-- **Storage:** **256 GB UFS 5.0 only**; **USB Host**; **USB → SATA with power** (2.5″; **3.5″ needs separate 12 V**).
+- **Display:** 6.77" LTPS IPS QHD.
+- **Battery:** 5S1P, 46.25 Wh. Nominal **~18.5 V**, full **~21 V**. Active BMS. Cert = **ODM gate**. 12,500 mAh @ 3.7 V = **equivalent calculation**.
+- **Charging:** up to 80 W wired via **USB PD PPS** (~21 V). ~80 W ≈ **1.6C** → **gentle default 40–50 W**. No wireless.
+- **Storage:** UFS 5.0 only; **USB Host**; USB→SATA (2.5″; 3.5″ needs **12 V**).
 
-### Why No microSD?
-Fewer failure points → reliability/IP. On UFS failure → **DualBIOS** (notify + external Android if image written).
+### DualBIOS *(engineering node)*
 
-### USB Host Storage: User-Chosen Flexibility
-Any USB SSD/HDD. Tool, not appliance. Mobile → 2.5″; 3.5″ → desk + external 12 V.
+**Problem:** production **SoC Boot ROM** usually **cannot** boot from USB mass-storage alone. A “spare medium” does not hand control to the CPU unless a **secondary loader** is in a path the SoC **accepts**.
 
-### DualBIOS (spare boot chip) *(engineering node)*
-**SoC Boot ROM** → normally **UFS 5.0** → on UFS failure: DualBIOS (own firmware) **notifies** and **offers** to boot Android from an external disk if an image was written. Not unbrick from nothing.
+**Design intent:**
+1. **SoC Boot ROM** — always first.
+2. Normal path: **UFS 5.0** (loader + AVB + OS).
+3. **DualBIOS chip** — own firmware (typically **SPI NOR**), fallback boot source after UFS failure (mux/strap/order = ODM + SoC policy).
+4. DualBIOS brings up a **minimal secondary loader** that **notifies** UFS failure and may continue from USB Host **only** under AVB policy below — not “magic USB boot from Boot ROM.”
+
+**Verified Boot / AVB:**
+- **A:** external image signed with **user-owned keys** and verified; or
+- **B:** verification disableable only with **explicit warning** (preferably physical confirm).
+- Without A or B, DualBIOS is **not** privacy-safe recovery.
+
+**Notify if panel is dead:** **RGB SMD / SK6812** and/or **USB device-side status** — do not rely on the display alone.
 
 ### eSIM: Privacy-First Control
-Userspace: activate/deactivate only; explicit consent for delete/modify/telemetry; local log. **Caveat:** profiles go through eUICC / SM-DP+ / OTA; **modem and eUICC firmware are closed**. OS policy ≠ guarantee of no modem/eUICC-side actions. “Immutable” userspace log without a **hardware anchor** (TEE / SE + hash-chain) is a hardened log, not cryptographic immutability.
+Userspace policy only. **eUICC/modem firmware closed**. Log without TEE/SE is not crypto-immutable.
 
-### SMD = **Stop Meta Data** (not “surface-mount device”) — split button
+### SMD = **Stop Meta Data** (not surface-mount) — split button
 | Half | Function |
 |------|----------|
 | **Left** | Power cut to cameras / mic / accelerometer |
-| **Right** | **RF path kill** (antenna path). Modem stays in SoC |
+| **Right** | **RF path kill** (no TX/RX). Modem **stays in the SoC** and may still be **powered** with **DMA to RAM** — kill ≠ memory isolation |
 
-Finger cots: 7075 thermal protection for bare-metal handling (cold/hot), not cut protection.
+Left/right relative to normal orientation (screen toward user, antenna top); final CAD owns placement.
 
-## Threat model (honest bounds)
+### Cameras
+50 MP sensors; normal mode **quad-Bayer binning 50→~12.5 MP**; full 50 MP is a separate mode.
 
-**In scope:** FBE; left SMD; right RF path kill; eSIM UX (userspace); USB Host; DualBIOS fallback.
+## Threat model
 
-**Out of scope:** SoC/baseband/eUICC audit; modem DMA while RF killed; external boot without image; battery cert as done; crypto-immutable log without TEE/SE.
+**In scope:** FBE; left SMD; right RF path kill (RF only, not DMA); eSIM UX; USB Host; DualBIOS **only** with AVB user-keys or explicit disable+warning.
 
-## Support & software caveats
-Patch intent: community + ODM SLA (**TBD**). Banking/Play Integrity may fail without GApps. vs GrapheneOS+Pixel: open hardware, 5S1P, split SMD, DualBIOS, USB Host tool-device.
+**Out of scope:** SoC/baseband/eUICC audit; **no modem DMA** while RF killed; external boot without signed image / without explicit AVB disable; battery cert as done; crypto-immutable log without TEE/SE.
 
-## Beta 6.3.10 Status
+## Beta 6.3.11 Status
 
-Charge path **~21 V / PPS**; **~1.6C** + gentle default; eUICC/modem honesty; Apache↔GPLv2 wording; SMD name disambiguation. (from 6.3.9: UFS 5.0, DualBIOS)
+DualBIOS secondary loader + **AVB/user keys or explicit warning** + LED/USB notify; RF kill **DMA caveat**; binning 50→12.5. (from 6.3.10)
 
-> **Disclaimer.** Concept only. Not a product.
+> **Disclaimer.** Concept only. Not a product. Not an offer for any specific market.
