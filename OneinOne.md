@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.14 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.15 (Engineering Edition)
 
 > Концепт. Часть спецификаций — проектные допущения, а не подтверждённые серийные компоненты.  
 > Всё, что помечено *(концепт)*, требует дополнительной проверки с ODM и сертификационными лабораториями.  
@@ -80,7 +80,7 @@ G-Fone F1 — концепт защищённого смартфона для **
 ---
 
 ## Камеры
-IMX903 и др. **quad-Bayer binning 50→~12.5 МП**; full 50 МП — отдельный режим. **Без generative AI** (нет проприетарных «улучшалок» на закрытых весах).
+Основная: **Sony LYTIA 720** *(подтверждённый; IMX907 не берём — Apple-oriented supply)*. Tele / ultrawide / DoF / selfie — по BOM ODM. **quad-Bayer binning 50→~12.5 МП**; full 50 МП — отдельный режим. **Без generative AI**.
 
 ### Open-source HDR Stacking *(userspace, GPLv3)*
 - Съёмка **серии кадров** (разные экспозиции / burst) и **объединение в процессе** на устройстве.
@@ -131,12 +131,12 @@ LineageOS-based, без GApps. FBE. Ядро **GPLv2-only**; userspace G-Fone **
 
 ---
 
-## Статус Beta 6.3.14
+## Статус Beta 6.3.15
 
-- **Реализуемо:** Dimensity 9600 Pro, UFS 5.0, 5S1P, PPS ~21 В, documented-class BMS + X-Cross, eSIM Privacy-First, USB Host, split SMD (**RF L1**), DualBIOS+AVB, **HDR Stacking (userspace GPLv3)**.
-- **Изменения Beta 6.3.14:** убраны пасхалки; **Mindustry load-arrows** оставлена как фича (open-source игра).
-- **Наследие 6.3.13:** Open-source HDR Stacking (userspace GPLv3, без проприетарного AI).
-- **Наследие 6.3.12:** RF L1/L2, USB PD, signed storage, documented BMS.
+- **Реализуемо:** Dimensity 9600 Pro, UFS 5.0, 5S1P, PPS ~21 В, documented-class BMS + X-Cross, eSIM Privacy-First, USB Host, split SMD (**RF L1**), DualBIOS+AVB, **HDR Stacking**, основная камера **Sony LYTIA 720**.
+- **Изменения Beta 6.3.15:** основная камера **Sony LYTIA 720** (IMX907 не используется — Apple-oriented supply; IMX903 в тексте заменён).
+- **Наследие 6.3.14:** без пасхалок; Mindustry load-arrows как фича.
+- **Наследие 6.3.13–6.3.12:** HDR Stacking; RF L1/L2; USB PD; signed storage; documented BMS.
 
 ---
 

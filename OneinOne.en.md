@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.14 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.15 (Engineering Edition)
 
 > Concept. Not a product. Licenses: CERN-OHL-P v2 / kernel **GPLv2-only** / userspace **GPLv3** / Lineage·AOSP **Apache 2.0** (distributed **separately** — Apache 2.0 is **not** combinable with GPLv2 into one program; OK with GPLv3) / CC BY 4.0.
 
@@ -60,7 +60,7 @@ Userspace: activate/deactivate only; explicit consent for delete/modify/telemetr
 3. If no separate rail exists — ship **L1 only**; do not market L2.
 
 ### Cameras
-50 MP with **quad-Bayer binning 50→~12.5 MP**; full 50 MP separate mode. **No generative AI** (no proprietary closed-weight “enhancers”).
+Main: **Sony LYTIA 720** *(confirmed; not IMX907 — Apple-oriented supply)*. Tele / ultrawide / DoF / selfie per ODM BOM. **quad-Bayer binning 50→~12.5 MP**; full 50 MP separate mode. **No generative AI**.
 
 ### Open-source HDR Stacking *(userspace, GPLv3)*
 - Capture a **burst / bracketed series** and **merge on-device**.
@@ -83,8 +83,8 @@ LineageOS-based, no GApps. FBE. Kernel **GPLv2-only**; userspace **GPLv3** (incl
 ## Support
 Community + ODM SLA (**TBD**). microG etc. **optional by user**, not preinstalled. vs GrapheneOS+Pixel: open hardware, 5S1P, split SMD, DualBIOS, USB Host.
 
-## Beta 6.3.14 Status
+## Beta 6.3.15 Status
 
-Easter-egg framing removed; **Mindustry load-arrows** kept as a feature (open-source game). **Open-source HDR Stacking** (userspace GPLv3, no proprietary AI). (from 6.3.12: RF L1/L2, USB PD, signed storage, documented BMS)
+Main camera **Sony LYTIA 720** (not IMX907). Easter-egg framing removed; **Mindustry load-arrows** kept as a feature. **Open-source HDR Stacking**. (from 6.3.12: RF L1/L2, USB PD, signed storage, documented BMS)
 
 > **Disclaimer.** Concept only. Not a product. Not an offer for any specific market.
