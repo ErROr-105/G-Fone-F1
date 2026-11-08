@@ -30,5 +30,15 @@ SPI NOR + secondary loader; LED/USB notify; external Android only with AVB user-
 **Защищаем:** FBE, SMD, RF L1 (+ L2 if rail), DualBIOS+AVB, optional signed storage.  
 **Не обещаем:** нет DMA на path-only; L2 без real rail; external boot без подписи/warning.
 
-## Камеры / охлаждение / комплект
-50 МП с **binning 50→~12.5**. Cooler; VC *(концепт)*; XMC-2400. Напальчники = тепло 7075.
+## Камеры
+| Модуль | Спека |
+|--------|--------|
+| Основная | **Sony LYTIA 720** (не IMX903/907 — Apple-oriented) |
+| Теле | ~70 мм, 50 МП, **f/1.8**, OIS, IMX858-класс (не f/1.4) |
+| Ультраширик | **IMX858**, ~14 мм, **f/2.2**, 50 МП |
+| DoF / селфи | 12 МП / 50 МП |
+
+Публичные ориентиры: Xiaomi 15 Ultra (IMX858 UW/tele), iPhone 17 Pro (IMX903 — только как риск Apple supply). HDR Stacking — userspace GPLv3.
+
+## Охлаждение / комплект
+Cooler; VC *(концепт)*; XMC-2400. Напальчники = тепло 7075; USB→SATA; чехол.
