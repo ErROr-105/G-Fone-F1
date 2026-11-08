@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.15 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.16 (Engineering Edition)
 
 > Concept. Not a product. Licenses: CERN-OHL-P v2 / kernel **GPLv2-only** / userspace **GPLv3** / Lineage·AOSP **Apache 2.0** (distributed **separately** — Apache 2.0 is **not** combinable with GPLv2 into one program; OK with GPLv3) / CC BY 4.0.
 
@@ -60,7 +60,17 @@ Userspace: activate/deactivate only; explicit consent for delete/modify/telemetr
 3. If no separate rail exists — ship **L1 only**; do not market L2.
 
 ### Cameras
-Main: **Sony LYTIA 720** *(confirmed; not IMX907 — Apple-oriented supply)*. Tele / ultrawide / DoF / selfie per ODM BOM. **quad-Bayer binning 50→~12.5 MP**; full 50 MP separate mode. **No generative AI**.
+
+| Module | Concept spec | Public reference / note |
+|--------|--------------|-------------------------|
+| **Main** | **Sony LYTIA 720** (confirmed BOM choice) | **IMX903** has public tests (DXOMARK / iPhone 17 Pro) but is **Apple-oriented** design-in — **not** used here (same for IMX907). LYTIA 720 is the non-Apple path. |
+| **Tele** | **~70 mm eq., 50 MP, f/1.8, OIS**, **IMX858-class** (or ODM equivalent) | No shipping **f/1.4** tele at ~70–100 mm (entrance pupil unrealistic). Closest tests: Xiaomi 15 Ultra tele/zoom; iPhone 17 Pro tele ~100 mm f/2.8. |
+| **Ultrawide** | **Sony IMX858**, ~14 mm, **f/2.2**, 50 MP | Direct Android design-in: Xiaomi 14/15 Ultra (DXOMARK UW sub-score **158** on 15 Ultra). **No f/1.4 UW** — analogue is f/2.2. |
+| **DoF / selfie** | DoF 12 MP; selfie 50 MP | ODM BOM; no generative AI. |
+
+**Default:** quad-Bayer **binning 50→~12.5 MP**; full-res is a separate mode.
+
+**Evidence (external):** DXOMARK iPhone 17 Pro; DXOMARK / GSMArena / sampleshots Xiaomi 15 Ultra. Crops/EXIF on those reviews — not hosted in-repo.
 
 ### Open-source HDR Stacking *(userspace, GPLv3)*
 - Capture a **burst / bracketed series** and **merge on-device**.
@@ -83,8 +93,8 @@ LineageOS-based, no GApps. FBE. Kernel **GPLv2-only**; userspace **GPLv3** (incl
 ## Support
 Community + ODM SLA (**TBD**). microG etc. **optional by user**, not preinstalled. vs GrapheneOS+Pixel: open hardware, 5S1P, split SMD, DualBIOS, USB Host.
 
-## Beta 6.3.15 Status
+## Beta 6.3.16 Status
 
-Main camera **Sony LYTIA 720** (not IMX907). Easter-egg framing removed; **Mindustry load-arrows** kept as a feature. **Open-source HDR Stacking**. (from 6.3.12: RF L1/L2, USB PD, signed storage, documented BMS)
+Cameras: **LYTIA 720** main; tele **70 mm f/1.8 OIS** (not f/1.4); UW **IMX858 f/2.2**. **Open-source HDR Stacking**. (from 6.3.12–6.3.15)
 
 > **Disclaimer.** Concept only. Not a product. Not an offer for any specific market.
