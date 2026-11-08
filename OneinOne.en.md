@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.13 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.14 (Engineering Edition)
 
 > Concept. Not a product. Licenses: CERN-OHL-P v2 / kernel **GPLv2-only** / userspace **GPLv3** / Lineage·AOSP **Apache 2.0** (distributed **separately** — Apache 2.0 is **not** combinable with GPLv2 into one program; OK with GPLv3) / CC BY 4.0.
 
@@ -68,6 +68,9 @@ Userspace: activate/deactivate only; explicit consent for delete/modify/telemetr
 - Open algorithms (alignment + merge / exposure fusion and peers) — **no** proprietary ISP-AI, **no** cloud.
 - Goal: controllable dynamic range without shipping frames to a vendor.
 
+### Mindustry load-arrows (feature; open-source game)
+While **Mindustry** (open-source) is on its load screen, SMD + SK6812 repeat the in-game load-arrow animation in the same color/light. UI sync with an open-source game — not a gag. Not tied to device boot.
+
 ## Software
 LineageOS-based, no GApps. FBE. Kernel **GPLv2-only**; userspace **GPLv3** (incl. **HDR Stacking**); Lineage/AOSP **Apache 2.0** — separate components.
 
@@ -80,8 +83,8 @@ LineageOS-based, no GApps. FBE. Kernel **GPLv2-only**; userspace **GPLv3** (incl
 ## Support
 Community + ODM SLA (**TBD**). microG etc. **optional by user**, not preinstalled. vs GrapheneOS+Pixel: open hardware, 5S1P, split SMD, DualBIOS, USB Host.
 
-## Beta 6.3.13 Status
+## Beta 6.3.14 Status
 
-**Open-source HDR Stacking** (userspace GPLv3, no proprietary AI). (from 6.3.12: RF L1/L2, USB PD, signed storage, documented BMS)
+Easter-egg framing removed; **Mindustry load-arrows** kept as a feature (open-source game). **Open-source HDR Stacking** (userspace GPLv3, no proprietary AI). (from 6.3.12: RF L1/L2, USB PD, signed storage, documented BMS)
 
 > **Disclaimer.** Concept only. Not a product. Not an offer for any specific market.

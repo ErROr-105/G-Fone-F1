@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.13 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.14 (Engineering Edition)
 
 > Концепт. Часть спецификаций — проектные допущения, а не подтверждённые серийные компоненты.  
 > Всё, что помечено *(концепт)*, требует дополнительной проверки с ODM и сертификационными лабораториями.  
@@ -110,8 +110,8 @@ IMX903 и др. **quad-Bayer binning 50→~12.5 МП**; full 50 МП — отд�
 
 Физическое «лево/право» — относительно нормальной ориентации (экран к пользователю, антенна сверху); финальная раскладка — CAD.
 
-### Easter egg: Mindustry load arrows
-Подсветка повторяет load-стрелки Mindustry.
+### Mindustry load-arrows (фича, open-source игра)
+Когда открыт **Mindustry** (open-source) и идёт экран загрузки игры, подсветка (SMD + SK6812) повторяет анимацию загрузочных стрелок в том же цвете/свете, что на экране. Не «пасхалка ради пасхалки» — синхронизация UI с открытой игрой. Не привязано к boot устройства.
 
 ---
 
@@ -131,10 +131,12 @@ LineageOS-based, без GApps. FBE. Ядро **GPLv2-only**; userspace G-Fone **
 
 ---
 
-## Статус Beta 6.3.13
+## Статус Beta 6.3.14
 
 - **Реализуемо:** Dimensity 9600 Pro, UFS 5.0, 5S1P, PPS ~21 В, documented-class BMS + X-Cross, eSIM Privacy-First, USB Host, split SMD (**RF L1**), DualBIOS+AVB, **HDR Stacking (userspace GPLv3)**.
-- **Изменения Beta 6.3.13:** **Open-source HDR Stacking** (burst/bracket merge в userspace, **GPLv3**, без проприетарного AI / облака); (наследие 6.3.12: RF L1/L2, USB PD, signed storage, documented BMS).
+- **Изменения Beta 6.3.14:** убраны пасхалки; **Mindustry load-arrows** оставлена как фича (open-source игра).
+- **Наследие 6.3.13:** Open-source HDR Stacking (userspace GPLv3, без проприетарного AI).
+- **Наследие 6.3.12:** RF L1/L2, USB PD, signed storage, documented BMS.
 
 ---
 
