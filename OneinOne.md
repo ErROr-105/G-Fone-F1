@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.15 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.16 (Engineering Edition)
 
 > Концепт. Часть спецификаций — проектные допущения, а не подтверждённые серийные компоненты.  
 > Всё, что помечено *(концепт)*, требует дополнительной проверки с ODM и сертификационными лабораториями.  
@@ -80,7 +80,17 @@ G-Fone F1 — концепт защищённого смартфона для **
 ---
 
 ## Камеры
-Основная: **Sony LYTIA 720** *(подтверждённый; IMX907 не берём — Apple-oriented supply)*. Tele / ultrawide / DoF / selfie — по BOM ODM. **quad-Bayer binning 50→~12.5 МП**; full 50 МП — отдельный режим. **Без generative AI**.
+
+| Модуль | Спека концепта | Публичный ориентир / заметка |
+|--------|----------------|------------------------------|
+| **Основная** | **Sony LYTIA 720** (подтверждённый выбор BOM) | **IMX903** имеет тесты (DXOMARK / iPhone 17 Pro), но design-in фактически **Apple-oriented** — в концепт **не** берём (как и IMX907). LYTIA 720 — заявленный non-Apple путь. |
+| **Теле** | **~70 мм экв., 50 МП, f/1.8, OIS**, сенсор **IMX858-класса** (или эквивалент ODM) | Серийного теле **f/1.4** на ~70–100 мм **нет** (входной зрачок нереалистичен). Ближайшие тесты: Xiaomi 15 Ultra tele/zoom; iPhone 17 Pro tele ~100 мм f/2.8. |
+| **Ультраширик** | **Sony IMX858**, ~14 мм, **f/2.2**, 50 МП | Прямой Android design-in: Xiaomi 14/15 Ultra (DXOMARK UW sub-score у 15 Ultra **158**). **f/1.4 на UW не ставим** — у аналога f/2.2. |
+| **DoF / селфи** | DoF 12 МП; селфи 50 МП | ODM BOM; без generative AI. |
+
+**Режим:** quad-Bayer **binning 50→~12.5 МП** по умолчанию; full-res — отдельный режим.
+
+**Доказательная база (внешняя):** DXOMARK iPhone 17 Pro (IMX903-стек), DXOMARK / GSMArena / sampleshots Xiaomi 15 Ultra (IMX858). Кропы и EXIF — у независимых обзоров; в репо не храним чужие full-res сэмплы.
 
 ### Open-source HDR Stacking *(userspace, GPLv3)*
 - Съёмка **серии кадров** (разные экспозиции / burst) и **объединение в процессе** на устройстве.
@@ -131,12 +141,11 @@ LineageOS-based, без GApps. FBE. Ядро **GPLv2-only**; userspace G-Fone **
 
 ---
 
-## Статус Beta 6.3.15
+## Статус Beta 6.3.16
 
-- **Реализуемо:** Dimensity 9600 Pro, UFS 5.0, 5S1P, PPS ~21 В, documented-class BMS + X-Cross, eSIM Privacy-First, USB Host, split SMD (**RF L1**), DualBIOS+AVB, **HDR Stacking**, основная камера **Sony LYTIA 720**.
-- **Изменения Beta 6.3.15:** основная камера **Sony LYTIA 720** (IMX907 не используется — Apple-oriented supply; IMX903 в тексте заменён).
-- **Наследие 6.3.14:** без пасхалок; Mindustry load-arrows как фича.
-- **Наследие 6.3.13–6.3.12:** HDR Stacking; RF L1/L2; USB PD; signed storage; documented BMS.
+- **Реализуемо:** Dimensity 9600 Pro, UFS 5.0, 5S1P, PPS ~21 В, documented-class BMS + X-Cross, eSIM Privacy-First, USB Host, split SMD (**RF L1**), DualBIOS+AVB, **HDR Stacking**, **LYTIA 720** + **IMX858** UW + tele f/1.8.
+- **Изменения Beta 6.3.16:** таблица камер по публичным аналогам: LYTIA 720 main; tele **70 мм f/1.8 OIS** (не f/1.4); UW **IMX858 f/2.2**.
+- **Наследие 6.3.15–6.3.12:** LYTIA вместо IMX907; без пасхалок; HDR Stacking; RF L1/L2; USB PD; documented BMS.
 
 ---
 
