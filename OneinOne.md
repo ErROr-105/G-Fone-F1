@@ -1,4 +1,4 @@
-# G-Fone F1 — Beta 6.3.12 (Engineering Edition)
+# G-Fone F1 — Beta 6.3.13 (Engineering Edition)
 
 > Концепт. Часть спецификаций — проектные допущения, а не подтверждённые серийные компоненты.  
 > Всё, что помечено *(концепт)*, требует дополнительной проверки с ODM и сертификационными лабораториями.  
@@ -18,93 +18,55 @@ G-Fone F1 — концепт защищённого смартфона для **
 - **SoC:** MediaTek Dimensity 9600 Pro, 2 нм, TSMC N2P. LPDDR6 + UFS 5.0. (*projected / assumption.*)
 - **Память (только внутренняя):** 16 ГБ LPDDR6 + **256 ГБ UFS 5.0** (слота microSD нет).
 - **Экран:** 6.77" LTPS IPS QHD (осознанный IPS).
-- **АКБ:** 5S1P, 5 × 2500 мА·ч, **номинал пакета ~18.5 В** (5×3.7), **полный заряд до ~21 В** (5×4.2). Энергия **46.25 Вт·ч**. Крепление **X-Cross** (механика). **BMS:** active balancing + шунт + NTC — предпочтительно **документируемый контроллер** (напр. семейства TI BQ / аналог с открытым datasheet и драйверами, выбор ODM); X-Cross ≠ чип BMS. Сертификация пакета — **ODM gate**.
-- **Зарядка / БП:** до 80 Вт **проводная**. Тракт до **~21 В** → **USB PD PPS**. ~80 Вт ≈ **1.6C** — **щадящий режим 40–50 Вт по умолчанию**; ресурс циклов TBD. 0–80% / 0–100% — **расчётный target**. **Беспроводной зарядки нет.**
-- **Связь / слоты:** нет SIM/microSD. **eSIM only**. BT к внешним спутниковым терминалам.
-- **Хранилище:** **256 ГБ UFS 5.0**; **USB Host**; **USB → SATA** в комплекте (см. USB Host).
+- **АКБ:** 5S1P, ~18.5 В номинал / ~21 В full, **46.25 Вт·ч**. **X-Cross** = механика. **BMS** = active + шунт + NTC на **документируемом IC** (TI BQ-класс / аналог). Cert — **ODM gate**.
+- **Зарядка:** до 80 Вт, **USB PD PPS** (~21 В). ~1.6C → **щадящий default 40–50 Вт**. Без wireless.
+- **Связь:** нет SIM/microSD. **eSIM only**.
+- **Хранилище:** UFS 5.0; **USB Host** (2.5″ → USB-C/PD где возможно; 3.5″ → 12 В; optional signed storage).
 - **Цена:** €3200.
 
-### Почему нет microSD?
-Меньше точек отказа → надёжность/IP. При отказе UFS — **DualBIOS** (см. ниже).
-
-### USB Host Storage
-Любой USB SSD/HDD. Инструмент, не appliance.
-
-- **2.5″ SSD:** по возможности питание от **USB-C / PD порта телефона или комплектного адаптера без отдельной «стены 12 В»**; если мосту не хватает тока — внешнее 5 В от адаптера в комплекте.
-- **3.5″ HDD:** по-прежнему **отдельные 12 В** от адаптера (не мобильный сценарий).
-- **Signed / authenticated storage *(политика, concept)*:** для чувствительных томов — опциональная проверка подписи/политик доступа к внешнему носителю (согласовано с AVB external-boot: не «любой диск = доверенный»). Не обязательный маркетинг USB-IF; design intent для технарей.
-- В комплекте: **USB → SATA с питанием** под эти правила.
-
 ### DualBIOS *(инженерный узел)*
-Boot ROM SoC **обычно не** грузит USB сам → **SPI NOR + secondary loader**. При отказе UFS: notify (**LED/USB**). External Android **только** с **AVB user-keys** или explicit disable+warning. Иначе не privacy-safe recovery.
+SPI NOR + secondary loader; LED/USB notify; external Android only with AVB user-keys or explicit disable+warning.
 
 ### eSIM: Privacy-First Control
-Userspace policy. **eUICC/модем закрыты**. Log без TEE/SE — не crypto-immutable.
+Userspace policy. **eUICC/модем закрыты**.
 
-### Почему 2500 мА·ч — не опечатка
-46.25 Вт·ч ≈ **3×** S24. **12 500 мА·ч @ 3.7 В** — **эквивалентный расчёт**.
-
-### X-Cross / BMS / PMIC
-- **X-Cross** — только **механика** удержания призматических ячеек (не BMS IC).
-- **BMS** — active balancing, шунт, per-cell NTC; **предпочтительно известный/документируемый** контроллер (TI BQ-класс или аналог) с проверяемыми защитами OV/UV/OT/OC — не «чёрный модуль без datasheet».
-- PMIC: HV ~21 В full; дроссель фильтра в телефоне; multiphase на hot rails.
-
-### Комплект
-**Напальчники** = тепло 7075. USB→SATA; чехол-рамка + колпаки камер.
+### SMD = Stop Meta Data (не surface-mount)
+- **Левый:** питание камер/мик/акселерометра.
+- **Правый:** RF **L1 path** (обязательно); **L2 rail** только если есть отдельный baseband/eUICC rail.
 
 ---
 
 ## Камеры
-IMX903 и др. **quad-Bayer binning 50→~12.5 МП**; full 50 МП — отдельный режим. Без generative AI.
+IMX903 и др. **quad-Bayer binning 50→~12.5 МП**; full 50 МП — отдельный режим. **Без generative AI** (нет проприетарных «улучшалок» на закрытых весах).
+
+### Open-source HDR Stacking *(userspace, GPLv3)*
+- Съёмка **серии кадров** (разные экспозиции / burst) и **объединение в процессе** на устройстве.
+- Полностью в **userspace**, лицензия **GPLv3** (совместимо с userspace G-Fone; не смешивается с ядром GPLv2).
+- Алгоритмы открытые (alignment + merge / exposure fusion и аналоги) — **без** проприетарного ISP-AI и без облака.
+- Цель: контролируемый динамический диапазон там, где binning и один кадр не тянут, без передачи снимков вендору.
 
 ---
 
 ## Корпус и охлаждение
-7075-T6 glue-free; стальное кольцо; IP69 / IP69K. VC *(концепт)*; вентиляционная текстура *(концепт)*; XMC-2400.
-
----
-
-## Уникальные аппаратные решения
-
-### SMD = **Stop Meta Data** (не surface-mount device) — сдвоенная кнопка
-| Сегмент | Функция |
-|--------|----------|
-| **Левый** | Обрыв питания камер / мик / акселерометра |
-| **Правый** | **RF kill, два уровня** (см. ниже) |
-
-**Правый сегмент — уровни RF kill:**
-1. **Baseline (сейчас / обязательно):** hardware **RF path kill** — обрыв антенных трактов → нет TX/RX в эфир. Модем **остаётся в SoC**; домен может оставаться под питанием; **DMA к RAM возможен**. Это **не** полная изоляция baseband.
-2. **ODM-цель (если SoC/PMIC даёт отдельный power rail baseband/eUICC):** hardware **rail kill** — снятие питания с того домена, который реально выведен отдельно. Всё ещё **не** доказательство «idle внутри каждого транзистора», но сильнее path-only.
-3. Если отдельного rail **нет** (типично для интегрированного модема) — в спецификации честно остаётся только уровень 1; уровень 2 не обещается маркетингом.
-
-Физическое «лево/право» — относительно нормальной ориентации (экран к пользователю, антенна сверху); финальная раскладка — CAD.
-
-### Easter egg: Mindustry load arrows
-Подсветка повторяет load-стрелки Mindustry.
+7075-T6 glue-free; IP69 / IP69K; VC *(концепт)*; вентиляционная текстура *(концепт)*; XMC-2400.
 
 ---
 
 ## Софт
-LineageOS-based, без GApps. FBE. Ядро **GPLv2-only**; userspace G-Fone **GPLv3**; Lineage/AOSP **Apache 2.0** — **раздельные** компоненты.
+LineageOS-based, без GApps. FBE. Ядро **GPLv2-only**; userspace G-Fone **GPLv3** (в т.ч. **HDR Stacking**); Lineage/AOSP **Apache 2.0** — **раздельные** компоненты.
 
 ---
 
-## Threat model (честные границы)
-
-**Защищаем:** FBE; левый SMD; правый RF kill **уровень 1 (path)** всегда, **уровень 2 (rail)** только если ODM подтвердил отдельный rail; eSIM UX; USB Host + optional signed-storage policy; DualBIOS **только** с AVB user-keys или explicit disable+warning.
-
-**Не гарантируем:** аудит SoC/baseband/eUICC; **нет DMA** при path-only kill; rail kill без отдельного rail в SoC; external boot без подписи/warning; «АКБ уже сертифицирована»; crypto-immutable log без TEE/SE.
-
-## Поддержка и оговорки
-Патчи: community + ODM SLA (**TBD**). Банки / Play Integrity могут не работать без GApps. microG и т.п. — **опционально пользователем**, не preinstall. vs GrapheneOS+Pixel: открытое железо, 5S1P, split SMD, DualBIOS, USB Host.
+## Threat model
+**Защищаем:** FBE; SMD; RF L1 (+ L2 if rail); eSIM UX; USB Host + optional signed storage; DualBIOS+AVB; локальный HDR без облака.  
+**Не гарантируем:** аудит SoC/baseband; нет DMA на path-only; external boot без подписи/warning.
 
 ---
 
-## Статус Beta 6.3.12
+## Статус Beta 6.3.13
 
-- **Реализуемо:** Dimensity 9600 Pro, UFS 5.0, 5S1P, PPS ~21 В, documented-class BMS + X-Cross, eSIM Privacy-First, USB Host, split SMD (**RF L1**), DualBIOS+AVB.
-- **Изменения Beta 6.3.12:** RF kill **L1 path / L2 rail-if-available**; USB 2.5″ **PD/порт** vs 3.5″ 12 В; optional **signed storage** policy; **BMS = документируемый IC**, X-Cross = механика; (наследие 6.3.11).
+- **Изменения Beta 6.3.13:** **Open-source HDR Stacking** (burst/bracket merge в userspace, **GPLv3**, без проприетарного AI); (наследие 6.3.12).
 
 ---
 
-> **Дисклеймер.** Это концепт. Не продукт. Не оферта для какого-либо конкретного рынка (в т.ч. РФ). См. LEGAL.md и PATENTS.md.
+> **Дисклеймер.** Это концепт. Не продукт. См. LEGAL.md и PATENTS.md.
