@@ -1,0 +1,7 @@
+# SOFTWARE
+
+LineageOS-based, no GApps by default. FBE.
+Kernel **GPLv2-only**. G-Fone userspace **GPLv3** (incl. HDR Stacking).
+Lineage/AOSP **Apache 2.0** — separate components.
+
+See SOFTWARE.en.md at repository root for full detail.

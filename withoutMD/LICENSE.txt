@@ -1,0 +1,9 @@
+See LICENSE.md at repository root for the full multi-license summary.
+
+- Hardware: CERN-OHL-P v2
+- Kernel modifications: GPLv2-only
+- G-Fone userspace: GPLv3
+- Lineage/AOSP: Apache 2.0 (separate works)
+- Documentation: CC BY 4.0
+
+Full legal text: LEGAL.md, LICENSE-GPLv3.md, LICENSE-CC-BY-4.0.md
