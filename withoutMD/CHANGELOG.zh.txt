@@ -1,0 +1,12 @@
+# CHANGELOG
+
+## Beta 6.3.6
+
+- **无无线充电** — 效率、指南针、电池包过热。
+- **eSIM 完全独立于生态**。
+
+## Beta 6.3.5
+
+- **无机械 SIM/microSD 槽** — **eSIM only**，**USB Host** + USB→SATA。
+
+完整历史见根目录 CHANGELOG.md（至 Beta 6.3.16）。

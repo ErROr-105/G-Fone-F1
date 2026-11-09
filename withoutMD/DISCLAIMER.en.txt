@@ -1,0 +1,8 @@
+# DISCLAIMER
+
+This repository describes a **concept**, not a product.
+
+- Not an offer to sell, manufacture, or certify a device.
+- No FTO audit has been performed.
+- Regulatory and patent risks are the reader's responsibility.
+- See LEGAL.md and PATENTS.md.

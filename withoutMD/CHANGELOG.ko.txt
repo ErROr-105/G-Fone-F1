@@ -1,0 +1,12 @@
+# CHANGELOG
+
+## Beta 6.3.6
+
+- **무선 충전 없음** — 효율·나침반·팩 과열.
+- **eSIM 생태계 완전 독립**.
+
+## Beta 6.3.5
+
+- **기계식 SIM/microSD 슬롯 없음** — **eSIM only**, **USB Host** + USB→SATA.
+
+See root CHANGELOG.md for full history through Beta 6.3.16.
