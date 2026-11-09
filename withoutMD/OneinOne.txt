@@ -1,6 +1,42 @@
-(Full duplicate of ../OneinOne.md — Beta 6.3.16.)
+# G-Fone F1 — Beta 6.3.16 (Engineering Edition)
 
-If this stub is present, re-sync from root OneinOne.md:
-  cp OneinOne.md withoutMD/OneinOne.txt
+> Концепт. Часть спецификаций — проектные допущения, а не подтверждённые серийные компоненты.  
+> Всё, что помечено *(концепт)*, требует дополнительной проверки с ODM и сертификационными лабораториями.  
+> Лицензии: CERN-OHL-P v2 (железо); **ядро GPLv2-only**; **userspace G-Fone — GPLv3**; Lineage/AOSP — **Apache 2.0**. Компоненты распространяются **раздельно**. CC BY 4.0 (документация).
 
-Canonical content lives in OneinOne.md at repository root.
+## Что это
+G-Fone F1 — концепт защищённого смартфона для **технарей**. Не продукт, не оферта.
+
+## Основные характеристики
+- **SoC:** MediaTek Dimensity 9600 Pro, 2 нм. LPDDR6 + UFS 5.0.
+- **Память:** 16 ГБ LPDDR6 + **256 ГБ UFS 5.0** (без microSD).
+- **Экран:** 6.77" LTPS IPS QHD.
+- **АКБ:** 5S1P, ~18.5 В номинал / ~21 В full, 46.25 Вт·ч. X-Cross (механика). BMS active + шунт + NTC на документируемом IC.
+- **Зарядка:** до 80 Вт, USB PD PPS (~21 В). ~1.6C → щадящий default 40–50 Вт. Без wireless.
+- **Связь:** eSIM only. USB Host + USB→SATA.
+- **Цена:** €3200.
+
+### DualBIOS
+SPI NOR + secondary loader; AVB user-keys или explicit warning; notify LED/USB.
+
+### eSIM Privacy-First
+Userspace activate/deactivate; eUICC/модем закрыты.
+
+### Камеры
+| Модуль | Спека |
+|--------|--------|
+| Основная | Sony LYTIA 720 |
+| Теле | ~70 мм, 50 МП, f/1.8, OIS, IMX858-класс |
+| Ультраширик | IMX858, ~14 мм, f/2.2, 50 МП |
+
+HDR Stacking — userspace GPLv3, без проприетарного AI.
+
+### SMD = Stop Meta Data
+Левый: питание камер/мик/акселерометра. Правый: RF L1 path / L2 rail if available.
+
+### Mindustry load-arrows
+Фича open-source игры: подсветка повторяет load-стрелки.
+
+## Threat model / статус
+См. полный OneinOne.md в корне репозитория (этот файл — TXT-копия ключевых блоков Beta 6.3.16).
+Полный текст зеркалируется из OneinOne.md; при расхождении приоритет у *.md.
