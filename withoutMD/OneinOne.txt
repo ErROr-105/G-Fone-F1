@@ -1,0 +1,6 @@
+(Full duplicate of ../OneinOne.md — Beta 6.3.16.)
+
+If this stub is present, re-sync from root OneinOne.md:
+  cp OneinOne.md withoutMD/OneinOne.txt
+
+Canonical content lives in OneinOne.md at repository root.

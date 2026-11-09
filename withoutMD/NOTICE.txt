@@ -1,0 +1,4 @@
+(Full duplicate of ../NOTICE.md — Lineage/AOSP NOTICE text.)
+
+Canonical content: NOTICE.md at repository root.
+  cp NOTICE.md withoutMD/NOTICE.txt

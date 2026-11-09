@@ -1,0 +1,4 @@
+(Full duplicate of ../LEGAL.md.)
+
+Canonical content: LEGAL.md at repository root.
+  cp LEGAL.md withoutMD/LEGAL.txt

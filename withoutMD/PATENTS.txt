@@ -1,0 +1,4 @@
+(Full duplicate of ../PATENTS.md.)
+
+Canonical content: PATENTS.md at repository root.
+  cp PATENTS.md withoutMD/PATENTS.txt

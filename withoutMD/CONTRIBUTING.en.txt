@@ -1,0 +1,3 @@
+(Full duplicate of ../CONTRIBUTING.en.md.)
+
+Canonical: CONTRIBUTING.en.md

@@ -1,0 +1,4 @@
+(Full duplicate of ../OneinOne.en.md — Beta 6.3.16.)
+
+Canonical content: OneinOne.en.md at repository root.
+  cp OneinOne.en.md withoutMD/OneinOne.en.txt
